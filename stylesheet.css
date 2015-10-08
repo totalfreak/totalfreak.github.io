@@ -2,15 +2,18 @@
 	border: 0;
 	padding: 0;
 	margin: 0;
+	font-family: "Roboto";
+
 }
 body {
-	background-color: #C1B370;
+	background-color: #EDE7D9;
 }
+
 #cont {
 	box-sizing: border-box;
-	background-color: #E7DA7D;
+	background-color: #2980b9;
 	
-	width: 800px;
+	width: 830px;
 	height: 500px;
 	display: -webkit-flex;
 	display: flex;
@@ -18,9 +21,15 @@ body {
 	-webkit-justify-content: center;
 	justify-content: center;
 	margin: 0 auto;
-	margin-top: 100px;
+	margin-top: 80px;
 }
 #vidCont {
 	position: relative;
+}
+#vid {
+	height: 500px;
+	width: 800px;
+}
+#selectEpisode {
 
 }
