@@ -1,0 +1,78 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    z-index: 10;
+}
+
+ul.topnav li {
+  float: left;
+}
+
+ul.topnav li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: monospace;
+    position: relative;
+    float: left;
+}
+
+ul.topnav li a:hover:not(.active) {
+  background-color: #111;
+}
+
+ul.topnav li a.active {
+  background-color: #4CAF50;
+}
+
+ul.topnav ul.right {
+    position: relative;
+    float: right;
+    list-style-type: none;
+}
+#home {
+    background-color: grey;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-image: url(images/home-bg2.png);
+    z-index: -1;
+}
+#news {
+    background-image: url(images/portfolio-bg.png);
+    height: 100%;
+    width: 100%;
+}
+#stuff {
+    background-color: blue;
+    height: 100%;
+    width: 100%;
+}
+#contact {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}
+.cont {
+  box-sizing: border-box;
+  margin: 3%;
+  margin-top: 4%;
+  position: relative;
+}
+@media screen and (max-width: 600px){ul.topnav ul.right,
+  ul.topnav li {float: none;}
+}
