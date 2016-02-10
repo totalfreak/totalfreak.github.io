@@ -74,6 +74,10 @@ timeout();
       left: "0",
       opacity: "1"
     }, 250, "easeInOutBack");
+    $("#createUser").animate({backgroundColor: "#F5BB00"},250);
+    $("#loginUser").animate({backgroundColor: "#fff"},250);
+    $("#errorText").text("");
+    $("#errorText").css({opacity: "0"});
   });
   $("#loginUser").click(function() {
     //Switching out create with login screen
@@ -85,6 +89,10 @@ timeout();
       left: "-310px",
       opacity: "0"
     }, 250, "easeInOutBack");
+    $("#loginUser").animate({backgroundColor: "#F5BB00"},250);
+    $("#createUser").animate({backgroundColor: "#fff"},250);
+    $("#errorText").text("");
+    $("#errorText").css({opacity: "0"});
   });
 
 //Firebase stuff
@@ -100,8 +108,15 @@ $("#createButton").click(function() {
     password: password
   }, function(error, userData) {
     if(error) {
+      $("#errorText").text(error);
+      $("#errorText").css({opacity: "1"});
+      $("#errorText").css({color: "#c0392b"});
       console.log("Error creating user: ", error);
+      $("#loginPop").effect("shake", {distance:10});
     } else {
+      $("#errorText").text("Account created");
+      $("#errorText").css({opacity: "1"});
+      $("#errorText").css({color: "#2ecc71"});
       console.log("Successfully created account with uid: ", userData.uid);
       $("#username").val(username);
       $("#password").val(password);
@@ -128,9 +143,15 @@ $("#loginButton").click(function() {
       password: $("#password").val()
     }, function(error, authData) {
       if(error) {
+        $("#errorText").text(error);
+        $("#errorText").css({color: "#c0392b"});
+        $("#errorText").css({opacity: "1"});
         console.log("Login Failed!", error);
-        $("#loginPop").animate({right: "15px"}, 600);
+        $("#loginPop").effect("shake", {distance:10});
       } else {
+        $("#errorText").text("Account logged in");
+        $("#errorText").css({opacity: "1"});
+        $("#errorText").css({color: "#2ecc71"});
         console.log("Authenticated Successfully: ", authData);
       }
     });

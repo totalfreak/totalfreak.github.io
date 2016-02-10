@@ -11,7 +11,7 @@ body {
   position: fixed;
   width: 100%;
   height: 46px;
-  font-family: "Arvo", sans-serif;;
+  font-family: "Arvo", sans-serif;
   border-bottom: 1px black solid;
   top: -6px;
   background-color: #E2DADB;
@@ -192,6 +192,7 @@ h1 {
   top: 15px;
   position: absolute;
   opacity: 1;
+  border-radius: 3px;
 }
 #loginPop #password {
   top: 56px;
@@ -203,6 +204,7 @@ h1 {
   width: 80px;
   height: 32px;
   background-color: #ffffff;
+  border-radius: 3px;
 }
 #loginPop #createButton {
   top: 56px;
@@ -211,6 +213,7 @@ h1 {
   width: 80px;
   height: 32px;
   background-color: #ffffff;
+  border-radius: 3px;
 }
 #loginPop #createBox #userLogin {
   width: 200px;
@@ -247,7 +250,8 @@ h1 {
   left: 10px;
   width: 140px;
   height: 32px;
-  background-color: #ffffff;
+  background-color: #F5BB00;
+  border-radius: 2px;
 }
 #loginUser {
   text-align: center;
@@ -256,5 +260,14 @@ h1 {
   right: 10px;
   width: 140px;
   height: 32px;
-  background-color: #ffffff;
+  background-color: #fff;
+  border-radius: 2px;
+}
+#errorText {
+  position: absolute;
+  top: 94px;
+  left: 10px;
+  opacity: 0;
+  color: #c0392b;
+  font-size: 18px;
 }
