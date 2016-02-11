@@ -48,19 +48,26 @@ timeout();
         timeout();
     }, 1000);
 }
+//Functions for toggling loginPop
+function loginOut() {
+  $("#loginPop").animate({
+    right: "5px",
+    opacity: "1"
+  }, 600, 'easeOutBack');
+  $("body").addClass("out");
+}
+function loginIn() {
+  $("#loginPop").animate({
+    right: "-310px",
+    opacity: "0"
+  }, 600, 'easeInOutBack');
+  $("body").removeClass("out");
+}
 //Account hiding and stuff
   $("#login").toggle(function() {
-    $("#loginPop").animate({
-      right: "5px",
-      opacity: "1"
-    }, 600, 'easeOutBack');
-    $("body").addClass("out");
+    loginOut();
   }, function() {
-      $("#loginPop").animate({
-        right: "-310px",
-        opacity: "0"
-      }, 600, 'easeInOutBack');
-      $("body").removeClass("out");
+    loginIn();
   });
 
   //Changing between login and create screen
@@ -69,13 +76,13 @@ timeout();
     $("#loginBox").animate({
       left: "310px",
       opacity: "0"
-    }, 250, "easeInOutBack");
+    }, 300, "easeInOutBack");
     $("#createBox").animate({
       left: "0",
       opacity: "1"
-    }, 250, "easeInOutBack");
-    $("#createUser").animate({backgroundColor: "#F5BB00"},250);
-    $("#loginUser").animate({backgroundColor: "#fff"},250);
+    }, 300, "easeInOutBack");
+    $("#createUser").animate({backgroundColor: "#F5BB00"},300);
+    $("#loginUser").animate({backgroundColor: "#fff"},300);
     $("#errorText").text("");
     $("#errorText").css({opacity: "0"});
   });
@@ -84,13 +91,13 @@ timeout();
     $("#loginBox").animate({
       left: "0",
       opacity: "1"
-    }, 250, "easeInOutBack");
+    }, 300, "easeInOutBack");
     $("#createBox").animate({
       left: "-310px",
       opacity: "0"
-    }, 250, "easeInOutBack");
-    $("#loginUser").animate({backgroundColor: "#F5BB00"},250);
-    $("#createUser").animate({backgroundColor: "#fff"},250);
+    }, 300, "easeInOutBack");
+    $("#loginUser").animate({backgroundColor: "#F5BB00"},300);
+    $("#createUser").animate({backgroundColor: "#fff"},300);
     $("#errorText").text("");
     $("#errorText").css({opacity: "0"});
   });
@@ -117,7 +124,10 @@ $("#createButton").click(function() {
       $("#errorText").text("Account created");
       $("#errorText").css({opacity: "1"});
       $("#errorText").css({color: "#2ecc71"});
+      $("#password").focus();
       console.log("Successfully created account with uid: ", userData.uid);
+      $("#loginUser").animate({backgroundColor: "#F5BB00"},300);
+      $("#createUser").animate({backgroundColor: "#fff"},300);
       $("#username").val(username);
       $("#password").val(password);
       $("#userLogin").val("");
@@ -125,11 +135,11 @@ $("#createButton").click(function() {
       $("#loginBox").animate({
         left: "0",
         opacity: "1"
-      }, 250, "easeInOutBack");
+      }, 300, "easeInOutBack");
       $("#createBox").animate({
         left: "-310px",
         opacity: "0"
-      }, 250, "easeInOutBack");
+      }, 300, "easeInOutBack");
     }
   });
 
