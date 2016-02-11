@@ -13,6 +13,7 @@
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   </head>
   <body>
+    <div id="superWrap">
     <div id="loader-wrapper">
       <h1 id="loadingText">Loading</h1>
       <div id="loader"></div>
@@ -22,13 +23,16 @@
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
     </div>
-    <div class="navbar">
+    <div id="navbar">
       <ul>
-        <li><a class="navlink" href="#Home">Home</a></li>
-        <li><a class="navlink" href="#Lesson1">Lesson 1</a></li>
-        <li><a class="navlink" href="#Lesson2">Lesson 2</a></li>
-        <li><a class="navlink" href="#Lesson3">Lesson 3</a></li>
-        <li><a class="navlink" id="login" href="#">Account</a></li>
+        <li><a class="navlink" id="home" href="#Home">Home</a></li>
+        <li><a class="navlink" id="lesson1" href="#Lesson1">Lesson 1</a></li>
+        <li><a class="navlink" id="lesson2" href="#Lesson2">Lesson 2</a></li>
+        <li><a class="navlink" id="lesson3" href="#Lesson3">Lesson 3</a></li>
+        <li><a class="navlink" id="accountButton" href="#account">Account</a></li>
+        <li><p id="miniEmail"></p></li>
+        <li><img id="miniPic" src="profile-placeholder.png" width="32px" height="32px"></li>
+        <li><a id="login" href="#">Login</a></li>
       </ul>
     </div>
     <center><img id="arrow" class="arrow" src="arrow.png"></center>
@@ -56,12 +60,12 @@
         <button id="createUser">Create account</button>
         <button id="loginUser">Login screen</button>
       </div>
-      <br>
-      <br>
-      <br>
     <div id="accountPage" class="cont">
-      <p id="authDatas"></p>
+      <div id="accountCont">
       <img id="profilePic" src="profile-placeholder.png" width="150px" height="150px">
+      <p id="authDatas">Email: </p>
     </div>
+    </div>
+  </div>
   </body>
 </html>

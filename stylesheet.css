@@ -7,7 +7,7 @@
 body {
   background-color: #ffffff;
 }
-.navbar {
+#navbar {
   position: fixed;
   width: 100%;
   height: 46px;
@@ -17,7 +17,7 @@ body {
   background-color: #E2DADB;
   margin-top: 0;
 }
-.navbar ul li {
+#navbar ul li {
   float: left;
   display: list-item;
   text-align: -webkit-match-parent;
@@ -62,6 +62,17 @@ li {
   top: 42px;
 }
 #login {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  color: #000805;
+  opacity: 0.7;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 150%;
+  padding: 6px 16px;
+  margin-top: 6px;
+  border-top: 0 solid #202020;
   position: fixed;
   right: 0;
 }
@@ -78,9 +89,6 @@ li {
   z-index: -1;
   padding: 10px;
   padding-right: 5px;
-}
-#accountPage {
-  background-color: #ffffff;
 }
 #loader-wrapper .loader-section {
   position: fixed;
@@ -270,4 +278,38 @@ h1 {
   opacity: 0;
   color: #c0392b;
   font-size: 18px;
+}
+#accountPage {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+}
+.account #accountButton {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  border-top: 10px solid #202020;
+}
+.account #accountPage {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          opacity: 1;
+}
+#accountCont {
+  left: 40%;
+  right: 50%;
+  position: absolute;;
+  margin-top: 50px;
+}
+#miniPic {
+  position: absolute;
+  margin-top: 10px;
+  right: 110px;
+}
+#miniEmail {
+  direction: rtl;
+  position: absolute;
+  margin-top: 17px;
+  right: 160px;
 }
