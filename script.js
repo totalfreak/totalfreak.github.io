@@ -162,9 +162,15 @@ $("#loginButton").click(function() {
         $("#errorText").text("Account logged in");
         $("#errorText").css({opacity: "1"});
         $("#errorText").css({color: "#2ecc71"});
+        $("#authDatas").text(authData.password.email);
+        $("#profilePic").attr('src', authData.password.profileImageURL);
         console.log("Authenticated Successfully: ", authData);
       }
     });
   }
 });
+if(authData != "") {
+  $("#authDatas").text(authData.password.email);
+  $("#profilePic").attr('src', authData.password.profileImageURL);
+}
 });
