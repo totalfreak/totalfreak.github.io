@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  var user = null;
 timeout();
 //Navbar showing and hiding
   $("#arrow").css({transform: "rotate(180deg)"});
@@ -8,7 +9,7 @@ timeout();
         opacity: "0.6",
         transform: "rotate(360deg)"
       }, 600, 'easeInOutBack');
-      $(".navbar").animate({
+      $("#navbar").animate({
         top: '-46px',
         opacity: '0.6'
       }, 600, 'easeInOutBack');
@@ -21,7 +22,7 @@ timeout();
           opacity: "1",
           transform: "rotate(180deg)"
         }, 600, 'easeInOutBack');
-        $(".navbar").animate({
+        $("#navbar").animate({
           top: '-6px',
           opacity: '1'
         }, 600, 'easeInOutBack');
@@ -101,10 +102,49 @@ function loginIn() {
     $("#errorText").text("");
     $("#errorText").css({opacity: "0"});
   });
+  //Removing all classes from navbar
+  $(".navlink").click(function() {
+    $("#navbar").removeClass();
+    $("#superWrap").removeClass();
+  });
+  //Going to account page
+  $("#accountButton").click(function() {
+    $("#navbar").addClass("account");
+    $("#superWrap").addClass("account");
+  });
 
 //Firebase stuff
+//Function that checks if user has already been Authenticated
+function authDataCallback(authData) {
+  if (authData) {
+    console.log("User " + authData.uid + " is logged in with " + authData.provider);
+    $("#authDatas").text("Email: " + authData.password.email);
+    $("#profilePic").attr('src', authData.password.profileImageURL);
+    $("#miniPic").attr('src', authData.password.profileImageURL);
+    $("#miniEmail").text(authData.password.email);
+    email = authData.password.email;
+  } else {
+    console.log("User is logged out");
+  }
+}
+
 var ref = new Firebase("https://it-eksamen.firebaseio.com/");
+ref.onAuth(authDataCallback);
 var usersRef = ref.child("users");
+
+//Sending reset password email
+$("#resetButton").click(function() {
+  ref.resetPassword({
+    email: email
+  }, function(error) {
+    if(error === null) {
+      console.log("Password reset email sent successfully");
+    } else {
+      console.log("Error sending password reset email: ", error);
+    }
+  });
+});
+
 //Firebase create account
 $("#createButton").click(function() {
   if($("#userLogin").val() != "" && $("#passLogin").val() != "") {
@@ -126,6 +166,17 @@ $("#createButton").click(function() {
       $("#errorText").css({color: "#2ecc71"});
       $("#password").focus();
       console.log("Successfully created account with uid: ", userData.uid);
+
+      //Creating database for new user using their uid and containing
+      //name and points
+      ref.onAuth(function(authData) {
+        if(authData) {
+          usersRef.child(authData.uid).set({
+            name: authData.password.email,
+            points: 50
+          })
+        }
+      });
       $("#loginUser").animate({backgroundColor: "#F5BB00"},300);
       $("#createUser").animate({backgroundColor: "#fff"},300);
       $("#username").val(username);
@@ -145,6 +196,7 @@ $("#createButton").click(function() {
 
 }
 });
+
 //Firebase login account
 $("#loginButton").click(function() {
   if($("#username").val() != "" && $("#password").val() != "") {
@@ -162,6 +214,10 @@ $("#loginButton").click(function() {
         $("#errorText").text("Account logged in");
         $("#errorText").css({opacity: "1"});
         $("#errorText").css({color: "#2ecc71"});
+        $("#authDatas").text("Email: " + authData.password.email);
+        $("#profilePic").attr('src', authData.password.profileImageURL);
+        $("#miniPic").attr('src', authData.password.profileImageURL);
+        $("#miniEmail").text(authData.password.email);
         console.log("Authenticated Successfully: ", authData);
       }
     });

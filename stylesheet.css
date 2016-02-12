@@ -7,17 +7,17 @@
 body {
   background-color: #ffffff;
 }
-.navbar {
+#navbar {
   position: fixed;
   width: 100%;
   height: 46px;
   font-family: "Arvo", sans-serif;
-  border-bottom: 1px black solid;
+  border-bottom: 1px #202020 solid;
   top: -6px;
   background-color: #E2DADB;
   margin-top: 0;
 }
-.navbar ul li {
+#navbar ul li {
   float: left;
   display: list-item;
   text-align: -webkit-match-parent;
@@ -47,12 +47,12 @@ li {
   font-size: 150%;
   padding: 6px 16px;
   margin-top: 6px;
-  border-top: 0 solid black;
+  border-top: 0 solid #202020;
 
 }
 .navlink:hover {
   opacity: 1;
-  border-top: 10px solid black;
+  border-top: 10px solid #202020;
 }
 .arrow {
   width: 32px;
@@ -62,13 +62,24 @@ li {
   top: 42px;
 }
 #login {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  color: #000805;
+  opacity: 0.7;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  font-size: 150%;
+  padding: 6px 16px;
+  margin-top: 6px;
+  border-top: 0 solid #202020;
   position: fixed;
   right: 0;
 }
 .out #login{
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
-  border-top: 10px solid black;
+  border-top: 10px solid #202020;
   opacity: 1;
 }
 .cont {
@@ -79,15 +90,12 @@ li {
   padding: 10px;
   padding-right: 5px;
 }
-#cont1 {
-  background-color: #ffffff;
-}
 #loader-wrapper .loader-section {
   position: fixed;
   top: 0;
   width: 51%;
   height: 100%;
-  background: #222222;
+  background: #202020;
   z-index: 1000;
 }
 #loader-wrapper .loader-section.section-left {
@@ -110,6 +118,7 @@ h1 {
 }
 .loaded h1 {
   opacity: 0;
+  transform: translateX(-100%);
       -webkit-transition: all 0.5s ease-out;
               transition: all 0.5s ease-out;
 }
@@ -270,4 +279,63 @@ h1 {
   opacity: 0;
   color: #c0392b;
   font-size: 18px;
+}
+#accountPage {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  opacity: 0;
+  z-index: -1;
+}
+.account #accountButton {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  border-top: 10px solid #202020;
+}
+.account #accountPage {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+          opacity: 1;
+}
+#accountCont {
+  padding: 15px;
+  left: 32%;
+  position: absolute;;
+  margin-top: 50px;
+  border: 2px solid #c0392b;
+  border-radius: 5px;
+  height: 90%;
+  width: 40%;
+}
+#miniPic {
+  position: absolute;
+  margin-top: 10px;
+  right: 110px;
+}
+#miniEmail {
+  direction: rtl;
+  position: absolute;
+  margin-top: 17px;
+  right: 160px;
+}
+.domButton {
+  background-color: #c0392b;
+  padding: 8px;
+  border-radius: 20px;
+  font-size: 19px;
+  color: white;
+  border: 3px solid #c0392b;
+  font-family: "Arvo", sans-serif;
+}
+.domButton:hover {
+  -webkit-transition: all 0.15s ease;
+          transition: all 0.15s ease;
+  background-color: #ffffff;
+  color: #c0392b;
+}
+#resetButton {
+  position: absolute;
+  bottom: 15px;
+  left: 39%;
 }

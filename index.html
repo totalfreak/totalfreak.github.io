@@ -13,6 +13,7 @@
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
   </head>
   <body>
+    <div id="superWrap">
     <div id="loader-wrapper">
       <h1 id="loadingText">Loading</h1>
       <div id="loader"></div>
@@ -22,13 +23,16 @@
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
     </div>
-    <div class="navbar">
+    <div id="navbar">
       <ul>
-        <li><a class="navlink" href="#Home">Home</a></li>
-        <li><a class="navlink" href="#Lesson1">Lesson 1</a></li>
-        <li><a class="navlink" href="#Lesson2">Lesson 2</a></li>
-        <li><a class="navlink" href="#Lesson3">Lesson 3</a></li>
-        <li><a class="navlink" id="login" href="#">Account</a></li>
+        <li><a class="navlink" id="home" href="#Home">Home</a></li>
+        <li><a class="navlink" id="lesson1" href="#Lesson1">Lesson 1</a></li>
+        <li><a class="navlink" id="lesson2" href="#Lesson2">Lesson 2</a></li>
+        <li><a class="navlink" id="lesson3" href="#Lesson3">Lesson 3</a></li>
+        <li><a class="navlink" id="accountButton" href="#account">Account</a></li>
+        <li><p id="miniEmail"></p></li>
+        <li><img id="miniPic" src="profile-placeholder.png" width="32px" height="32px"></li>
+        <li><a id="login" href="#">Login</a></li>
       </ul>
     </div>
     <center><img id="arrow" class="arrow" src="arrow.png"></center>
@@ -40,7 +44,7 @@
         <input type="password" class="credentials" id="password" name="password" placeholder="Password"
         onkeydown = "if (event.keyCode == 13)
                         document.getElementById('loginButton').click()">
-        <button id="loginButton">Login</button>
+        <button type="button" id="loginButton">Login</button>
 
       </div>
         <div id="createBox">
@@ -50,14 +54,24 @@
           <input type="password" id="passLogin" class="credentials" name="password" placeholder="Password"
           onkeydown = "if (event.keyCode == 13)
                         document.getElementById('createButton').click()">
+<<<<<<< HEAD
           <input type ="submit" id="createButton">Create</button>
+=======
+          <button type="button" id="createButton">Create</button>
+>>>>>>> b385ff710f53a73975d0d41a957747c85cc0c0fd
         </div>
         <p id="errorText">Errors and shit</p>
         <button id="createUser">Create account</button>
         <button id="loginUser">Login screen</button>
       </div>
-    <div id="cont1" class="cont">
-      some content here
+    <div id="accountPage">
+      <div id="accountCont">
+      <img id="profilePic" src="profile-placeholder.png" width="150px" height="150px">
+      <h2 id="authPoints">Points: </h2>
+      <p id="authDatas">Email: </p>
+      <button type="button" class="domButton" id="resetButton">Reset password</button>
     </div>
+    </div>
+  </div>
   </body>
 </html>
