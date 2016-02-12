@@ -131,6 +131,9 @@ function authDataCallback(authData) {
 var ref = new Firebase("https://it-eksamen.firebaseio.com/");
 ref.onAuth(authDataCallback);
 var usersRef = ref.child("users");
+authData = ref.getAuth();
+  points = usersRef.child(authData.uid);
+  $("#authPoints").text("Points: " + points);
 
 //Sending reset password email
 $("#resetButton").click(function() {
@@ -174,7 +177,7 @@ $("#createButton").click(function() {
           usersRef.child(authData.uid).set({
             name: authData.password.email,
             points: 50
-          })
+          });
         }
       });
       $("#loginUser").animate({backgroundColor: "#F5BB00"},300);
