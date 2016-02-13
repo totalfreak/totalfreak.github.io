@@ -54,7 +54,7 @@ body {
 }
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
 #loginCont {
-  margin-bottom: 25%;
+  margin-bottom: 50%;
 }
 #username {
   width: 500px;
