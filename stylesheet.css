@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   border: 0;
-  box-sizing: border-box;
+
 }
 body {
   background-color: #ffffff;
@@ -38,7 +38,7 @@ body {
 }
 #loginButton {
   width: 125px;
-  height: 25px;
+  height: 30px;
   border-radius: 10px;
   background-color: #FF6D41;
   margin-top: 40px;
@@ -47,13 +47,35 @@ body {
   font-family: "Arvo", sans-serif;
 }
 #loginTitle {
-  position: fixed;
-  font-family: "Arvo", sans-serif;
   color: #530132;
-  font-size: 42px;
-  top: 15%;
-  margin-left: -7%;
-  text-align: left;
+  font-size: 48px;
+  margin-bottom: 60px;
+  font-family: "Arvo", sans-serif;
+}
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+#loginCont {
+  margin-bottom: 25%;
+}
+#username {
+  width: 500px;
+  height: 100px;
+  font-size: 32px;
+}
+#password {
+  width: 500px;
+  height: 100px;
+  font-size: 32px;
+}
+#loginButton {
+font-size: 28px;
+width: 250px;
+height: 60px;
+margin-top: 40px;
+}
+#loginTitle {
+  font-size: 70px;
+  margin-bottom: 50%;
+}
 }
 #navbar {
   position: fixed;

@@ -29,11 +29,6 @@ $(document).ready(function(){
           top: '44px'
         }, 600, 'easeInOutBack');
       });
-
-      setTimeout(function() {
-        $('body').addClass('loaded');
-        $('h1').css('color','#222222');
-    }, 1000);
 //Functions for toggling loginPop
 function loginOut() {
   $("#loginPop").animate({
