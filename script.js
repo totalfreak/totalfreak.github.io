@@ -1,6 +1,5 @@
 $(document).ready(function(){
   var user = null;
-timeout();
 //Navbar showing and hiding
   $("#arrow").css({transform: "rotate(180deg)"});
   $("#arrow").toggle(function() {
@@ -35,20 +34,6 @@ timeout();
         $('body').addClass('loaded');
         $('h1').css('color','#222222');
     }, 1000);
-
-  //Loading text changer
-    function timeout() {
-    setTimeout(function () {
-      setTimeout(function() {
-        var text = $("h1");
-          $("h1").text("Loading.  ");
-      }, 500);
-      setTimeout(function() {
-        $("h1").text("Loading . ");
-      }, 1000);
-        timeout();
-    }, 1000);
-}
 //Functions for toggling loginPop
 function loginOut() {
   $("#loginPop").animate({
