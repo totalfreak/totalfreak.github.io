@@ -5,7 +5,7 @@
 
 }
 body {
-  background-color: #ffffff;
+  background-color: #FFDBC5;
 }
 #loginScreen {
   position: fixed;
@@ -17,6 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition-delay: 600ms;
 }
 #loginCont {
   text-align: center;
@@ -46,6 +47,16 @@ body {
   font-size: 18px;
   font-family: "Arvo", sans-serif;
 }
+#createButton {
+  width: 125px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #FF6D41;
+  margin-top: 40px;
+  color: #530132;
+  font-size: 18px;
+  font-family: "Arvo", sans-serif;
+}
 #loginTitle {
   color: #530132;
   font-size: 48px;
@@ -57,19 +68,25 @@ body {
   margin-bottom: 50%;
 }
 #username {
-  width: 500px;
-  height: 100px;
-  font-size: 32px;
+  width: 700px;
+  height: 125px;
+  font-size: 36px;
 }
 #password {
-  width: 500px;
-  height: 100px;
-  font-size: 32px;
+  width: 700px;
+  height: 125px;
+  font-size: 36px;
 }
 #loginButton {
-font-size: 28px;
-width: 250px;
-height: 60px;
+font-size: 30px;
+width: 275px;
+height: 65px;
+margin-top: 40px;
+}
+#createButton {
+font-size: 30px;
+width: 275px;
+height: 65px;
 margin-top: 40px;
 }
 #loginTitle {
@@ -181,7 +198,7 @@ li {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: #FFDBC5;
   opacity: 0;
   z-index: -1;
 }
@@ -228,7 +245,7 @@ li {
 .domButton:hover {
   -webkit-transition: all 0.15s ease;
           transition: all 0.15s ease;
-  background-color: #ffffff;
+  background-color: #FFDBC5;
   color: #c0392b;
 }
 #resetButton {

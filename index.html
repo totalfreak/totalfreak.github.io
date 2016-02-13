@@ -17,12 +17,9 @@
     <div id="loginScreen">
       <div id="loginCont">
         <h1 id="loginTitle">Artificial Intelligence</h1>
-        <input type="email" class="credentials" id="username" name="email" placeholder="Email"
-        onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('loginButton').click()"> <br>
-        <input type="password" class="credentials" id="password" name="password" placeholder="Password"
-        onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('loginButton').click()"> <br>
+        <input type="email" class="credentials" id="username" name="email" placeholder="Email"> <br>
+        <input type="password" class="credentials" id="password" name="password" placeholder="Password"><br>
+        <button type="button" id="createButton">Create</button>
         <button type="button" id="loginButton">Login</button>
       </div>
     </div>
@@ -39,32 +36,16 @@
       </ul>
     </div>
     <center><img id="arrow" class="arrow" src="arrow.png"></center>
-    <div id="loginPop">
-      <div id="loginBox">
-
-
-      </div>
-        <div id="createBox">
-          <input type="email" id="userLogin" class="credentials" name="username" placeholder="Username"
-          onkeydown = "if (event.keyCode == 13)
-                          document.getElementById('createButton').click()">
-          <input type="password" id="passLogin" class="credentials" name="password" placeholder="Password"
-          onkeydown = "if (event.keyCode == 13)
-                        document.getElementById('createButton').click()">
-          <button type="button" id="createButton">Create</button>
-        </div>
         <p id="errorText">Errors and shit</p>
-        <button id="createUser">Create account</button>
-        <button id="loginUser">Login screen</button>
+        <div id="accountPage">
+          <div id="accountCont">
+          <img id="profilePic" src="profile-placeholder.png" width="150px" height="150px">
+          <h2 id="authPoints">Points: </h2>
+          <p id="authDatas">Email: </p>
+          <button type="button" class="domButton" id="resetButton">Reset password</button>
+        </div>
+        </div>
       </div>
-    <div id="accountPage">
-      <div id="accountCont">
-      <img id="profilePic" src="profile-placeholder.png" width="150px" height="150px">
-      <h2 id="authPoints">Points: </h2>
-      <p id="authDatas">Email: </p>
-      <button type="button" class="domButton" id="resetButton">Reset password</button>
-    </div>
-    </div>
   </div>
   </body>
 </html>

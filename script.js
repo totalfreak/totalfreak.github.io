@@ -29,59 +29,7 @@ $(document).ready(function(){
           top: '44px'
         }, 600, 'easeInOutBack');
       });
-//Functions for toggling loginPop
-function loginOut() {
-  $("#loginPop").animate({
-    right: "5px",
-    opacity: "1"
-  }, 600, 'easeOutBack');
-  $("body").addClass("out");
-}
-function loginIn() {
-  $("#loginPop").animate({
-    right: "-310px",
-    opacity: "0"
-  }, 600, 'easeInOutBack');
-  $("body").removeClass("out");
-}
-//Account hiding and stuff
-  $("#login").toggle(function() {
-    loginOut();
-  }, function() {
-    loginIn();
-  });
 
-  //Changing between login and create screen
-  $("#createUser").click(function() {
-    //Switching out login with create screen
-    $("#loginBox").animate({
-      left: "310px",
-      opacity: "0"
-    }, 300, "easeInOutBack");
-    $("#createBox").animate({
-      left: "0",
-      opacity: "1"
-    }, 300, "easeInOutBack");
-    $("#createUser").animate({backgroundColor: "#F5BB00"},300);
-    $("#loginUser").animate({backgroundColor: "#fff"},300);
-    $("#errorText").text("");
-    $("#errorText").css({opacity: "0"});
-  });
-  $("#loginUser").click(function() {
-    //Switching out create with login screen
-    $("#loginBox").animate({
-      left: "0",
-      opacity: "1"
-    }, 300, "easeInOutBack");
-    $("#createBox").animate({
-      left: "-310px",
-      opacity: "0"
-    }, 300, "easeInOutBack");
-    $("#loginUser").animate({backgroundColor: "#F5BB00"},300);
-    $("#createUser").animate({backgroundColor: "#fff"},300);
-    $("#errorText").text("");
-    $("#errorText").css({opacity: "0"});
-  });
   //Removing all classes from navbar
   $(".navlink").click(function() {
     $("#navbar").removeClass();
@@ -92,7 +40,10 @@ function loginIn() {
     $("#navbar").addClass("account");
     $("#superWrap").addClass("account");
   });
-
+function loggedIn() {
+  $("#loginScreen").animate({opacity: "0"});
+  $("#loginScreen").css({zIndex: "-10"});
+}
 //Firebase stuff
 //Function that checks if user has already been Authenticated
 function authDataCallback(authData) {
@@ -103,6 +54,7 @@ function authDataCallback(authData) {
     $("#miniPic").attr('src', authData.password.profileImageURL);
     $("#miniEmail").text(authData.password.email);
     email = authData.password.email;
+    loggedIn();
   } else {
     console.log("User is logged out");
   }
@@ -112,9 +64,6 @@ var ref = new Firebase("https://it-eksamen.firebaseio.com/");
 ref.onAuth(authDataCallback);
 var usersRef = ref.child("users");
 authData = ref.getAuth();
-  points = usersRef.child(authData.uid);
-  $("#authPoints").text("Points: " + points);
-
 //Sending reset password email
 $("#resetButton").click(function() {
   ref.resetPassword({
@@ -131,8 +80,8 @@ $("#resetButton").click(function() {
 //Firebase create account
 $("#createButton").click(function() {
   if($("#userLogin").val() != "" && $("#passLogin").val() != "") {
-  var username = $("#userLogin").val();
-  var password = $("#passLogin").val();
+  var username = $("#username").val();
+  var password = $("#password").val();
   usersRef.createUser({
     email: username,
     password: password
@@ -142,12 +91,10 @@ $("#createButton").click(function() {
       $("#errorText").css({opacity: "1"});
       $("#errorText").css({color: "#c0392b"});
       console.log("Error creating user: ", error);
-      $("#loginPop").effect("shake", {distance:10});
     } else {
       $("#errorText").text("Account created");
       $("#errorText").css({opacity: "1"});
       $("#errorText").css({color: "#2ecc71"});
-      $("#password").focus();
       console.log("Successfully created account with uid: ", userData.uid);
 
       //Creating database for new user using their uid and containing
@@ -160,20 +107,6 @@ $("#createButton").click(function() {
           });
         }
       });
-      $("#loginUser").animate({backgroundColor: "#F5BB00"},300);
-      $("#createUser").animate({backgroundColor: "#fff"},300);
-      $("#username").val(username);
-      $("#password").val(password);
-      $("#userLogin").val("");
-      $("#passLogin").val("");
-      $("#loginBox").animate({
-        left: "0",
-        opacity: "1"
-      }, 300, "easeInOutBack");
-      $("#createBox").animate({
-        left: "-310px",
-        opacity: "0"
-      }, 300, "easeInOutBack");
     }
   });
 
@@ -192,7 +125,6 @@ $("#loginButton").click(function() {
         $("#errorText").css({color: "#c0392b"});
         $("#errorText").css({opacity: "1"});
         console.log("Login Failed!", error);
-        $("#loginPop").effect("shake", {distance:10});
       } else {
         $("#errorText").text("Account logged in");
         $("#errorText").css({opacity: "1"});
@@ -202,6 +134,7 @@ $("#loginButton").click(function() {
         $("#miniPic").attr('src', authData.password.profileImageURL);
         $("#miniEmail").text(authData.password.email);
         console.log("Authenticated Successfully: ", authData);
+        loggedIn();
       }
     });
   }
