@@ -63,41 +63,7 @@ body {
   margin-bottom: 60px;
   font-family: "Arvo", sans-serif;
 }
-@media only screen and (max-device-width: 580px) and (orientation: portrait) {
-#loginCont {
-  margin-bottom: 50%;
-}
-#username {
-  width: 700px;
-  height: 125px;
-  font-size: 36px;
-}
-#password {
-  width: 700px;
-  height: 125px;
-  font-size: 36px;
-}
-#loginButton {
-font-size: 30px;
-width: 275px;
-height: 65px;
-margin-top: 40px;
-}
-#createButton {
-font-size: 30px;
-width: 275px;
-height: 65px;
-margin-top: 40px;
-}
-#loginTitle {
-  font-size: 70px;
-  margin-bottom: 50%;
-}
-#accountInfo {
-  width: 400px;
-  height: 400px;
-}
-}
+
 #navbar {
   position: fixed;
   width: 100%;
@@ -162,6 +128,9 @@ li {
   height: 100%;
   opacity: 0;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .account #accountButton {
   -webkit-transition: all 0.3s ease;
@@ -174,13 +143,8 @@ li {
           opacity: 1;
 }
 #accountCont {
-  padding: 15px;
-  left: 32%;
-  position: absolute;
-  margin-top: 50px;
   border-radius: 5px;
-  height: 80%;
-  width: 40%;
+    color: #210002;
 }
 #miniPic {
   position: absolute;
@@ -212,7 +176,6 @@ li {
 #resetButton {
   position: absolute;
   bottom: 15px;
-  left: 39%;
 }
 #errorText {
   font-size: 18px;
@@ -222,8 +185,50 @@ li {
 #accountInfo {
   width: 200px;
   height: 200px;
-  background-color: blue;
+  background-color: #210002;
   position: fixed;
-  right: 5px;
+  right: -25%;
   top: 46px;
+  font-size: 18px;
+  font-family: "Arvo", sans-serif;
+  color: #FFAF00;
+  padding: 10px;
+  border-radius: 3px;
+
+}
+@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+#loginCont {
+  margin-bottom: 50%;
+}
+#username {
+  width: 700px;
+  height: 125px;
+  font-size: 36px;
+}
+#password {
+  width: 700px;
+  height: 125px;
+  font-size: 36px;
+}
+#loginButton {
+font-size: 30px;
+width: 275px;
+height: 65px;
+margin-top: 40px;
+}
+#createButton {
+font-size: 30px;
+width: 275px;
+height: 65px;
+margin-top: 40px;
+}
+#loginTitle {
+  font-size: 70px;
+  margin-bottom: 50%;
+}
+#accountInfo {
+  width: 300px;
+  height: 300px;
+  font-size: 22px;
+}
 }

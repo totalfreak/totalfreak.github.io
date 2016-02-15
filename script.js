@@ -43,12 +43,12 @@ $(document).ready(function(){
 
   //accountInfo in/out toggle
     $("#miniPic").toggle(function() {
-      $("#accountInfo").animate({right: "-25%"}, 600, "easeInOutBack");
-    }, function() {
       $("#accountInfo").animate({right: "5px"}, 600, "easeInOutBack");
+    }, function() {
+      $("#accountInfo").animate({right: "-25%"}, 600, "easeInOutBack");
     });
 function loggedIn() {
-  $("#loginScreen").animate({opacity: "0", top: "100%"}, 1600);
+  $("#loginScreen").animate({opacity: "0", top: "100%"}, 1600, "easeInQuint");
 
 }
 //Firebase stuff
