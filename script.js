@@ -12,7 +12,7 @@ $(document).ready(function(){
         top: '-46px',
         opacity: '0.6'
       }, 600, 'easeInOutBack');
-      $("#loginPop").animate({
+      $("#accountInfo").animate({
         top: '2px'
       }, 600, 'easeInOutBack');
     }, function() {
@@ -25,7 +25,7 @@ $(document).ready(function(){
           top: '-6px',
           opacity: '1'
         }, 600, 'easeInOutBack');
-        $("#loginPop").animate({
+        $("#accountInfo").animate({
           top: '44px'
         }, 600, 'easeInOutBack');
       });
@@ -40,6 +40,13 @@ $(document).ready(function(){
     $("#navbar").addClass("account");
     $("#superWrap").addClass("account");
   });
+
+  //accountInfo in/out toggle
+    $("#miniPic").toggle(function() {
+      $("#accountInfo").animate({right: "-25%"}, 600, "easeInOutBack");
+    }, function() {
+      $("#accountInfo").animate({right: "5px"}, 600, "easeInOutBack");
+    });
 function loggedIn() {
   $("#loginScreen").animate({opacity: "0", top: "100%"}, 1600);
 

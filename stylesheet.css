@@ -5,7 +5,7 @@
 
 }
 body {
-  background-color: #FFDBC5;
+  background-color: #F8981B;
   overflow: hidden;
 }
 #loginScreen {
@@ -63,7 +63,7 @@ body {
   margin-bottom: 60px;
   font-family: "Arvo", sans-serif;
 }
-@media only screen and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (max-device-width: 580px) and (orientation: portrait) {
 #loginCont {
   margin-bottom: 50%;
 }
@@ -93,15 +93,18 @@ margin-top: 40px;
   font-size: 70px;
   margin-bottom: 50%;
 }
+#accountInfo {
+  width: 400px;
+  height: 400px;
+}
 }
 #navbar {
   position: fixed;
   width: 100%;
   height: 46px;
   font-family: "Arvo", sans-serif;
-  border-bottom: 1px #202020 solid;
   top: -6px;
-  background-color: #FFDBC5;
+  background-color: #210002;
   margin-top: 0;
 }
 #navbar ul li {
@@ -126,7 +129,7 @@ li {
 .navlink {
   -webkit-transition: all 0.4s ease;
           transition: all 0.4s ease;
-  color: #820031;
+  color: #FFAF00;
   opacity: 1;
   text-decoration: none;
   display: inline-block;
@@ -136,8 +139,7 @@ li {
   margin-top: 4px;
 }
 .navlink:hover {
-  background-color: #820031;
-  color: #FFE9DC;
+  background-color: #5A1715;
 }
 .arrow {
   width: 32px;
@@ -158,14 +160,13 @@ li {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #FFDBC5;
   opacity: 0;
   z-index: -1;
 }
 .account #accountButton {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
-  border-top: 10px solid #202020;
+  background-color: rgb(163, 67, 0);
 }
 .account #accountPage {
   -webkit-transition: all 0.2s ease;
@@ -177,7 +178,6 @@ li {
   left: 32%;
   position: absolute;
   margin-top: 50px;
-  border: 2px solid #c0392b;
   border-radius: 5px;
   height: 80%;
   width: 40%;
@@ -192,6 +192,7 @@ li {
   position: absolute;
   margin-top: 17px;
   right: 60px;
+  color: #FFAF00;
 }
 .domButton {
   background-color: #c0392b;
@@ -217,4 +218,12 @@ li {
   font-size: 18px;
   font-family: "Arvo", sans-serif;
   color: #FFE9DC;
+}
+#accountInfo {
+  width: 200px;
+  height: 200px;
+  background-color: blue;
+  position: fixed;
+  right: 5px;
+  top: 46px;
 }
