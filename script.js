@@ -40,17 +40,22 @@ $(document).ready(function(){
     $("#navbar").addClass("account");
     $("#superWrap").addClass("account");
   });
+  //Going to gamba page
+  $("#gamba").click(function() {
+    $("#navbar").addClass("gamba");
+    $("#superWrap").addClass("gamba")
+  });
 
   //accountInfo in/out toggle
     $("#miniPic").toggle(function() {
       $("#accountInfo").animate({right: "5px"}, 600, "easeInOutBack");
     }, function() {
-      $("#accountInfo").animate({right: "-25%"}, 600, "easeInOutBack");
+      $("#accountInfo").animate({right: "-305px"}, 600, "easeInOutBack");
     });
 function loggedIn() {
-  $("#loginScreen").animate({opacity: "0", top: "100%"}, 1600, "easeInQuint");
-
+  $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
 }
+
 //Firebase stuff
 //Function that checks if user has already been Authenticated
 function authDataCallback(authData) {
@@ -101,7 +106,6 @@ $("#createButton").click(function() {
       $("#errorText").text("Account created");
       $("#errorText").css({opacity: "1"});
       console.log("Successfully created account with uid: ", userData.uid);
-
       //Creating database for new user using their uid and containing
       //name and points
       ref.onAuth(function(authData) {
@@ -127,7 +131,6 @@ $("#loginButton").click(function() {
     }, function(error, authData) {
       if(error) {
         $("#errorText").text(error);
-        $("#errorText").css({color: "#c0392b"});
         $("#errorText").css({opacity: "1"});
         console.log("Login Failed!", error);
       } else {
@@ -143,5 +146,17 @@ $("#loginButton").click(function() {
       }
     });
   }
+});
+//Fetching data from database
+usersRef.on("value", function(snapshot) {
+  userData = snapshot.val();
+}, function(errorObject) {
+  console.log("The read failed ", errorObject.code);
+});
+$("#authPoints").text("Points: " + userData.points);
+//Logging out user
+$("#logOutButton").click(function() {
+    ref.unauth();
+    location.reload(true);
 });
 });
