@@ -41,8 +41,8 @@ $(document).ready(function(){
     $("#superWrap").addClass("account");
   });
 function loggedIn() {
-  $("#loginScreen").animate({opacity: "0"});
-  $("#loginScreen").css({zIndex: "-10"});
+  $("#loginScreen").animate({opacity: "0", top: "100%"}, 1600);
+
 }
 //Firebase stuff
 //Function that checks if user has already been Authenticated
@@ -89,12 +89,10 @@ $("#createButton").click(function() {
     if(error) {
       $("#errorText").text(error);
       $("#errorText").css({opacity: "1"});
-      $("#errorText").css({color: "#c0392b"});
       console.log("Error creating user: ", error);
     } else {
       $("#errorText").text("Account created");
       $("#errorText").css({opacity: "1"});
-      $("#errorText").css({color: "#2ecc71"});
       console.log("Successfully created account with uid: ", userData.uid);
 
       //Creating database for new user using their uid and containing

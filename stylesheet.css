@@ -6,6 +6,7 @@
 }
 body {
   background-color: #FFDBC5;
+  overflow: hidden;
 }
 #loginScreen {
   position: fixed;
@@ -17,7 +18,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition-delay: 600ms;
 }
 #loginCont {
   text-align: center;
@@ -101,7 +101,7 @@ margin-top: 40px;
   font-family: "Arvo", sans-serif;
   border-bottom: 1px #202020 solid;
   top: -6px;
-  background-color: #E2DADB;
+  background-color: #FFDBC5;
   margin-top: 0;
 }
 #navbar ul li {
@@ -124,22 +124,20 @@ li {
   text-align: -webkit-match-parent;
 }
 .navlink {
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease;
-  color: #000805;
-  opacity: 0.7;
+  -webkit-transition: all 0.4s ease;
+          transition: all 0.4s ease;
+  color: #820031;
+  opacity: 1;
   text-decoration: none;
   display: inline-block;
   text-align: center;
   font-size: 150%;
   padding: 6px 16px;
-  margin-top: 6px;
-  border-top: 0 solid #202020;
-
+  margin-top: 4px;
 }
 .navlink:hover {
-  opacity: 1;
-  border-top: 10px solid #202020;
+  background-color: #820031;
+  color: #FFE9DC;
 }
 .arrow {
   width: 32px;
@@ -148,27 +146,6 @@ li {
   left: 16px;
   top: 42px;
 }
-#login {
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease;
-  color: #000805;
-  opacity: 0.7;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  font-size: 150%;
-  padding: 6px 16px;
-  margin-top: 6px;
-  border-top: 0 solid #202020;
-  position: fixed;
-  right: 0;
-}
-.out #login{
-  -webkit-transition: all 0.3s ease;
-          transition: all 0.3s ease;
-  border-top: 10px solid #202020;
-  opacity: 1;
-}
 .cont {
   width: 100%;
   height: 100%;
@@ -176,23 +153,6 @@ li {
   z-index: -1;
   padding: 10px;
   padding-right: 5px;
-}
-#loginPop {
-  width: 310px;
-  height: 200px;
-  background-color: #E2DADB;
-  position: fixed;
-  right: -310px;
-  top: 44px;
-  opacity: 0;
-  border-radius: 3px;
-  -webkit-box-shadow: 2px 2px 2px #666;
-}
-#loginBox {
-  width: 310px;
-  height: 180px;
-  position: absolute;
-  opacity: 0;
 }
 #accountPage {
   position: absolute;
@@ -215,23 +175,23 @@ li {
 #accountCont {
   padding: 15px;
   left: 32%;
-  position: absolute;;
+  position: absolute;
   margin-top: 50px;
   border: 2px solid #c0392b;
   border-radius: 5px;
-  height: 90%;
+  height: 80%;
   width: 40%;
 }
 #miniPic {
   position: absolute;
   margin-top: 10px;
-  right: 110px;
+  right: 10px;
 }
 #miniEmail {
   direction: rtl;
   position: absolute;
   margin-top: 17px;
-  right: 160px;
+  right: 60px;
 }
 .domButton {
   background-color: #c0392b;
@@ -252,4 +212,9 @@ li {
   position: absolute;
   bottom: 15px;
   left: 39%;
+}
+#errorText {
+  font-size: 18px;
+  font-family: "Arvo", sans-serif;
+  color: #FFE9DC;
 }
