@@ -148,12 +148,15 @@ $("#loginButton").click(function() {
   }
 });
 //Fetching data from database
-usersRef.on("value", function(snapshot) {
-  userData = snapshot.val();
+ref.on("value", function(snapshot) {
+  snap = snapshot.val();
+  uid = authData.uid;
+  console.log(snap.users.child(uid));
+  $("#accountPoints").text("Points: " + authData.uid.points);
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });
-$("#authPoints").text("Points: " + userData.points);
+
 //Logging out user
 $("#logOutButton").click(function() {
     ref.unauth();
