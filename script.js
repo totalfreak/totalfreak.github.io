@@ -151,7 +151,7 @@ $("#loginButton").click(function() {
 ref.on("value", function(snapshot) {
   snap = snapshot.val();
   uid = authData.uid;
-  console.log(snap.users.child(uid));
+  console.log(snapshot.numChildren());
   $("#accountPoints").text("Points: " + authData.uid.points);
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
