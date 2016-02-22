@@ -65,6 +65,7 @@ function authDataCallback(authData) {
     $("#profilePic").attr('src', authData.password.profileImageURL);
     $("#miniPic").attr('src', authData.password.profileImageURL);
     $("#miniEmail").text(authData.password.email);
+    uid = authData.uid;
     email = authData.password.email;
     loggedIn();
   } else {
@@ -134,6 +135,7 @@ $("#loginButton").click(function() {
         $("#errorText").css({opacity: "1"});
         console.log("Login Failed!", error);
       } else {
+        uid = authData.uid;
         $("#errorText").text("Account logged in");
         $("#errorText").css({opacity: "1"});
         $("#errorText").css({color: "#2ecc71"});
@@ -148,11 +150,14 @@ $("#loginButton").click(function() {
   }
 });
 //Fetching data from database
-ref.on("value", function(snapshot) {
+usersRef.on("value", function(snapshot) {
   snap = snapshot.val();
-  uid = authData.uid;
-  console.log(snapshot.numChildren());
-  $("#accountPoints").text("Points: " + authData.uid.points);
+  for(uid in snap) {
+    if(snap.hasOwnProperty(uid)) {
+      userPoints = snap[uid];
+    }
+  }
+  console.log(userPoints);
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });
