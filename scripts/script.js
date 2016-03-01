@@ -48,9 +48,9 @@ $(document).ready(function(){
 
   //accountInfo in/out toggle
     $("#miniPic").toggle(function() {
-      $("#accountInfo").animate({right: "5px"}, 600, "easeInOutBack");
+      $("#accountInfo").animate({right: "5px", opacity: "1"}, 600, "easeInOutBack");
     }, function() {
-      $("#accountInfo").animate({right: "-305px"}, 600, "easeInOutBack");
+      $("#accountInfo").animate({right: "-305px", opacity: "0"}, 600, "easeInOutBack");
     });
 function loggedIn() {
   $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
