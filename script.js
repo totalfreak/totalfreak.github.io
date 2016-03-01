@@ -150,18 +150,21 @@ $("#loginButton").click(function() {
   }
 });
 //Fetching data from database
+if(authData) {
 usersRef.on("value", function(snapshot) {
   snap = snapshot.val();
-  for(uid in snap) {
-    if(snap.hasOwnProperty(uid)) {
-      userPoints = snap[uid];
+  for(i in snap) {
+    if(i == uid) {
+      userPoints = snap[i].points;
     }
   }
   console.log(userPoints);
+  $("#authPoints").text("Points: " + userPoints);
+  $("#accountPoints").text("Points: " + userPoints);
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });
-
+}
 //Logging out user
 $("#logOutButton").click(function() {
     ref.unauth();
