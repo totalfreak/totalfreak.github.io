@@ -138,6 +138,7 @@ li {
   opacity: 0;
 }
 #gambaCont {
+  position: fixed;
   text-align: center;
 }
 .gamba #gamba {
@@ -168,7 +169,7 @@ li {
 }
 .domButton {
   background-color: #210002;
-  padding: 8px;
+  padding: 5px;
   border-radius: 20px;
   font-size: 19px;
   color: #F8981B;

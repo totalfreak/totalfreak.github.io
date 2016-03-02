@@ -113,7 +113,9 @@ $("#createButton").click(function() {
         if(authData) {
           usersRef.child(authData.uid).set({
             name: authData.password.email,
-            points: 50
+            points: 50,
+            wins: 0,
+            loses: 0
           });
         }
       });
@@ -156,13 +158,39 @@ usersRef.on("value", function(snapshot) {
   for(i in snap) {
     if(i == uid) {
       userPoints = snap[i].points;
+      userWins = snap[i].wins;
+      userLoses = snap[i].loses;
+      console.log("Ran through this crap nigger");
     }
   }
   console.log(userPoints);
   $("#authPoints").text("Points: " + userPoints);
   $("#accountPoints").text("Points: " + userPoints);
+  $("#userWins").text("Wins: " + userWins);
+  $("#userLoses").text("Loses: " + userLoses);
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
+});
+//Doing some gambling and checking if points are adequate
+$("#gambaButton").click(function() {
+  if(userPoints > 0) {
+    odds = Math.floor((Math.random() * 100) + 1);
+    console.log("The number was " + odds);
+    if(odds < 50) {
+      userPoints-=1;
+      userLoses+=1;
+      console.log("Ya lost nigger");
+    } else {
+      userPoints+=2;
+      userWins+=1;
+      console.log("Ya won nigger");
+    }
+    usersRef.child(authData.uid).update({
+      points: userPoints,
+      loses: userLoses,
+      wins: userWins
+    });
+  }
 });
 }
 //Logging out user
