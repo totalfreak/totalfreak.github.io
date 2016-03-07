@@ -53,6 +53,7 @@ $(document).ready(function(){
       $("#accountInfo").animate({right: "-305px", opacity: "0"}, 600, "easeInOutBack");
     });
 function loggedIn() {
+
   $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
 }
 
@@ -146,7 +147,7 @@ $("#loginButton").click(function() {
         $("#miniPic").attr('src', authData.password.profileImageURL);
         $("#miniEmail").text(authData.password.email);
         console.log("Authenticated Successfully: ", authData);
-        loggedIn();
+        location.reload(true);
       }
     });
   }
@@ -181,7 +182,7 @@ $("#gambaButton").click(function() {
       userLoses+=1;
       console.log("Ya lost nigger");
     } else {
-      userPoints+=2;
+      userPoints+=1;
       userWins+=1;
       console.log("Ya won nigger");
     }
