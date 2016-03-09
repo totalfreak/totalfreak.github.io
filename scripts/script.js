@@ -209,7 +209,8 @@ $("#messageText").keypress(function(event) {
 msgRef.orderByChild("time").limitToLast(100).on("child_added", function(snapshot) {
   var message = snapshot.val().message;
   var time = snapshot.val().time;
-  $("#messageCont").append("<p class='message'>" + time + '<br>' + email + ":" + " " + message +"</p>")
+  var name = snapshot.val().name;
+  $("#messageCont").append("<p class='message'>" + time + '<br>' + name + ":" + " " + message +"</p>")
   $("#messageCont").scrollTo('max', {axis: 'y'});
 });
 }
