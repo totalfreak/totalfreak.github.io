@@ -176,15 +176,14 @@ usersRef.on("value", function(snapshot) {
 $("#gambaButton").click(function() {
   if(userPoints > 0) {
     odds = Math.floor((Math.random() * 100) + 1);
-    console.log("The number was " + odds);
     if(odds < 50) {
       userPoints-=1;
       userLoses+=1;
-      console.log("Ya lost nigger");
+      console.log("Ya lost");
     } else {
       userPoints+=1;
       userWins+=1;
-      console.log("Ya won nigger");
+      console.log("Ya won");
     }
     usersRef.child(authData.uid).update({
       points: userPoints,
@@ -192,6 +191,10 @@ $("#gambaButton").click(function() {
       wins: userWins
     });
   }
+});
+$("#messageText").keypress(function(event) {
+  message = $("#messageText").val();
+  
 });
 }
 //Logging out user
