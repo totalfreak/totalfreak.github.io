@@ -220,7 +220,7 @@ li {
   height: 400px;
   background-color: #210002;
   position: relative;
-
+  float: left;
 }
 #messageText {
   position: absolute;
@@ -246,6 +246,8 @@ li {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  -webkit-transition: all 0.15s ease;
+          transition: all 0.15s ease;
 }
 .message {
   position: relative;

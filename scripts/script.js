@@ -75,6 +75,7 @@ function authDataCallback(authData) {
 }
 
 var ref = new Firebase("https://it-eksamen.firebaseio.com/");
+msgRef = ref.child('messages');
 ref.onAuth(authDataCallback);
 var usersRef = ref.child("users");
 authData = ref.getAuth();
@@ -193,8 +194,23 @@ $("#gambaButton").click(function() {
   }
 });
 $("#messageText").keypress(function(event) {
-  message = $("#messageText").val();
-  
+  if(event.keyCode == 13 && $("#messageText").val() != "") {
+  var message = $("#messageText").val();
+  $("#messageText").val('');
+  var dt = new Date();
+  var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+  msgRef.push({
+    name: authData.password.email,
+    time: time,
+    message: message
+  });
+}
+});
+msgRef.orderByChild("time").limitToLast(100).on("child_added", function(snapshot) {
+  var message = snapshot.val().message;
+  var time = snapshot.val().time;
+  $("#messageCont").append("<p class='message'>" + time + '<br>' + email + ":" + " " + message +"</p>")
+  $("#messageCont").scrollTo('max', {axis: 'y'});
 });
 }
 //Logging out user
