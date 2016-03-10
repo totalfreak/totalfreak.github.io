@@ -50,7 +50,7 @@ $(document).ready(function(){
     $("#miniPic").toggle(function() {
       $("#accountInfo").animate({right: "5px", opacity: "1"}, 600, "easeInOutBack");
     }, function() {
-      $("#accountInfo").animate({right: "-305px", opacity: "0"}, 600, "easeInOutBack");
+      $("#accountInfo").animate({right: "-500px", opacity: "0"}, 600, "easeInOutBack");
     });
 function loggedIn() {
 
@@ -198,16 +198,18 @@ $("#messageText").keypress(function(event) {
   var message = $("#messageText").val();
   $("#messageText").val('');
   var dt = new Date();
-  //var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-  var time = dt.now();
+  var dbTime = dt.getTime();
+  var time = dt.toDateString() + " " + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+  console.log(dbTime);
   msgRef.push({
     name: authData.password.email,
     time: time,
+    dbTime: dbTime,
     message: message
   });
 }
 });
-msgRef.orderByChild("time").limitToLast(50).on("child_added", function(snapshot) {
+msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
   var message = snapshot.val().message;
   var time = snapshot.val().time;
   var name = snapshot.val().name;

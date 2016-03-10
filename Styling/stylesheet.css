@@ -204,7 +204,7 @@ li {
   height: 500px;
   background-color: #210002;
   position: fixed;
-  right: -25%;
+  right: -500px;
   top: 46px;
   font-size: 18px;
   font-family: "Arvo", sans-serif;
@@ -241,7 +241,7 @@ li {
 #messageCont {
   position: absolute;
   width: 500px;
-  height: 450px;
+  height: 468px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -258,6 +258,14 @@ li {
   text-align: justify;
   border-bottom: 2px solid #F8981B;
   word-wrap: break-word;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #5A1715;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #F8981B;
 }
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
 #loginCont {
