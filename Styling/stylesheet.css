@@ -159,7 +159,7 @@ li {
 }
 #miniPic {
   position: absolute;
-  margin-top: 10px;
+  margin-top: 11px;
   right: 10px;
 }
 #miniEmail {
@@ -188,12 +188,7 @@ li {
   position: absolute;
   bottom: 15px;
 }
-#logOutButton {
-  position: absolute;
-  padding: 3px;
-  bottom: 5px;
-  right: 5px;
-}
+
 #errorText {
   font-size: 18px;
   font-family: "Arvo", sans-serif;
@@ -201,11 +196,11 @@ li {
 }
 #accountInfo {
   width: 500px;
-  height: 500px;
+  height: 100%;
   background-color: #210002;
   position: fixed;
   right: -500px;
-  top: 46px;
+  top: 40px;
   font-size: 18px;
   font-family: "Arvo", sans-serif;
   color: #FFAF00;

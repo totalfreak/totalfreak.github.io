@@ -43,14 +43,16 @@ $(document).ready(function(){
   //Going to gamba page
   $("#gamba").click(function() {
     $("#navbar").addClass("gamba");
-    $("#superWrap").addClass("gamba")
+    $("#superWrap").addClass("gamba");
   });
 
   //accountInfo in/out toggle
     $("#miniPic").toggle(function() {
-      $("#accountInfo").animate({right: "5px", opacity: "1"}, 600, "easeInOutBack");
+      $("#miniPic").attr('src', "Styling/Pictures/chat2.png");
+      $("#accountInfo").animate({right: "0"}, 600, "easeInOutExpo");
     }, function() {
-      $("#accountInfo").animate({right: "-500px", opacity: "0"}, 600, "easeInOutBack");
+      $("#miniPic").attr('src', "Styling/Pictures/chat1.png");
+      $("#accountInfo").animate({right: "-500px"}, 600, "easeInOutExpo");
     });
 function loggedIn() {
 
@@ -64,7 +66,7 @@ function authDataCallback(authData) {
     console.log("User " + authData.uid + " is logged in with " + authData.provider);
     $("#authDatas").text("Email: " + authData.password.email);
     $("#profilePic").attr('src', authData.password.profileImageURL);
-    $("#miniPic").attr('src', authData.password.profileImageURL);
+    //$("#miniPic").attr('src', authData.password.profileImageURL);
     $("#miniEmail").text(authData.password.email);
     uid = authData.uid;
     email = authData.password.email;
@@ -73,7 +75,7 @@ function authDataCallback(authData) {
     console.log("User is logged out");
   }
 }
-
+//Making a link to the firebase database, and linking to message database
 var ref = new Firebase("https://it-eksamen.firebaseio.com/");
 msgRef = ref.child('messages');
 ref.onAuth(authDataCallback);
@@ -186,6 +188,7 @@ $("#gambaButton").click(function() {
       userWins+=1;
       console.log("Ya won");
     }
+    //Updating user's database with points, wins and loses
     usersRef.child(authData.uid).update({
       points: userPoints,
       loses: userLoses,
