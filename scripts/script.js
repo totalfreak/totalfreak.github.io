@@ -55,10 +55,9 @@ $(document).ready(function(){
       $("#miniPic").attr('src', "Styling/Pictures/chat1.png");
       $("#accountInfo").animate({right: "-500px"}, 600, "easeInOutExpo");
     });
-function loggedIn() {
-
-  $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
-}
+    function loggedIn() {
+      $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
+    }
 
 //Firebase stuff
 //Function that checks if user has already been Authenticated

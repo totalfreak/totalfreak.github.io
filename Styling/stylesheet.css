@@ -8,7 +8,7 @@
 body {
   background-color: #F8981B;
   overflow: hidden;
-  position: absolute;
+
 }
 
 #loginScreen {
@@ -205,6 +205,12 @@ li {
 }
 #accountPoints {
   color: #FFAF00;
+}
+#wagerText {
+  background-color: #210002;
+  color: #FFAF00;
+  height: 32px;
+  font-size: 20px;
 }
 #messageBox {
   width: 500px;
