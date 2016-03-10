@@ -200,8 +200,8 @@ li {
   color: #FFE9DC;
 }
 #accountInfo {
-  width: 200px;
-  height: 200px;
+  width: 500px;
+  height: 500px;
   background-color: #210002;
   position: fixed;
   right: -25%;
@@ -209,15 +209,14 @@ li {
   font-size: 18px;
   font-family: "Arvo", sans-serif;
   color: #FFAF00;
-  padding: 10px;
   border-radius: 3px;
 }
 #accountPoints {
   color: #FFAF00;
 }
 #messageBox {
-  width: 300px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   background-color: #210002;
   position: relative;
   float: left;
@@ -230,7 +229,7 @@ li {
   color: #FFAF00;
   height: 32px;
   font-size: 20px;
-  width: 300px;
+  width: 500px;
   float: left;
   border-top: 2px solid #FF6D41;
   margin-top: 10px;
@@ -241,8 +240,8 @@ li {
 }
 #messageCont {
   position: absolute;
-  width: 300px;
-  height: 350px;
+  width: 500px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -251,12 +250,14 @@ li {
 }
 .message {
   position: relative;
+  padding-left: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
   background-color: #210002;
   color: #FFAF00;
   text-align: justify;
   border-bottom: 2px solid #F8981B;
+  word-wrap: break-word;
 }
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
 #loginCont {

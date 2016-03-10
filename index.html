@@ -18,7 +18,6 @@
     <div id="loginScreen">
       <div id="loginCont">
         <h1 id="loginTitle">Artificial Intelligence</h1>
-
         <input type="email" class="credentials" id="username" name="email" placeholder="Email"> <br>
         <input type="password" class="credentials" id="password" name="password" placeholder="Password"
         onkeydown = "if (event.keyCode == 13) document.getElementById('loginButton').click()"><br>
@@ -39,7 +38,10 @@
       </ul>
     </div>
     <div id="accountInfo">
-      <p id="accountPoints"> Points: </p>
+      <div id="messageBox">
+        <div id="messageCont"></div>
+        <input id="messageText" type="text" name="messageText" placeholder="Enter your text here"></input>
+      </div>
       <button id="logOutButton" class="domButton">Log Out</button>
     </div>
     <center><img id="arrow" class="arrow" src="Styling/Pictures/arrow.png"></center>
@@ -57,14 +59,6 @@
         </div>
         <div id="gambaPage">
           <div id="gambaCont">
-            <div id="messageBox">
-              <span id="messageTitle">messageBox</span>
-              <div id="messageCont">
-              
-
-            </div>
-              <input id="messageText" type="text" name="messageText" placeholder="Enter your text here"></input>
-            </div>
             <p id="userWins">Wins: </p>
             <p id="userLoses">Loses: </p>
             <button class="domButton" id="gambaButton">GamBA!</button>

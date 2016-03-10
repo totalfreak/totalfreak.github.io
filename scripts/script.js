@@ -198,7 +198,8 @@ $("#messageText").keypress(function(event) {
   var message = $("#messageText").val();
   $("#messageText").val('');
   var dt = new Date();
-  var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+  //var time = dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+  var time = dt.now();
   msgRef.push({
     name: authData.password.email,
     time: time,
@@ -206,7 +207,7 @@ $("#messageText").keypress(function(event) {
   });
 }
 });
-msgRef.orderByChild("time").limitToLast(100).on("child_added", function(snapshot) {
+msgRef.orderByChild("time").limitToLast(50).on("child_added", function(snapshot) {
   var message = snapshot.val().message;
   var time = snapshot.val().time;
   var name = snapshot.val().name;
