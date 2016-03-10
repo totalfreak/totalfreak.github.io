@@ -8,7 +8,9 @@
 body {
   background-color: #F8981B;
   overflow: hidden;
+  position: absolute;
 }
+
 #loginScreen {
   position: fixed;
   width: 100%;
@@ -137,11 +139,6 @@ li {
 #gambaPage {
   opacity: 0;
   padding-top: 46px;
-
-}
-#gambaCont {
-
-
 }
 .gamba #gamba {
   -webkit-transition: all 0.3s ease;
@@ -211,7 +208,7 @@ li {
 }
 #messageBox {
   width: 500px;
-  height: 500px;
+  height: 96%;
   background-color: #210002;
   position: relative;
   float: left;
@@ -236,7 +233,7 @@ li {
 #messageCont {
   position: absolute;
   width: 500px;
-  height: 468px;
+  height: 97%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -254,9 +251,13 @@ li {
   border-bottom: 2px solid #F8981B;
   word-wrap: break-word;
 }
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 8px;
+}
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #5A1715;
+    background: #5A1715;
 }
 /* Handle */
 ::-webkit-scrollbar-thumb {

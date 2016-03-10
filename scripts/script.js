@@ -50,6 +50,7 @@ $(document).ready(function(){
     $("#miniPic").toggle(function() {
       $("#miniPic").attr('src', "Styling/Pictures/chat2.png");
       $("#accountInfo").animate({right: "0"}, 600, "easeInOutExpo");
+      $("#messageText").focus();
     }, function() {
       $("#miniPic").attr('src', "Styling/Pictures/chat1.png");
       $("#accountInfo").animate({right: "-500px"}, 600, "easeInOutExpo");
