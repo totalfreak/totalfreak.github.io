@@ -159,6 +159,20 @@ li {
   margin-top: 11px;
   right: 10px;
 }
+#newMsg {
+  margin-top: 25px;
+  position: fixed;
+  z-index: 3;
+  color: white;
+  right: 32px;
+  width: auto;
+  height: 15px;
+  background-color: #E84545;
+  border-radius: 2px;
+  text-align: center;
+  padding-bottom: 3px;
+  padding-right: 1px; 
+}
 #miniEmail {
   direction: rtl;
   position: absolute;
@@ -203,9 +217,6 @@ li {
   color: #FFAF00;
   border-radius: 3px;
 }
-#accountPoints {
-  color: #FFAF00;
-}
 #wagerText {
   background-color: #210002;
   color: #FFAF00;
@@ -214,7 +225,7 @@ li {
 }
 #messageBox {
   width: 500px;
-  height: 96%;
+  height: 94%;
   background-color: #210002;
   position: relative;
   float: left;
@@ -232,14 +243,10 @@ li {
   border-top: 2px solid #FF6D41;
   margin-top: 10px;
 }
-#messageTitle {
-  border-bottom: 2px solid #FF6D41;
-    color: #FFAF00;
-}
 #messageCont {
   position: absolute;
   width: 500px;
-  height: 97%;
+  height: 95%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;

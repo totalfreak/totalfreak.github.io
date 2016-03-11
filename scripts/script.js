@@ -1,5 +1,7 @@
 $(document).ready(function(){
   var user = null;
+  newMsgCount = 0;
+  msgOut = false;
 //Navbar showing and hiding
   $("#arrow").css({transform: "rotate(180deg)"});
   $("#arrow").toggle(function() {
@@ -46,12 +48,14 @@ $(document).ready(function(){
     $("#superWrap").addClass("gamba");
   });
 
-  //accountInfo in/out toggle
+  //messageBox in/out toggle
     $("#miniPic").toggle(function() {
+      msgOut = true;
       $("#miniPic").attr('src', "Styling/Pictures/chat2.png");
       $("#accountInfo").animate({right: "0"}, 600, "easeInOutExpo");
       $("#messageText").focus();
     }, function() {
+      msgOut = false;
       $("#miniPic").attr('src', "Styling/Pictures/chat1.png");
       $("#accountInfo").animate({right: "-500px"}, 600, "easeInOutExpo");
     });
@@ -177,17 +181,19 @@ usersRef.on("value", function(snapshot) {
 });
 //Doing some gambling and checking if points are adequate
 $("#gambaButton").click(function() {
-  if(userPoints > 0) {
+  wager = parseInt($("#wagerText").val(), 10);
+  if(userPoints >= wager && wager > 0) {
     odds = Math.floor((Math.random() * 100) + 1);
     if(odds < 50) {
-      userPoints-=1;
-      userLoses+=1;
+      userPoints -= wager;
+      userLoses += 1;
       console.log("Ya lost");
     } else {
-      userPoints+=1;
-      userWins+=1;
+      userPoints += wager;
+      userWins += 1;
       console.log("Ya won");
     }
+    $("#wagerText").val('');
     //Updating user's database with points, wins and loses
     usersRef.child(authData.uid).update({
       points: userPoints,
@@ -196,6 +202,13 @@ $("#gambaButton").click(function() {
     });
   }
 });
+var timerVar = setInterval(givePoints, 120000);
+function givePoints() {
+  userPoints += 10;
+  usersRef.child(authData.uid).update({
+    points: userPoints
+  });
+}
 $("#messageText").keypress(function(event) {
   if(event.keyCode == 13 && $("#messageText").val() != "") {
   var message = $("#messageText").val();
@@ -218,7 +231,12 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
   var name = snapshot.val().name;
   $("#messageCont").append("<p class='message'>" + time + '<br>' + name + ":" + " " + message +"</p>")
   $("#messageCont").scrollTo('max', {axis: 'y'});
+  if(!msgOut) {
+    newMsgCount += 1;
+    console.log(newMsgCount);
+  }
 });
+newMsgCount = 0;
 }
 //Logging out user
 $("#logOutButton").click(function() {

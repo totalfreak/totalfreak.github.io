@@ -34,6 +34,7 @@
         <li><a class="navlink" id="lesson3" href="#Lesson3">Lesson 3</a></li>
         <li><a class="navlink" id="accountButton" href="#account">Account</a></li>
         <li><p id="miniEmail"></p></li>
+        <div id="newMsg">69</div>
         <li><img id="miniPic" src="Styling/Pictures/chat1.png" width="32px" height="32px"></li>
       </ul>
     </div>
@@ -54,16 +55,24 @@
             <p id="authDatas">Email: </p>
             <br>
             <h2 id="authPoints">Points: </h2>
-
             <br>
             <button type="button" class="domButton" id="resetButton">Reset password</button>
         </div>
         </div>
         <div id="gambaPage">
           <div id="gambaCont">
+            <p id="accountPoints">Points: </p>
             <p id="userWins">Wins: </p>
             <p id="userLoses">Loses: </p>
-            <input id="wagerText" type="number" name="wagerText" placeholder="Place your bet here"></input>
+            <input id="wagerText" type="text" name="wagerText" placeholder="Place your bet here" onkeypress="if (event.keyCode == 13) document.getElementById('gambaButton').click(); return isNumberKey(event)"></input>
+            <script>
+              function isNumberKey(evt){
+                var charCode = (evt.which) ? evt.which : event.keyCode
+                if (charCode > 31 && (charCode < 48 || charCode > 57))
+                  return false;
+                return true;
+              }
+              </script>
             <button class="domButton" id="gambaButton">GamBA!</button>
             <button id="logOutButton" class="domButton">Log Out</button>
           </div>
