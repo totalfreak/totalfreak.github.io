@@ -171,7 +171,8 @@ li {
   border-radius: 2px;
   text-align: center;
   padding-bottom: 3px;
-  padding-right: 1px; 
+  padding-right: 1px;
+  opacity: 0;
 }
 #miniEmail {
   direction: rtl;

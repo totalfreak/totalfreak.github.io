@@ -51,6 +51,9 @@ $(document).ready(function(){
   //messageBox in/out toggle
     $("#miniPic").toggle(function() {
       msgOut = true;
+      newMsgCount = 0;
+      $("#newMsg").text(newMsgCount);
+      $("#newMsg").css({zIndex: "-1", opacity: 0});
       $("#miniPic").attr('src', "Styling/Pictures/chat2.png");
       $("#accountInfo").animate({right: "0"}, 600, "easeInOutExpo");
       $("#messageText").focus();
@@ -233,10 +236,10 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
   $("#messageCont").scrollTo('max', {axis: 'y'});
   if(!msgOut) {
     newMsgCount += 1;
-    console.log(newMsgCount);
+    $("#newMsg").text(newMsgCount);
+    $("#newMsg").css({zIndex: "1", opacity: 1});
   }
 });
-newMsgCount = 0;
 }
 //Logging out user
 $("#logOutButton").click(function() {
