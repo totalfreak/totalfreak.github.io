@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var user = null;
+
   newMsgCount = 0;
   msgOut = false;
 //Navbar showing and hiding
@@ -171,7 +171,6 @@ usersRef.on("value", function(snapshot) {
       userPoints = snap[i].points;
       userWins = snap[i].wins;
       userLoses = snap[i].loses;
-      console.log("Ran through this crap nigger");
     }
   }
   console.log(userPoints);
@@ -196,7 +195,6 @@ $("#gambaButton").click(function() {
       userWins += 1;
       console.log("Ya won");
     }
-    $("#wagerText").val('');
     //Updating user's database with points, wins and loses
     usersRef.child(authData.uid).update({
       points: userPoints,
