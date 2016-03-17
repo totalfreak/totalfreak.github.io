@@ -120,6 +120,8 @@ $("#createButton").click(function() {
       $("#errorText").css({opacity: "1"});
       console.log("Error creating user: ", error);
     } else {
+      var colArray = ["#e74c3c", "#c0392b", "#d35400", "#e67e22", "#16a085", "#2ecc71", "#3498db", "#2980b9", "#1abc9c", "#8e44ad", "#9b59b6", "#f39c12", "#f1c40f"];
+      var color = colArray[Math.floor(Math.random() * colArray.length)];
       $("#errorText").text("Account created");
       $("#errorText").css({opacity: "1"});
       console.log("Successfully created account with uid: ", userData.uid);
@@ -133,7 +135,8 @@ $("#createButton").click(function() {
             wins: 0,
             loses: 0,
             exp: 0,
-            level: 1
+            level: 1,
+            color: color
           });
         }
       });
@@ -180,6 +183,7 @@ usersRef.on("value", function(snapshot) {
       userLoses = snap[i].loses;
       userLvl = snap[i].level;
       userExp = snap[i].exp;
+      userColor = snap[i].color;
     }
   }
   console.log(userPoints);
@@ -237,7 +241,8 @@ $("#messageText").keypress(function(event) {
     name: authData.password.email,
     time: time,
     dbTime: dbTime,
-    message: message
+    message: message,
+    color: userColor
   });
 }
 });
@@ -245,7 +250,8 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
   var message = snapshot.val().message;
   var time = snapshot.val().time;
   var name = snapshot.val().name;
-  $("#messageCont").append("<p class='message'>" + time + '<br>' + name + ":" + " " + message +"</p>");
+  var color = snapshot.val().color;
+  $("#messageCont").append("<p class='message' style='color: "+color+"'>" + time + '<br>' + name + ":" + " " + message +"</p>");
   $("#messageCont").scrollTo('max', {axis: 'y'});
   if(!msgOut) {
     newMsgCount += 1;
@@ -255,7 +261,6 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
 });
 
 //Quiz shit here
-
 
 
 }

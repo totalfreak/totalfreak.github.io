@@ -125,6 +125,8 @@ li {
   display: flex;
   justify-content: center;
   align-content: center;
+  height: 100%;
+  width: 100%;
 }
 .account #accountButton {
   -webkit-transition: all 0.3s ease;
@@ -158,6 +160,47 @@ li {
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
           opacity: 1;
+}
+.quizAns {
+  width: 400px;
+  height: 150px;
+  position: fixed;
+  background-color: #210002;
+  border: 3px solid #210002;
+  border-radius: 5px;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+  color: #FFAF00;
+  text-align: center;
+  font-size: 32px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+#quizHead {
+  position: fixed;
+  left: 40%;
+  text-align: center;
+  font-size: 40px;
+}
+#ans1 {
+  left: 15%;
+  top: 20%;
+}
+#ans2 {
+  right: 15%;
+  top: 20%;
+}
+#ans3 {
+  left: 15%;
+  bottom: 20%;
+}
+#ans4 {
+  right: 15%;
+  bottom: 20%;
+}
+.quizAns:hover {
+  background-color: #5A1715;
 }
 #accountCont {
   border-radius: 5px;
@@ -226,6 +269,7 @@ li {
   font-family: "Arvo", sans-serif;
   color: #FFAF00;
   border-radius: 3px;
+  z-index: 99;
 }
 #wagerText {
   background-color: #210002;
@@ -269,7 +313,6 @@ li {
   padding-bottom: 10px;
   padding-top: 10px;
   background-color: #210002;
-  color: #FFAF00;
   text-align: justify;
   border-bottom: 2px solid #F8981B;
   word-wrap: break-word;
