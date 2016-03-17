@@ -145,6 +145,7 @@ li {
 #lessonPage {
   opacity: 0;
   padding-top: 46px;
+  z-index: -1;
 }
 .gamba #gamba {
   -webkit-transition: all 0.3s ease;
@@ -160,6 +161,7 @@ li {
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
           opacity: 1;
+          z-index: 1;
 }
 .quizAns {
   width: 400px;

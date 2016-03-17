@@ -229,6 +229,12 @@ function givePoints() {
     points: userPoints
   });
 }
+$("#wagerText").keypress(function(event) {
+  if(event.keyCode == 17) {
+    console.log(event.keyCode);
+    $("#wagerText").val(userPoints);
+  }
+});
 $("#messageText").keypress(function(event) {
   if(event.keyCode == 13 && $("#messageText").val() != "") {
   var message = $("#messageText").val();
