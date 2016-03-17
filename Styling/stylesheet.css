@@ -249,6 +249,13 @@ li {
   right: 60px;
   color: #FFAF00;
 }
+#authPoints {
+  direction: rtl;
+  position: absolute;
+  margin-top: 17px;
+  right: 220px;
+  color: #FFAF00;
+}
 .domButton {
   background-color: #210002;
   padding: 5px;
