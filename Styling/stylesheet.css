@@ -242,6 +242,9 @@ li {
   padding-right: 1px;
   opacity: 0;
 }
+.accLink {
+  text-decoration: none;
+}
 #miniEmail {
   direction: rtl;
   position: absolute;

@@ -273,7 +273,7 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
   var name = snapshot.val().name;
   var color = snapshot.val().color;
   var uid = snapshot.val().uid;
-  $("#messageCont").append("<p class='message' style='color: "+color+"'>" + time + '<br>' + "<a style='color: "+color+"' href='#" + uid + '>"' + name + '</a>' + ":" + " " + message +"</p>");
+  $("#messageCont").append("<p class='message' style='color: "+color+"'>" + time + '<br><a class="accLink" style=color:' + color + ' href="#' + uid + '">' + name + "</a>" + ":" + " " + message +"</p>");
   $("#messageCont").scrollTo('max', {axis: 'y'});
   if(!msgOut) {
     newMsgCount += 1;
