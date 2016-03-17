@@ -184,19 +184,31 @@ usersRef.on("value", function(snapshot) {
       userLvl = snap[i].level;
       userExp = snap[i].exp;
       userColor = snap[i].color;
+      userGoal = snap[i].goal;
     }
   }
   console.log(userPoints);
-  $("#authPoints").text("Points: " + userPoints);
+  $(".authPoints").text("Points: " + userPoints);
   $("#accountPoints").text("Points: " + userPoints);
   $("#userWins").text("Wins: " + userWins);
   $("#userLoses").text("Loses: " + userLoses);
   $("#authLvl").text("Level: " + userLvl);
-  $("#authExp").text("Exp: " + userExp);
-  $("#expBar").progressbar({
-    max: 1024,
-    value: 155
-  });
+  $("#authExp").text("Experience: " + userExp);
+  $("#authExpNeed").text("Experience needed: " + (userGoal-userExp));
+  if(userExp > userGoal) {
+    userExp = userGoal;
+  }
+  if(userExp == userGoal) {
+    userLvl += 1;
+    userExp = 0;
+    userGoal += userGoal;
+    usersRef.child(authData.uid).update({
+      goal: userGoal,
+      level: userLvl,
+      exp: userExp
+    });
+  }
+  $("#expBar").progressbar({max: userGoal, value: userExp});
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });
@@ -211,6 +223,7 @@ $("#gambaButton").click(function() {
       console.log("Ya lost");
     } else {
       userPoints += wager;
+      userExp += wager;
       userWins += 1;
       console.log("Ya won");
     }
@@ -218,7 +231,8 @@ $("#gambaButton").click(function() {
     usersRef.child(authData.uid).update({
       points: userPoints,
       loses: userLoses,
-      wins: userWins
+      wins: userWins,
+      exp: userExp
     });
   }
 });
@@ -265,7 +279,6 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
     $("#newMsg").css({zIndex: "1", opacity: 1});
   }
 });
-
 //Quiz shit here
 
 
