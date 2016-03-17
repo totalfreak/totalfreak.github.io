@@ -140,12 +140,21 @@ li {
   opacity: 0;
   padding-top: 46px;
 }
+#lessonPage {
+  opacity: 0;
+  padding-top: 46px;
+}
 .gamba #gamba {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
   background-color: rgb(163, 67, 0);
 }
 .gamba #gambaPage {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+          opacity: 1;
+}
+.lesson #lessonPage {
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
           opacity: 1;
@@ -277,6 +286,13 @@ li {
 ::-webkit-scrollbar-thumb {
     background: #F8981B;
 }
+ui-progressbar {
+    background-color: #f3f3f3;
+    border: 0;
+    height: 18px;
+    border-radius: 9px;
+}
+
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
 #loginCont {
   margin-bottom: 50%;

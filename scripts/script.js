@@ -47,6 +47,11 @@ $(document).ready(function(){
     $("#navbar").addClass("gamba");
     $("#superWrap").addClass("gamba");
   });
+  //Going to lesson page
+  $("#lesson").click(function() {
+    $("#navbar").addClass("lesson");
+    $("#superWrap").addClass("lesson");
+  });
 
   //messageBox in/out toggle
     $("#miniPic").toggle(function() {
@@ -126,7 +131,9 @@ $("#createButton").click(function() {
             name: authData.password.email,
             points: 50,
             wins: 0,
-            loses: 0
+            loses: 0,
+            exp: 0,
+            level: 1
           });
         }
       });
@@ -171,6 +178,8 @@ usersRef.on("value", function(snapshot) {
       userPoints = snap[i].points;
       userWins = snap[i].wins;
       userLoses = snap[i].loses;
+      userLvl = snap[i].level;
+      userExp = snap[i].exp;
     }
   }
   console.log(userPoints);
@@ -178,6 +187,12 @@ usersRef.on("value", function(snapshot) {
   $("#accountPoints").text("Points: " + userPoints);
   $("#userWins").text("Wins: " + userWins);
   $("#userLoses").text("Loses: " + userLoses);
+  $("#authLvl").text("Level: " + userLvl);
+  $("#authExp").text("Exp: " + userExp);
+  $("#expBar").progressbar({
+    max: 1024,
+    value: 155
+  });
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });
@@ -230,7 +245,7 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
   var message = snapshot.val().message;
   var time = snapshot.val().time;
   var name = snapshot.val().name;
-  $("#messageCont").append("<p class='message'>" + time + '<br>' + name + ":" + " " + message +"</p>")
+  $("#messageCont").append("<p class='message'>" + time + '<br>' + name + ":" + " " + message +"</p>");
   $("#messageCont").scrollTo('max', {axis: 'y'});
   if(!msgOut) {
     newMsgCount += 1;
@@ -238,6 +253,11 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
     $("#newMsg").css({zIndex: "1", opacity: 1});
   }
 });
+
+//Quiz shit here
+
+
+
 }
 //Logging out user
 $("#logOutButton").click(function() {
