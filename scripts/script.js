@@ -187,6 +187,15 @@ usersRef.on("value", function(snapshot) {
       userGoal = snap[i].goal;
     }
   }
+  $("option").each(function() {
+    $(this).css({backgroundColor: $(this).val()});
+  });
+  $("select").click(function() {
+    $("#colList").css({backgroundColor: $("#colList :selected").val()});
+    usersRef.child(authData.uid).update({
+      color: $("#colList :selected").val()
+    });
+  });
   console.log(userPoints);
   $(".authPoints").text("Points: " + userPoints);
   $("#accountPoints").text("Points: " + userPoints);
@@ -281,6 +290,13 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
     $("#newMsg").css({zIndex: "1", opacity: 1});
   }
 });
+
+//Browsing other accounts and shit
+
+$(".accLink").click(function() {
+  console.log(location.hash.slice(1));
+});
+
 //Quiz shit here
 
 

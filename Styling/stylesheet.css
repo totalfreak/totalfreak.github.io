@@ -137,10 +137,12 @@ li {
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
           opacity: 1;
+          z-index: 1;
 }
 #gambaPage {
   opacity: 0;
   padding-top: 10%;
+  z-index: -1;
 }
 #gambaCont {
   position: fixed;
@@ -165,6 +167,7 @@ li {
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
           opacity: 1;
+          z-index: 1;
 }
 .lesson #lessonPage {
   -webkit-transition: all 0.2s ease;
@@ -274,8 +277,20 @@ li {
   background-color: #F8981B;
   color: #210002;
 }
+#colList {
+  width: 150px;
+  height: 35px;
+  background-color: #F8981B;
+  border: 2px solid #210002;
+}
+.colList option {
+  width: 150px;
+  height: 35px;
+  background-color: #F8981B;
+  border: 2px solid #210002;
+  padding: 3px;
+}
 #resetButton {
-  position: absolute;
   bottom: 15px;
 }
 
