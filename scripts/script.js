@@ -276,6 +276,7 @@ $("#messageText").keypress(function(event) {
   });
 }
 });
+
 msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
   var message = snapshot.val().message;
   var time = snapshot.val().time;
@@ -292,9 +293,10 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
 });
 
 //Browsing other accounts and shit
-
-$(".accLink").click(function() {
-  console.log(location.hash.slice(1));
+$("#messageCont").click(function() {
+  accView = location.hash.slice(1);
+  console.log(accView);
+  
 });
 
 //Quiz shit here

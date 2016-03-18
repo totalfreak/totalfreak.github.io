@@ -310,7 +310,7 @@ li {
   font-family: "Arvo", sans-serif;
   color: #FFAF00;
   border-radius: 3px;
-  z-index: 99;
+  z-index: 97;
 }
 #wagerText {
   background-color: #210002;
@@ -357,6 +357,7 @@ li {
   text-align: justify;
   border-bottom: 2px solid #F8981B;
   word-wrap: break-word;
+  z-index: 98;
 }
 /* Let's get this party started */
 ::-webkit-scrollbar {
