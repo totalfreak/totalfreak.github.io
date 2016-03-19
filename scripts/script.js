@@ -2,6 +2,7 @@ $(document).ready(function(){
 
   newMsgCount = 0;
   msgOut = false;
+  accView = null;
 //Navbar showing and hiding
   $("#arrow").css({transform: "rotate(180deg)"});
   $("#arrow").toggle(function() {
@@ -296,8 +297,78 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
 $("#messageCont").click(function() {
   accView = location.hash.slice(1);
   console.log(accView);
-  
+usersRef.on("value", function(snapshot) {
+  data = snapshot.val();
+  for(i in data) {
+    if(i == accView) {
+      //Removing all classes from navbar
+        $("#navbar").removeClass();
+        $("#superWrap").removeClass();
+      //Going to account page
+        $("#navbar").addClass("account2");
+        $("#superWrap").addClass("account2");
+        console.log(data[i]);
+        otherPoints = data[i].points;
+        otherWins = data[i].wins;
+        otherLoses = data[i].loses;
+        otherLvl = data[i].level;
+        otherExp = data[i].exp;
+        otherGoal = data[i].goal;
+        $(".authPoints2").text("Points: " + otherPoints);
+        $("#otherWins").text("Wins: " + otherWins);
+        $("#otherLoses").text("Loses: " + otherLoses);
+        $("#authLvl2").text("Level: " + otherLvl);
+        $("#authExp2").text("Experience: " + otherExp);
+        $("#authExpNeed2").text("Experience needed: " + (otherGoal-otherExp));
+        $("#profilePic").attr('src', data[i].password.profileImageURL);
+    }
+  }
 });
+});
+
+//Customizing your account here
+var form = document.getElementById('file-form');
+var fileSelect = document.getElementById('file-select');
+var uploadButton = document.getElementById('upload-button');
+form.onsubmit = function(event) {
+  event.preventDefault();
+
+  // Update button text.
+  uploadButton.innerHTML = 'Uploading...';
+
+  // The rest of the code will go here...
+  // Get the selected files from the input.
+var files = fileSelect.files;
+// Create a new FormData object.
+var formData = new FormData();
+// Loop through each of the selected files.
+for (var i = 0; i < files.length; i++) {
+  var file = files[i];
+
+  // Check the file type.
+  if (!file.type.match('image.*')) {
+    continue;
+  }
+
+  // Add the file to the request.
+  formData.append('photos[]', file, file.name);
+  // Set up the request.
+var xhr = new XMLHttpRequest();
+// Open the connection.
+xhr.open('POST', 'handler.php', true);
+// Set up a handler for when the request finishes.
+xhr.onload = function () {
+  if (xhr.status === 200) {
+    // File(s) uploaded.
+    uploadButton.innerHTML = 'Upload';
+  } else {
+    alert('An error occurred!');
+  }
+};
+// Send the Data.
+xhr.send(formData);
+}
+}
 
 //Quiz shit here
 

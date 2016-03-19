@@ -43,7 +43,7 @@
     <div id="accountInfo">
       <div id="messageBox">
         <div id="messageCont">
-        
+
       </div>
         <input id="messageText" type="text" name="messageText" placeholder="Enter your text here"></input>
       </div>
@@ -51,6 +51,7 @@
     </div>
     <center><img id="arrow" class="arrow" src="Styling/Pictures/arrow.png"></center>
     <div id="contCont">
+      <!-- Personal account page -->
         <div id="accountPage">
           <div id="accountCont">
             <img id="profilePic" src="Styling/Pictures/profile-placeholder.png" width="150px" height="150px">
@@ -62,6 +63,11 @@
             <p id="authExpNeed">Experience needed: </p>
             <div id="expBar"></div>
             <h2 class="authPoints">Points: </h2>
+            <br>
+            <form id="file-form" method="POST">
+              <input type="file" id="file-select" name="msgBg"/>
+              <button type="submit" id="upload-button">Upload</button>
+            </form>
             <br>
             <select id="colList" name="colList" value="#e74c3c">
               <option class="colSelect" value="#e74c3c">#e74c3c</option>
@@ -79,6 +85,23 @@
             </select>
             <br>
             <button type="button" class="domButton" id="resetButton">Reset password</button>
+        </div>
+        </div>
+        <!-- Other accounts page -->
+        <div id="accountPage2">
+          <div id="accountCont2">
+            <img id="profilePic2" src="Styling/Pictures/profile-placeholder.png" width="150px" height="150px">
+            <br />
+            <p id="authDatas2">Email: </p>
+            <br>
+            <p id="authLvl2">Level: </p>
+            <p id="authExp2">Experience: </p>
+            <p id="authExpNeed2">Experience needed: </p>
+            <div id="expBar2"></div>
+            <p id="otherWins">Wins: </p>
+            <p id="otherLoses">Loses: </p>
+            <h2 class="authPoints2">Points: </h2>
+            <br>
         </div>
         </div>
         <div id="gambaPage">
