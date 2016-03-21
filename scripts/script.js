@@ -246,13 +246,14 @@ $("#gambaButton").click(function() {
     });
   }
 });
-var timerVar = setInterval(givePoints, 120000);
+
 function givePoints() {
   userPoints += 10;
   usersRef.child(authData.uid).update({
     points: userPoints
   });
 }
+var timerVar = setInterval(givePoints, 120000);
 $("#wagerText").keypress(function(event) {
   if(event.keyCode == 17) {
     console.log(event.keyCode);
@@ -325,7 +326,7 @@ usersRef.on("value", function(snapshot) {
   }
 });
 });
-
+/*
 //Customizing your account here
 var form = document.getElementById('file-form');
 var fileSelect = document.getElementById('file-select');
@@ -368,8 +369,9 @@ xhr.onload = function () {
 // Send the Data.
 xhr.send(formData);
 }
-}
 
+}
+*/
 //Quiz shit here
 
 
