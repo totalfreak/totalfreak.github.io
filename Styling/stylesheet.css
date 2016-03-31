@@ -86,6 +86,7 @@ body {
   top: -6px;
   background-color: #210002;
   margin-top: 0;
+  z-index: 10;
 }
 #navbar ul li {
   float: left;
@@ -384,7 +385,7 @@ li {
   padding-left: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
-  background-color: #210002;
+  
   text-align: justify;
   border-bottom: 2px solid #F8981B;
   word-wrap: break-word;

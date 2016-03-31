@@ -276,7 +276,8 @@ $("#messageText").keypress(function(event) {
     dbTime: dbTime,
     message: message,
     color: userColor,
-    uid: uid
+    uid: uid,
+    bgLink: bgLink
   });
 }
 });
@@ -287,7 +288,8 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
   var name = snapshot.val().name;
   var color = snapshot.val().color;
   var uid = snapshot.val().uid;
-  $("#messageCont").append("<p class='message' style='color: "+color+"'>" + time + '<br><a class="accLink" style=color:' + color + ' href="#' + uid + '">' + name + "</a>" + ":" + " " + message +"</p>");
+  var userBgLink = snapshot.val().bgLink;
+  $("#messageCont").append("<p class='message' style='color: "+color+"; background:url(" + userBgLink + ") center no-repeat; background-size: 500px'>" + time + '<br><a class="accLink" style=color:' + color + ' href="#' + uid + '">' + name + "</a>" + ":" + " " + message +"</p>");
   $("#messageCont").scrollTo('max', {axis: 'y'});
   if(!msgOut) {
     newMsgCount += 1;
@@ -330,7 +332,15 @@ usersRef.on("value", function(snapshot) {
 });
 
 //Setting custom bg for messages
-
+$("#bgSubmit").click(function() {
+  bgLink = $("#bgLink").val();
+  bgLink = String(bgLink);
+  if(bgLink.indexOf(".png" != -1) || bgLink.indexOf(".jpg") != -1 || bgLink.indexOf(".gif") != -1) {
+    usersRef.child(authData.uid).update({
+      bgLink: bgLink
+    });
+  }
+});
 
 /*
 //Customizing your account here
