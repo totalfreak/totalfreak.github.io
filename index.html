@@ -61,13 +61,18 @@
             <p id="authLvl">Level: </p>
             <p id="authExp">Experience: </p>
             <p id="authExpNeed">Experience needed: </p>
-            <div id="expBar"></div>
+            <center><div id="expBar"></div></center>
             <h2 class="authPoints">Points: </h2>
             <br>
-            <form id="file-form" action="handler.php" method="POST">
-              <input type="file" id="file-select" name="msgBg"/>
-              <button type="submit" id="upload-button">Upload</button>
-            </form>
+            <h3 style="border-bottom: 2px solid #210002;">Link to message background</h3>
+            <br>
+            <input id="bgLink" type="text" name="bgLink" value="" placeholder="Write link to image">
+            <br>
+            <br>
+            <button class="domButton">Submit</button>
+            <br>
+
+            <h3 style="border-bottom: 2px solid #210002;">Choose your message color</h3>
             <br>
             <select id="colList" name="colList" value="#e74c3c">
               <option class="colSelect" value="#e74c3c">#e74c3c</option>
@@ -84,6 +89,7 @@
               <option class="colSelect"  value="#f1c40f">#f1c40f</option>
             </select>
             <br>
+            <br>
             <button type="button" class="domButton" id="resetButton">Reset password</button>
         </div>
         </div>
@@ -97,7 +103,7 @@
             <p id="authLvl2">Level: </p>
             <p id="authExp2">Experience: </p>
             <p id="authExpNeed2">Experience needed: </p>
-            <div id="expBar2"></div>
+            <center><div id="expBar2"></div></center>
             <p id="otherWins">Wins: </p>
             <p id="otherLoses">Loses: </p>
             <h2 class="authPoints2">Points: </h2>

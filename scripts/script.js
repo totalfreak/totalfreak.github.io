@@ -16,7 +16,7 @@ $(document).ready(function(){
         opacity: '0.6'
       }, 600, 'easeInOutBack');
       $("#accountInfo").animate({
-        top: '2px'
+        top: '0px'
       }, 600, 'easeInOutBack');
     }, function() {
         $("#arrow").animate({
@@ -29,7 +29,7 @@ $(document).ready(function(){
           opacity: '1'
         }, 600, 'easeInOutBack');
         $("#accountInfo").animate({
-          top: '44px'
+          top: '40px'
         }, 600, 'easeInOutBack');
       });
 
@@ -137,7 +137,8 @@ $("#createButton").click(function() {
             loses: 0,
             exp: 0,
             level: 1,
-            color: color
+            color: color,
+            bgLink: "#210002"
           });
         }
       });
@@ -186,6 +187,7 @@ usersRef.on("value", function(snapshot) {
       userExp = snap[i].exp;
       userColor = snap[i].color;
       userGoal = snap[i].goal;
+      bgLink = snap[i].bgLink;
     }
   }
   $("option").each(function() {
@@ -326,6 +328,10 @@ usersRef.on("value", function(snapshot) {
   }
 });
 });
+
+//Setting custom bg for messages
+
+
 /*
 //Customizing your account here
 var form = document.getElementById('file-form');

@@ -7,7 +7,8 @@
 }
 body {
   background-color: #F8981B;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 
 }
 
@@ -38,6 +39,16 @@ body {
 }
 ::-webkit-input-placeholder {
   color: #530132;
+  text-indent: 5px;
+}
+#bgLink {
+  width: 250px;
+  height: 25px;
+  background-color: #210002;
+  border-radius: 3px;
+  color: #FFAF00;
+  font-size: 15px;
+  font-family: "Arvo", sans-serif;
   text-indent: 5px;
 }
 #loginButton {
@@ -379,7 +390,7 @@ li {
   word-wrap: break-word;
   z-index: 98;
 }
-/* Let's get this party started */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
