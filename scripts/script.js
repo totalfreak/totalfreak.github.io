@@ -37,6 +37,7 @@ $(document).ready(function(){
   $(".navlink").click(function() {
     $("#navbar").removeClass();
     $("#superWrap").removeClass();
+    $("body").css({overflowY: "hidden"});
   });
   //Going to account page
   $("#accountButton").click(function() {
@@ -52,6 +53,12 @@ $(document).ready(function(){
   $("#lesson").click(function() {
     $("#navbar").addClass("lesson");
     $("#superWrap").addClass("lesson");
+  });
+  //Going to feature page
+  $("#feature").click(function() {
+    $("#navbar").addClass("feature");
+    $("#superWrap").addClass("feature");
+    $("body").css({overflowY: "auto"});
   });
 
   //messageBox in/out toggle
@@ -342,6 +349,9 @@ $("#bgSubmit").click(function() {
     });
   }
 });
+
+//Adding suggestions to the box
+
 
 /*
 //Customizing your account here

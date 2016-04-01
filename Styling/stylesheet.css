@@ -8,8 +8,7 @@
 body {
   background-color: #F8981B;
   overflow-x: hidden;
-  overflow-y: auto;
-
+  overflow-y: hidden;
 }
 
 #loginScreen {
@@ -142,9 +141,6 @@ li {
   text-align: center;
 }
 #contCont {
-  display: flex;
-  justify-content: center;
-  align-content: center;
   height: 100%;
   width: 100%;
 }
@@ -185,7 +181,7 @@ li {
 }
 #gambaCont {
   position: fixed;
-  left: 43%;
+  left: 42%;
   justify-content: center;
   align-content: center;
   flex-direction: column;
@@ -210,6 +206,21 @@ li {
   padding-top: 46px;
   z-index: -1;
 }
+#featurePage {
+  opacity: 0;
+  padding-top: 146px;
+  z-index: -1;
+}
+#featureCont {
+  color: #210002;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-top: 3px solid #210002;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .gamba #gamba {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
@@ -220,6 +231,28 @@ li {
           transition: all 0.2s ease;
           opacity: 1;
           z-index: 1;
+}
+.feature #feature {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  background-color: rgb(163, 67, 0);
+}
+.feature #featurePage {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+          opacity: 1;
+          z-index: 1;
+}
+.suggestion {
+  width: 300px;
+  min-height: 200px;
+  padding: 5px;
+  background-color: #210002;
+  color: #FFAF00;
+  border-radius: 4px;
+  margin: 10px;
+  word-wrap: break-word;
+  text-align: center;
 }
 .lesson #lessonPage {
   -webkit-transition: all 0.2s ease;
