@@ -190,6 +190,7 @@ usersRef.on("value", function(snapshot) {
       color: $("#colList :selected").val()
     });
   });
+  $("#profilePic").attr('src', bgLink);
   $(".authPoints").text("Points: " + userPoints);
   $("#accountPoints").text("Points: " + userPoints);
   $("#userWins").text("Wins: " + userWins);
@@ -314,7 +315,7 @@ usersRef.on("value", function(snapshot) {
         $("#authLvl2").text("Level: " + otherLvl);
         $("#authExp2").text("Experience: " + otherExp);
         $("#authExpNeed2").text("Experience needed: " + (otherGoal-otherExp));
-        $("#profilePic").attr('src', otherbgLink);
+        $("#profilePic2").attr('src', otherbgLink);
     }
   }
 });
