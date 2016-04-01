@@ -133,6 +133,14 @@ li {
   opacity: 0;
   z-index: -2;
 }
+#accountCont {
+  position: fixed;
+  left: 42%;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+}
 #contCont {
   display: flex;
   justify-content: center;
@@ -155,7 +163,14 @@ li {
   padding-top: 46px;
   opacity: 0;
   z-index: -2;
-
+}
+#accountCont2 {
+  position: fixed;
+  left: 42%;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 .account2 #accountPage2 {
   -webkit-transition: all 0.2s ease;
@@ -175,6 +190,19 @@ li {
   align-content: center;
   flex-direction: column;
   text-align: center;
+}
+#lvlUp {
+  position: fixed;
+  width: 300px;
+  height: 40px;
+  top: -40px;
+  background-color: #210002;
+  color: #FFAF00;
+  border-radius: 3px;
+  right: 10px;
+  text-align: center;
+  padding-top: 15px;
+  font-size: 20px;
 }
 #lessonPage {
   opacity: 0;
@@ -385,7 +413,6 @@ li {
   padding-left: 10px;
   padding-bottom: 10px;
   padding-top: 10px;
-  
   text-align: justify;
   border-bottom: 2px solid #F8981B;
   word-wrap: break-word;

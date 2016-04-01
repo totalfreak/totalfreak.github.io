@@ -210,6 +210,11 @@ usersRef.on("value", function(snapshot) {
       level: userLvl,
       exp: userExp
     });
+    $("#lvlUp").text("Level up! You're now level " + userLvl);
+    $("#lvlUp").animate({top: "50px"}, 600);
+    setTimeout(function(){$("#lvlUp").animate({
+      top: "-40px"
+    }, 600);}, 3000);
   }
   $("#expBar").progressbar({max: userGoal, value: userExp});
 }, function(errorObject) {
@@ -312,13 +317,13 @@ usersRef.on("value", function(snapshot) {
         $("#profilePic2").attr('src', otherbgLink);
     }
   }
-  //Removing all classes from navbar
-    $("#navbar").removeClass();
-    $("#superWrap").removeClass();
-  //Going to account page
-    $("#navbar").addClass("account2");
-    $("#superWrap").addClass("account2");
 });
+//Removing all classes from navbar
+  $("#navbar").removeClass();
+  $("#superWrap").removeClass();
+//Going to account page
+  $("#navbar").addClass("account2");
+  $("#superWrap").addClass("account2");
 });
 
 //Setting custom bg for messages
