@@ -98,12 +98,6 @@ authData = ref.getAuth();
 $("#resetButton").click(function() {
   ref.resetPassword({
     email: email
-  }, function(error) {
-    if(error === null) {
-      console.log("Password reset email sent successfully");
-    } else {
-      console.log("Error sending password reset email: ", error);
-    }
   });
 });
 
@@ -119,13 +113,11 @@ $("#createButton").click(function() {
     if(error) {
       $("#errorText").text(error);
       $("#errorText").css({opacity: "1"});
-      console.log("Error creating user: ", error);
     } else {
       var colArray = ["#e74c3c", "#c0392b", "#d35400", "#e67e22", "#16a085", "#2ecc71", "#3498db", "#2980b9", "#1abc9c", "#8e44ad", "#9b59b6", "#f39c12", "#f1c40f"];
       var color = colArray[Math.floor(Math.random() * colArray.length)];
       $("#errorText").text("Account created");
       $("#errorText").css({opacity: "1"});
-      console.log("Successfully created account with uid: ", userData.uid);
       //Creating database for new user using their uid and containing
       //name and points
       ref.onAuth(function(authData) {
@@ -168,7 +160,6 @@ $("#loginButton").click(function() {
         $("#profilePic").attr('src', authData.password.profileImageURL);
         $("#miniPic").attr('src', authData.password.profileImageURL);
         $("#miniEmail").text(authData.password.email);
-        console.log("Authenticated Successfully: ", authData);
         location.reload(true);
       }
     });
@@ -199,7 +190,6 @@ usersRef.on("value", function(snapshot) {
       color: $("#colList :selected").val()
     });
   });
-  console.log(userPoints);
   $(".authPoints").text("Points: " + userPoints);
   $("#accountPoints").text("Points: " + userPoints);
   $("#userWins").text("Wins: " + userWins);
@@ -232,12 +222,10 @@ $("#gambaButton").click(function() {
     if(odds < 50) {
       userPoints -= wager;
       userLoses += 1;
-      console.log("Ya lost");
     } else {
       userPoints += wager;
       userExp += wager;
       userWins += 1;
-      console.log("Ya won");
     }
     //Updating user's database with points, wins and loses
     usersRef.child(authData.uid).update({
@@ -319,13 +307,14 @@ usersRef.on("value", function(snapshot) {
         otherLvl = data[i].level;
         otherExp = data[i].exp;
         otherGoal = data[i].goal;
+        otherbgLink = snap[i].bgLink;
         $(".authPoints2").text("Points: " + otherPoints);
         $("#otherWins").text("Wins: " + otherWins);
         $("#otherLoses").text("Loses: " + otherLoses);
         $("#authLvl2").text("Level: " + otherLvl);
         $("#authExp2").text("Experience: " + otherExp);
         $("#authExpNeed2").text("Experience needed: " + (otherGoal-otherExp));
-        $("#profilePic").attr('src', data[i].password.profileImageURL);
+        $("#profilePic").attr('src', otherbgLink);
     }
   }
 });
