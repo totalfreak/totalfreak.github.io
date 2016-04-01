@@ -295,12 +295,6 @@ usersRef.on("value", function(snapshot) {
   data = snapshot.val();
   for(i in data) {
     if(i == accView) {
-      //Removing all classes from navbar
-        $("#navbar").removeClass();
-        $("#superWrap").removeClass();
-      //Going to account page
-        $("#navbar").addClass("account2");
-        $("#superWrap").addClass("account2");
         console.log(data[i]);
         otherPoints = data[i].points;
         otherWins = data[i].wins;
@@ -318,6 +312,12 @@ usersRef.on("value", function(snapshot) {
         $("#profilePic2").attr('src', otherbgLink);
     }
   }
+  //Removing all classes from navbar
+    $("#navbar").removeClass();
+    $("#superWrap").removeClass();
+  //Going to account page
+    $("#navbar").addClass("account2");
+    $("#superWrap").addClass("account2");
 });
 });
 
