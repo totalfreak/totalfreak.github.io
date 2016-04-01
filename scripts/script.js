@@ -205,18 +205,22 @@ usersRef.on("value", function(snapshot) {
     userLvl += 1;
     userExp = 0;
     userGoal += userGoal;
+
     usersRef.child(authData.uid).update({
       goal: userGoal,
       level: userLvl,
       exp: userExp
     });
+
     $("#lvlUp").text("Level up! You're now level " + userLvl);
     $("#lvlUp").animate({top: "50px"}, 600);
     setTimeout(function(){$("#lvlUp").animate({
       top: "-40px"
     }, 600);}, 3000);
   }
-  $("#expBar").progressbar({max: userGoal, value: userExp});
+  $(".expBar").each(function() {
+    $(this).progressbar({max: userGoal, value: userExp});
+  });
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });

@@ -203,6 +203,7 @@ li {
   text-align: center;
   padding-top: 15px;
   font-size: 20px;
+  z-index: 99;
 }
 #lessonPage {
   opacity: 0;
@@ -430,7 +431,7 @@ li {
 ::-webkit-scrollbar-thumb {
     background: #F8981B;
 }
-#expBar {
+.expBar {
     background-color: #5A1715;
     border: 4px solid #5A1715;
     height: 18px;
