@@ -218,6 +218,7 @@ usersRef.on("value", function(snapshot) {
       top: "-40px"
     }, 600);}, 3000);
   }
+  //Updating expBar on each screen
   $(".expBar").each(function() {
     $(this).progressbar({max: userGoal, value: userExp});
   });
@@ -298,8 +299,8 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
 
 //Browsing other accounts and shit
 $("#messageCont").click(function() {
+  setTimeout(function(){
   accView = location.hash.slice(1);
-  console.log(accView);
 usersRef.on("value", function(snapshot) {
   data = snapshot.val();
   for(i in data) {
@@ -328,6 +329,7 @@ usersRef.on("value", function(snapshot) {
 //Going to account page
   $("#navbar").addClass("account2");
   $("#superWrap").addClass("account2");
+}, 200);
 });
 
 //Setting custom bg for messages
