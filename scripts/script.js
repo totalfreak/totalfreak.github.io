@@ -254,6 +254,15 @@ $("#gambaButton").click(function() {
       wins: userWins,
       exp: userExp
     });
+    $("#lvlUp").animate({
+      top: "-40px"
+    }, 600);
+  } else if(userPoints < wager) {
+    $("#lvlUp").text("You need more points!");
+    $("#lvlUp").animate({top: "50px"}, 600);
+    setTimeout(function(){$("#lvlUp").animate({
+      top: "-40px"
+    }, 600);}, 1500);
   }
 });
 //Giving a user points every other minute
