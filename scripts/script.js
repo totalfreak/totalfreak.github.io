@@ -263,7 +263,7 @@ $("#gambaButton").click(function() {
 });
 //Giving a user points every other minute
 function givePoints() {
-  userPoints += 10;
+  userPoints += 100;
   usersRef.child(authData.uid).update({
     points: userPoints
   });
