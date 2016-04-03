@@ -136,6 +136,7 @@ $("#createButton").click(function() {
             wins: 0,
             loses: 0,
             exp: 0,
+            goal: 400,
             level: 1,
             color: color,
             bgLink: "#210002"
