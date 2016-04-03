@@ -187,7 +187,6 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
       userColor = snap.color;
       userGoal = snap.goal;
       bgLink = snap.bgLink;
-      
   $("option").each(function() {
     $(this).css({backgroundColor: $(this).val()});
   });
@@ -206,18 +205,16 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
     userLvl += 1;
     userExp = 0;
     userGoal += userGoal;
-
-    usersRef.child(authData.uid).update({
-      goal: userGoal,
-      level: userLvl,
-      exp: userExp
-    });
-
     $("#lvlUp").text("Level up! You're now level " + userLvl);
     $("#lvlUp").animate({top: "50px"}, 600);
     setTimeout(function(){$("#lvlUp").animate({
       top: "-40px"
     }, 600);}, 3000);
+    usersRef.child(authData.uid).update({
+      goal: userGoal,
+      level: userLvl,
+      exp: userExp
+    });
   }
   //Updating expBar on each screen
   $(".expBar").each(function() {
