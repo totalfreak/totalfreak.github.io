@@ -190,7 +190,11 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
   $("option").each(function() {
     $(this).css({backgroundColor: $(this).val()});
   });
-  $("#profilePic").attr('src', bgLink);
+  if(bgLink != "#210002") {
+    $("#profilePic").attr('src', bgLink);
+  } else {
+    $("#profilePic").attr('src', authData.password.profileImageURL);
+  }
   $(".authPoints").text("Points: " + userPoints);
   $("#accountPoints").text("Points: " + userPoints);
   $("#userWins").text("Wins: " + userWins);
