@@ -98,6 +98,7 @@ function authDataCallback(authData) {
 //Making a link to the firebase database, and linking to message database
 var ref = new Firebase("https://it-eksamen.firebaseio.com/");
 msgRef = ref.child('messages');
+suggestRef = ref.child('suggestions');
 ref.onAuth(authDataCallback);
 var usersRef = ref.child("users");
 authData = ref.getAuth();
@@ -254,7 +255,7 @@ $("#gambaButton").click(function() {
     });
   }
 });
-
+//Giving a user points every other minute
 function givePoints() {
   userPoints += 10;
   usersRef.child(authData.uid).update({
@@ -351,6 +352,25 @@ $("#bgSubmit").click(function() {
 });
 
 //Adding suggestions to the box
+$("#submitSuggest").click(function() {
+  if($("#suggestBox").val() != 0) {
+  suggestion = $("#suggestBox").val();
+  $("#suggestBox").val('');
+  var dt = new Date();
+  var dbTime = dt.getTime()
+  suggestRef.push({
+    suggestion: suggestion,
+    name: authData.password.email,
+    dbTime: dbTime
+  });
+}
+});
+    suggestRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
+      var name = snapshot.val().name;
+      var suggestion = snapshot.val().suggestion;
+      $("#featureCont").append("<div class='suggestion'>" + name + "<br><br>" + suggestion + "<br></div>");
+    });
+
 
 
 /*
