@@ -177,20 +177,17 @@ $("#loginButton").click(function() {
 //Fetching data from database
 if(authData) {
   //usersRef.child(authData.uid).on("value", function(snapshot) {
-usersRef.on("value", function(snapshot) {
+usersRef.child(authData.uid).on("value", function(snapshot) {
   snap = snapshot.val();
-  for(i in snap) {
-    if(i == uid) {
-      userPoints = snap[i].points;
-      userWins = snap[i].wins;
-      userLoses = snap[i].loses;
-      userLvl = snap[i].level;
-      userExp = snap[i].exp;
-      userColor = snap[i].color;
-      userGoal = snap[i].goal;
-      bgLink = snap[i].bgLink;
-    }
-  }
+      userPoints = snap.points;
+      userWins = snap.wins;
+      userLoses = snap.loses;
+      userLvl = snap.level;
+      userExp = snap.exp;
+      userColor = snap.color;
+      userGoal = snap.goal;
+      bgLink = snap.bgLink;
+      
   $("option").each(function() {
     $(this).css({backgroundColor: $(this).val()});
   });
