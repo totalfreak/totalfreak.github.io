@@ -176,6 +176,7 @@ $("#loginButton").click(function() {
 });
 //Fetching data from database
 if(authData) {
+  //usersRef.child(authData.uid).on("value", function(snapshot) {
 usersRef.on("value", function(snapshot) {
   snap = snapshot.val();
   for(i in snap) {
@@ -192,12 +193,6 @@ usersRef.on("value", function(snapshot) {
   }
   $("option").each(function() {
     $(this).css({backgroundColor: $(this).val()});
-  });
-  $("select").click(function() {
-    $("#colList").css({backgroundColor: $("#colList :selected").val()});
-    usersRef.child(authData.uid).update({
-      color: $("#colList :selected").val()
-    });
   });
   $("#profilePic").attr('src', bgLink);
   $(".authPoints").text("Points: " + userPoints);
@@ -233,6 +228,12 @@ usersRef.on("value", function(snapshot) {
   });
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
+});
+$("select").click(function() {
+  $("#colList").css({backgroundColor: $("#colList :selected").val()});
+  usersRef.child(authData.uid).update({
+    color: $("#colList :selected").val()
+  });
 });
 //Doing some gambling and checking if points are adequate
 $("#gambaButton").click(function() {
