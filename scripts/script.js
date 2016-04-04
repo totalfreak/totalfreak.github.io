@@ -385,7 +385,7 @@ $("#submitSuggest").click(function() {
       function urlify2(suggestion) {
         var urlRegex = /(https?:\/\/[^\s]+)/g;
         return suggestion.replace(urlRegex, function(url) {
-          return '<a href="' + url + '">' + url + '</a>';
+          return '<a target="_blank" href="' + url + '">' + url + '</a>';
         });
       }
       var suggestion = urlify2(suggestion);
