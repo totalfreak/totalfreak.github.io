@@ -5,6 +5,10 @@
   color: #210002;
   font-family: "Arvo", sans-serif;
 }
+a {
+  text-decoration: none;
+  color: #FFAF00;
+}
 body {
   background-color: #F8981B;
   overflow-x: hidden;

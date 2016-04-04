@@ -282,7 +282,6 @@ $("#messageText").keypress(function(event) {
   var dt = new Date();
   var dbTime = dt.getTime();
   var time = dt.toDateString() + " " + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
-  console.log(dbTime);
   msgRef.push({
     name: authData.password.email,
     time: time,
@@ -302,6 +301,14 @@ msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapsho
   var color = snapshot.val().color;
   var uid = snapshot.val().uid;
   var userBgLink = snapshot.val().bgLink;
+  //Finding links in the text, and making it a hyperlink
+  function urlify(message) {
+    var urlRegex = /(https?:\/\/[^\s]+)/g;
+    return message.replace(urlRegex, function(url) {
+      return '<a href="' + url + '">' + url + '</a>';
+    });
+  }
+  var message = urlify(message);
   $("#messageCont").append("<p class='message' style='color: "+color+"; background:url(" + userBgLink + ") center no-repeat; background-size: 500px'>" + time + '<br><a class="accLink" style=color:' + color + ' href="#' + uid + '">' + name + "</a>" + ":" + " " + message +"</p>");
   $("#messageCont").scrollTo('max', {axis: 'y'});
   if(!msgOut) {
@@ -374,6 +381,14 @@ $("#submitSuggest").click(function() {
     suggestRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
       var name = snapshot.val().name;
       var suggestion = snapshot.val().suggestion;
+      //Finding links in the text, and making it a hyperlink
+      function urlify2(suggestion) {
+        var urlRegex = /(https?:\/\/[^\s]+)/g;
+        return suggestion.replace(urlRegex, function(url) {
+          return '<a href="' + url + '">' + url + '</a>';
+        });
+      }
+      var suggestion = urlify2(suggestion);
       $("#featureCont").append("<div class='suggestion'>" + name + "<br><br>" + suggestion + "<br></div>");
     });
 
