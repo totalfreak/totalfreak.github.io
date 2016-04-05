@@ -4,6 +4,7 @@
   border: 0;
   color: #210002;
   font-family: "Arvo", sans-serif;
+  outline: none;
 }
 a {
   text-decoration: none;
@@ -31,15 +32,19 @@ body {
   text-align: center;
 }
 .credentials {
-  width: 250px;
-  height: 50px;
-  margin-top: 40px;
-  background-color: #C7293F;
-  border-radius: 10px;
-  color: #530132;
   font-size: 18px;
   font-family: "Arvo", sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(3em + 2px);
+  margin: 0 0 1em;
+  padding: 1em;
+  border-radius: 1.5em;
+  outline: none;
   text-indent: 5px;
+  background-color: #C7293F;
+  color: #530132;
+  margin-top: 20px;
 }
 ::-webkit-input-placeholder {
   color: #530132;
@@ -320,8 +325,24 @@ li {
   direction: rtl;
   position: absolute;
   margin-top: 17px;
-  right: 220px;
+  right: 260px;
   color: #FFAF00;
+}
+#lvlCont {
+  position: absolute;
+  display: block;
+  right: 220px;
+  color: #210002;
+  border-radius: 360px;
+  width: 28px;
+  height: 28px;
+  text-align: center;
+  margin-top: 12px;
+}
+.authLvl {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 25px;
 }
 .domButton {
   position: relative;
@@ -451,7 +472,15 @@ li {
 .ui-progressbar-value {
   background-color: #FFAF00;
 }
-
+.progress {
+  top: 0;
+  position: absolute;
+  height: 30px;
+}
+.progress > svg {
+  height: 100%;
+  display: block;
+}
 @media only screen and (max-device-width: 480px) and (orientation: portrait) {
 #loginCont {
   margin-bottom: 50%;

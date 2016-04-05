@@ -1,5 +1,15 @@
 $(document).ready(function(){
 
+  var circle = new ProgressBar.Circle('#progress', {
+      color: '#FCB03C',
+      duration: 3000,
+      strokeWidth: 10,
+      easing: 'easeInOut',
+      text: {
+        value: 10
+      }
+  });
+
   newMsgCount = 0;
   msgOut = false;
   accView = null;
@@ -223,6 +233,11 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
   //Updating expBar on each screen
   $(".expBar").each(function() {
     $(this).progressbar({max: userGoal, value: userExp});
+
+  scaledValue = userExp/userGoal;
+  circle.text = userLvl;
+  circle.set(scaledValue);
+  $(".progressbar-text").text(userLvl);
   });
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
