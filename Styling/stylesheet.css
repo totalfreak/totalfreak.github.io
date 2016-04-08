@@ -11,10 +11,27 @@ a {
   color: #FFAF00;
 }
 th {
-  padding-left: 12em;
+  position: relative;
+  left: 13.35em;
+  text-align: center;
+  border-bottom: 5px solid blue;
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+tr {
+  text-align: center;
 }
 td {
-  padding-left: 12em;
+  position: relative;
+  left: 15em;
+  color: #210002;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5em;
+  padding-right: 6em;
+  border-bottom: 5px solid rgb(163, 67, 0);
+  z-index: -1;
 }
 body {
   background-color: #F8981B;

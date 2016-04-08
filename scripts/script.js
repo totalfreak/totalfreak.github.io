@@ -110,13 +110,13 @@ function authDataCallback(authData) {
     console.log("User is logged out");
   }
 }
-//Making a link to the firebase database, and linking to message database
+//Making a link to the firebase database, and linking to databases
 var ref = new Firebase("https://it-eksamen.firebaseio.com/");
 msgRef = ref.child('messages');
 suggestRef = ref.child('suggestions');
-ref.onAuth(authDataCallback);
-var usersRef = ref.child("users");
+usersRef = ref.child('users');
 authData = ref.getAuth();
+ref.onAuth(authDataCallback);
 //Sending reset password email
 $("#resetButton").click(function() {
   ref.resetPassword({
@@ -312,7 +312,6 @@ $("#wagerText").keypress(function(event) {
 $("#messageText").keypress(function(event) {
   if(event.keyCode == 13 && $("#messageText").val() != "") {
   var message = $("#messageText").val();
-
   var dt = new Date();
   var dbTime = dt.getTime();
   var time = dt.toDateString() + " " + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
@@ -346,7 +345,6 @@ $("#messageText").keypress(function(event) {
   $("#messageText").val('');
 }
 });
-
 msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
   var message = snapshot.val().message;
   var time = snapshot.val().time;
@@ -417,9 +415,13 @@ $("#bgSubmit").click(function() {
 });
 
 //leaderboard stuff
-/*$("#leaderboard").click(function() {
-
-});*/
+  usersRef.orderByChild("points").limitToLast(50).on("child_added", function(snapshot) {
+    var userName = snapshot.val().name;
+    var userPoint = snapshot.val().points;
+    var userLoss = snapshot.val().loses;
+    var userWin = snapshot.val().wins;
+    $("tbody").prepend("<tr><td>" + userName + "</td><td>" + userPoint + "</td><td>" + userWin + "</td><td>" + userLoss + "</td></tr>");
+  });
 
 //Adding suggestions to the box
 $("#submitSuggest").click(function() {
@@ -437,6 +439,7 @@ $("#submitSuggest").click(function() {
 });
 //Getting suggestions from Database
     suggestRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
+      console.log(snapshot.val());
       var name = snapshot.val().name;
       var suggestion = snapshot.val().suggestion;
       //Finding links in the text, and making it a hyperlink
