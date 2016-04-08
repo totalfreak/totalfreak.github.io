@@ -415,7 +415,7 @@ $("#submitSuggest").click(function() {
   suggestion = $("#suggestBox").val();
   $("#suggestBox").val('');
   var dt = new Date();
-  var dbTime = dt.getTime()
+  var dbTime = dt.getTime();
   suggestRef.push({
     suggestion: suggestion,
     name: authData.password.email,
@@ -423,6 +423,7 @@ $("#submitSuggest").click(function() {
   });
 }
 });
+//Getting suggestions from Database
     suggestRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
       var name = snapshot.val().name;
       var suggestion = snapshot.val().suggestion;
