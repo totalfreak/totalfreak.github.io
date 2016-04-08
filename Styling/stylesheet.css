@@ -31,7 +31,6 @@ td {
   padding-left: 5em;
   padding-right: 6em;
   border-bottom: 5px solid rgb(163, 67, 0);
-  z-index: -1;
 }
 body {
   background-color: #F8981B;
@@ -196,7 +195,8 @@ li {
 #leaderboardPage {
   padding-top: 46px;
   opacity: 0;
-  z-index: -3;
+  z-index: -10;
+  position: fixed;
 }
 .account #accountPage {
   -webkit-transition: all 0.2s ease;

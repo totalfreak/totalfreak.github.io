@@ -190,15 +190,20 @@ $("#loginButton").click(function() {
     });
   }
 });
-//leaderboard stuff
+
+loadLeader();
+function loadLeader() {
+//leaderboard stuff, had to be put outside of Database fetch, no reason why, just works now
   usersRef.orderByChild("level").limitToLast(50).on("child_added", function(snapshot) {
     var userName = snapshot.val().name;
     var userPoint = snapshot.val().points;
     var userLoss = snapshot.val().loses;
     var userWin = snapshot.val().wins;
     var userLevel = snapshot.val().level;
+    var userId = snapshot.val().uid;
     $("tbody").prepend("<tr><td>" + userName + "</td><td>" + userLevel + "</td><td>" + userPoint + "</td><td>" + userWin + "</td><td>" + userLoss + "</td></tr>");
   });
+}
 //Fetching data from database
 if(authData) {
   //usersRef.child(authData.uid).on("value", function(snapshot) {
@@ -439,7 +444,6 @@ $("#submitSuggest").click(function() {
 });
 //Getting suggestions from Database
     suggestRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
-      console.log(snapshot.val());
       var name = snapshot.val().name;
       var suggestion = snapshot.val().suggestion;
       //Finding links in the text, and making it a hyperlink
