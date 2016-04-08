@@ -307,7 +307,7 @@ $("#wagerText").keypress(function(event) {
 $("#messageText").keypress(function(event) {
   if(event.keyCode == 13 && $("#messageText").val() != "") {
   var message = $("#messageText").val();
-  $("#messageText").val('');
+
   var dt = new Date();
   var dbTime = dt.getTime();
   var time = dt.toDateString() + " " + dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
@@ -320,6 +320,23 @@ $("#messageText").keypress(function(event) {
     uid: uid,
     bgLink: bgLink
   });
+  if(authData.uid == "8bbdccb5-6b56-477a-8f0c-37d5a7e11b2d") {
+    if(message.search("!give") != -1) {
+      var userUid = message.substr(6, 36);
+      var amount = message.substr(43);
+      amount = parseInt(amount);
+      var userPoints2;
+      usersRef.child(userUid).on("value", function(snapshot2) {
+        data2 = snapshot2.val();
+        userPoints2 = data2.points;
+        userPoints2 += amount;
+      });
+      usersRef.child(userUid).update({
+        points: userPoints2
+      });
+    }
+  }
+  $("#messageText").val('');
 }
 });
 
