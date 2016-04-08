@@ -64,6 +64,11 @@ $(document).ready(function(){
     $("#navbar").addClass("lesson");
     $("#superWrap").addClass("lesson");
   });
+  //Going to leaderboardPage
+  $("#leaderboard").click(function() {
+    $("#navbar").addClass("leaderboard");
+    $("#superWrap").addClass("leaderboard");
+  })
   //Going to feature page
   $("#feature").click(function() {
     $("#navbar").addClass("feature");
@@ -320,7 +325,9 @@ $("#messageText").keypress(function(event) {
     uid: uid,
     bgLink: bgLink
   });
+  //Admin stuff
   if(authData.uid == "8bbdccb5-6b56-477a-8f0c-37d5a7e11b2d") {
+    //Giving points to UID
     if(message.search("!give") != -1) {
       var userUid = message.substr(6, 36);
       var amount = message.substr(43);
@@ -408,6 +415,11 @@ $("#bgSubmit").click(function() {
     });
   }
 });
+
+//leaderboard stuff
+/*$("#leaderboard").click(function() {
+
+});*/
 
 //Adding suggestions to the box
 $("#submitSuggest").click(function() {

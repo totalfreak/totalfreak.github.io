@@ -10,6 +10,12 @@ a {
   text-decoration: none;
   color: #FFAF00;
 }
+th {
+  padding-left: 12em;
+}
+td {
+  padding-left: 12em;
+}
 body {
   background-color: #F8981B;
   overflow-x: hidden;
@@ -158,6 +164,22 @@ li {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
   background-color: rgb(163, 67, 0);
+}
+.leaderboard #leaderboard {
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+  background-color: rgb(163, 67, 0);
+}
+.leaderboard #leaderboardPage {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+          opacity: 1;
+          z-index: 1;
+}
+#leaderboardPage {
+  padding-top: 46px;
+  opacity: 0;
+  z-index: -3;
 }
 .account #accountPage {
   -webkit-transition: all 0.2s ease;
