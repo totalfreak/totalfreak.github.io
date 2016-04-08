@@ -14,7 +14,7 @@ th {
   position: relative;
   left: 13.35em;
   text-align: center;
-  border-bottom: 5px solid blue;
+  border-bottom: 5px solid rgb(163, 67, 0);
   font-size: 18px;
   padding-bottom: 10px;
 }
