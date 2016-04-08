@@ -149,7 +149,8 @@ $("#createButton").click(function() {
             goal: 400,
             level: 1,
             color: color,
-            bgLink: "#210002"
+            bgLink: "#210002",
+            gain: 100
           });
         }
       });
@@ -196,7 +197,18 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
       userExp = snap.exp;
       userColor = snap.color;
       userGoal = snap.goal;
+      userGain = snap.gain;
+      if(snap.bgLink == "") {
+       snap.bgLink = "#210002";
+      }
       bgLink = snap.bgLink;
+      if(userGain == undefined) {
+        usersRef.child(authData.uid).update({
+          gain: 100
+        });
+      } else {
+        userGain = snap.gain;
+      }
   $("option").each(function() {
     $(this).css({backgroundColor: $(this).val()});
   });
@@ -219,6 +231,7 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
     userLvl += 1;
     userExp = 0;
     userGoal += userGoal;
+    userGain += 25;
     $("#lvlUp").text("Level up! You're now level " + userLvl);
     $("#lvlUp").animate({top: "50px"}, 600);
     setTimeout(function(){$("#lvlUp").animate({
@@ -227,7 +240,8 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
     usersRef.child(authData.uid).update({
       goal: userGoal,
       level: userLvl,
-      exp: userExp
+      exp: userExp,
+      gain: userGain
     });
   }
   //Updating expBar on each screen
@@ -278,7 +292,7 @@ $("#gambaButton").click(function() {
 });
 //Giving a user points every other minute
 function givePoints() {
-  userPoints += 100;
+  userPoints += userGain;
   usersRef.child(authData.uid).update({
     points: userPoints
   });
@@ -341,14 +355,13 @@ usersRef.on("value", function(snapshot) {
   data = snapshot.val();
   for(i in data) {
     if(i == accView) {
-        console.log(data[i]);
         otherPoints = data[i].points;
         otherWins = data[i].wins;
         otherLoses = data[i].loses;
         otherLvl = data[i].level;
         otherExp = data[i].exp;
         otherGoal = data[i].goal;
-        otherbgLink = snap[i].bgLink;
+        otherbgLink = data[i].bgLink;
         $(".authPoints2").text("Points: " + otherPoints);
         $("#otherWins").text("Wins: " + otherWins);
         $("#otherLoses").text("Loses: " + otherLoses);
