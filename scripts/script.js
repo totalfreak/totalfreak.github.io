@@ -190,6 +190,15 @@ $("#loginButton").click(function() {
     });
   }
 });
+//leaderboard stuff
+  usersRef.orderByChild("level").limitToLast(50).on("child_added", function(snapshot) {
+    var userName = snapshot.val().name;
+    var userPoint = snapshot.val().points;
+    var userLoss = snapshot.val().loses;
+    var userWin = snapshot.val().wins;
+    var userLevel = snapshot.val().level;
+    $("tbody").prepend("<tr><td>" + userName + "</td><td>" + userLevel + "</td><td>" + userPoint + "</td><td>" + userWin + "</td><td>" + userLoss + "</td></tr>");
+  });
 //Fetching data from database
 if(authData) {
   //usersRef.child(authData.uid).on("value", function(snapshot) {
@@ -309,15 +318,6 @@ $("#wagerText").keypress(function(event) {
     $("#wagerText").val(userPoints);
   }
 });
-//leaderboard stuff
-  usersRef.orderByChild("points").limitToLast(50).on("child_added", function(snapshot) {
-    var userName = snapshot.val().name;
-    var userPoint = snapshot.val().points;
-    var userLoss = snapshot.val().loses;
-    var userWin = snapshot.val().wins;
-    var userLevel = snapshot.val().level;
-    $("tbody").prepend("<tr><td>" + userLevel + "</td><td>" + userName + "</td><td>" + userPoint + "</td><td>" + userWin + "</td><td>" + userLoss + "</td></tr>");
-  });
 $("#messageText").keypress(function(event) {
   if(event.keyCode == 13 && $("#messageText").val() != "") {
   var message = $("#messageText").val();
