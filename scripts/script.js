@@ -227,7 +227,7 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
   $("option").each(function() {
     $(this).css({backgroundColor: $(this).val()});
   });
-  if(bgLink != "#210002") {
+  if(bgLink != "#210002" && bgLink != "") {
     $("#profilePic").attr('src', bgLink);
   } else {
     $("#profilePic").attr('src', authData.password.profileImageURL);
@@ -365,6 +365,7 @@ $("#messageText").keypress(function(event) {
   $("#messageText").val('');
 }
 });
+//Fetching messages from the database and orders them by time
 msgRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
   var message = snapshot.val().message;
   var time = snapshot.val().time;
@@ -467,7 +468,9 @@ $("#submitSuggest").click(function() {
 }
 //Logging out user
 $("#logOutButton").click(function() {
+  if($("#navbar").hasClass("gamba")) {
     ref.unauth();
     location.reload(true);
+  }
 });
 });
