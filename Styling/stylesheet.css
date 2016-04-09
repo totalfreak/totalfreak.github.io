@@ -24,8 +24,8 @@ td {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-left: 5em;
-  padding-right: 6em;
+  padding-left: 80px;
+  padding-right: 80px;
   border-bottom: 5px solid rgb(163, 67, 0);
 }
 body {
@@ -189,10 +189,18 @@ li {
           z-index: 1;
 }
 #leaderboardPage {
-  padding-top: 46px;
   opacity: 0;
   z-index: -10;
-  position: fixed;
+  position: relative;
+  padding-top: -20px;
+}
+#leaderboardCont {
+  position: relative;
+}
+#trophy {
+  height: 150px;
+  width: auto;
+  margin-bottom: 60px;
 }
 .account #accountPage {
   -webkit-transition: all 0.2s ease;
@@ -251,21 +259,6 @@ li {
   padding-top: 46px;
   z-index: -10;
 }
-#featurePage {
-  position: relative;
-  opacity: 0;
-  z-index: -10;
-}
-#featureCont {
-  color: #210002;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
-  border-top: 3px solid #210002;
-  margin-left: 5px;
-  margin-right: 5px;
-}
 .gamba #gamba {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
@@ -287,6 +280,25 @@ li {
           transition: all 0.2s ease;
           opacity: 1;
           z-index: 1;
+}
+#featurePage {
+  position: absolute;
+  opacity: 0;
+  z-index: -10;
+  width: 100%;
+  height: auto;
+  top: 66px;
+  overflow-y: auto;
+}
+#featureCont {
+  color: #210002;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-top: 3px solid #210002;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 #suggestBox {
   min-height: 150px;

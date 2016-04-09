@@ -58,20 +58,17 @@ $(document).ready(function(){
   $("#gamba").click(function() {
     $("#navbar").addClass("gamba");
     $("#superWrap").addClass("gamba");
-    $("body").animate({backgroundColor: "#F8981B"}, 1000);
   });
   //Going to leaderboardPage
   $("#leaderboard").click(function() {
     $("#navbar").addClass("leaderboard");
     $("#superWrap").addClass("leaderboard");
-    $("body").animate({backgroundColor: "rgb(163, 67, 0)"}, 1000);
     $("body").css({overflowY: "auto"});
   })
   //Going to feature page
   $("#feature").click(function() {
     $("#navbar").addClass("feature");
     $("#superWrap").addClass("feature");
-    $("body").animate({backgroundColor: "#F8981B"}, 1000);
     $("body").css({overflowY: "auto"});
   });
 
@@ -92,7 +89,6 @@ $(document).ready(function(){
     function loggedIn() {
       $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
     }
-
 //Firebase stuff
 //Function that checks if user has already been Authenticated
 function authDataCallback(authData) {
@@ -205,6 +201,7 @@ function loadLeader() {
 }
 //Fetching data from database
 if(authData) {
+
   //usersRef.child(authData.uid).on("value", function(snapshot) {
 usersRef.child(authData.uid).on("value", function(snapshot) {
   snap = snapshot.val();
@@ -271,6 +268,16 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
   circle.set(scaledValue);
   $(".progressbar-text").text(userLvl);
   });
+  //Setting the colors to the users custom color choice
+  $(".navlink").each(function() {
+    $(this).animate({queue: false, color: userColor}, 1000);
+  });
+  $("body").animate({queue: false, backgroundColor: userColor}, 1000);
+  $("div.progressbar-text").animate({queue: false, color: userColor}, 1000);
+  circle.path.setAttribute('stroke', userColor);
+  $(".domButton").animate({queue: false, color: userColor}, 1000);
+  $("#miniEmail").animate({queue: false, color: userColor}, 1000);
+  $("#authPoints").animate({queue: false, color: userColor}, 1000);
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });
@@ -420,11 +427,13 @@ usersRef.on("value", function(snapshot) {
 $("#bgSubmit").click(function() {
   bgLink = $("#bgLink").val();
   bgLink = String(bgLink);
+  if($("#bgLink").val() != ""){
   if(bgLink.indexOf(".png" != -1) || bgLink.indexOf(".jpg") != -1 || bgLink.indexOf(".gif") != -1) {
     usersRef.child(authData.uid).update({
       bgLink: bgLink
     });
   }
+}
 });
 
 //Adding suggestions to the box
