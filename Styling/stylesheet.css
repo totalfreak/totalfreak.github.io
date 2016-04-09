@@ -11,8 +11,6 @@ a {
   color: #FFAF00;
 }
 th {
-  position: relative;
-  left: 13.35em;
   text-align: center;
   border-bottom: 5px solid rgb(163, 67, 0);
   font-size: 18px;
@@ -22,8 +20,6 @@ tr {
   text-align: center;
 }
 td {
-  position: relative;
-  left: 15em;
   color: #210002;
   text-align: center;
   padding-top: 10px;

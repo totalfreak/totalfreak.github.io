@@ -58,21 +58,20 @@ $(document).ready(function(){
   $("#gamba").click(function() {
     $("#navbar").addClass("gamba");
     $("#superWrap").addClass("gamba");
-  });
-  //Going to lesson page
-  $("#lesson").click(function() {
-    $("#navbar").addClass("lesson");
-    $("#superWrap").addClass("lesson");
+    $("body").animate({backgroundColor: "#F8981B"}, 1000);
   });
   //Going to leaderboardPage
   $("#leaderboard").click(function() {
     $("#navbar").addClass("leaderboard");
     $("#superWrap").addClass("leaderboard");
+    $("body").animate({backgroundColor: "rgb(163, 67, 0)"}, 1000);
+    $("body").css({overflowY: "auto"});
   })
   //Going to feature page
   $("#feature").click(function() {
     $("#navbar").addClass("feature");
     $("#superWrap").addClass("feature");
+    $("body").animate({backgroundColor: "#F8981B"}, 1000);
     $("body").css({overflowY: "auto"});
   });
 
