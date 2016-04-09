@@ -188,7 +188,7 @@ $("#loginButton").click(function() {
 
 loadLeader();
 function loadLeader() {
-//leaderboard stuff, had to be put outside of Database fetch, no reason why, just works now
+//leaderboard load, had to be put outside of Database fetch, no reason why, just works now
   usersRef.orderByChild("level").limitToLast(50).on("child_added", function(snapshot) {
     var userName = snapshot.val().name;
     var userPoint = snapshot.val().points;
@@ -199,9 +199,17 @@ function loadLeader() {
     $("tbody").prepend("<tr><td>" + userName + "</td><td>" + userLevel + "</td><td>" + userPoint + "</td><td>" + userWin + "</td><td>" + userLoss + "</td></tr>");
   });
 }
+function refreshLeader() {
+$("td").remove();
+loadLeader();
+}
+$("#refreshLeader").click(function() {
+  if($("#navbar").hasClass("leaderboard")) {
+  refreshLeader();
+}
+});
 //Fetching data from database
 if(authData) {
-
   //usersRef.child(authData.uid).on("value", function(snapshot) {
 usersRef.child(authData.uid).on("value", function(snapshot) {
   snap = snapshot.val();
