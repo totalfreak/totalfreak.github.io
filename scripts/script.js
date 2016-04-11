@@ -13,35 +13,6 @@ $(document).ready(function(){
   newMsgCount = 0;
   msgOut = false;
   accView = null;
-//Navbar showing and hiding
-  $("#arrow").css({transform: "rotate(180deg)"});
-  $("#arrow").toggle(function() {
-      $("#arrow").animate({
-        top: "0",
-        opacity: "0.6",
-        transform: "rotate(360deg)"
-      }, 600, 'easeInOutBack');
-      $("#navbar").animate({
-        top: '-46px',
-        opacity: '0.6'
-      }, 600, 'easeInOutBack');
-      $("#accountInfo").animate({
-        top: '0px'
-      }, 600, 'easeInOutBack');
-    }, function() {
-        $("#arrow").animate({
-          top: "42px",
-          opacity: "1",
-          transform: "rotate(180deg)"
-        }, 600, 'easeInOutBack');
-        $("#navbar").animate({
-          top: '-6px',
-          opacity: '1'
-        }, 600, 'easeInOutBack');
-        $("#accountInfo").animate({
-          top: '40px'
-        }, 600, 'easeInOutBack');
-      });
 
   //Removing all classes from navbar
   $(".navlink").click(function() {
@@ -280,9 +251,16 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
   $(".navlink").each(function() {
     $(this).animate({queue: false, color: userColor}, 1000);
   });
+  $(".navlink").hover(function() {
+    $(this).animate({queue: false, color: "black"}, 20);
+  }, function() {
+    $(this).animate({queue: false, color: userColor}, 30);
+  });
   $("body").animate({queue: false, backgroundColor: userColor}, 1000);
   $("div.progressbar-text").animate({queue: false, color: userColor}, 1000);
+  $("#newMsg").animate({queue: false, backgroundColor: userColor}, 1000);
   circle.path.setAttribute('stroke', userColor);
+  $("::-webkit-input-placeholder").animate({queue: false, color: userColor},1000);
   $(".domButton").animate({queue: false, color: userColor}, 1000);
   $("#miniEmail").animate({queue: false, color: userColor}, 1000);
   $("#authPoints").animate({queue: false, color: userColor}, 1000);
@@ -455,6 +433,7 @@ $("#submitSuggest").click(function() {
   suggestRef.push({
     suggestion: suggestion,
     name: authData.password.email,
+    color: userColor,
     dbTime: dbTime
   });
 }
@@ -463,6 +442,10 @@ $("#submitSuggest").click(function() {
     suggestRef.orderByChild("dbTime").limitToLast(50).on("child_added", function(snapshot) {
       var name = snapshot.val().name;
       var suggestion = snapshot.val().suggestion;
+      var color = snapshot.val().color;
+      if(color == undefined) {
+        color = "black";
+      }
       //Finding links in the text, and making it a hyperlink
       function urlify2(suggestion) {
         var urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -471,7 +454,7 @@ $("#submitSuggest").click(function() {
         });
       }
       var suggestion = urlify2(suggestion);
-      $("#featureCont").append("<div class='suggestion'>" + name + "<br><br>" + suggestion + "<br></div>");
+      $("#featureCont").append("<div class='suggestion' style = 'color:" + color + "'>" + name + "<br><br>" + suggestion + "<br></div>");
     });
 }
 //Logging out user
