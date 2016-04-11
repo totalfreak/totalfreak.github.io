@@ -19,11 +19,13 @@ $(document).ready(function(){
     $("#navbar").removeClass();
     $("#superWrap").removeClass();
     $("body").css({overflowY: "hidden"});
+    $("select").attr("disabled", "disabled");
   });
   //Going to account page
   $("#accountButton").click(function() {
     $("#navbar").addClass("account");
     $("#superWrap").addClass("account");
+    $("select").removeAttr("disabled");
   });
   //Going to gamba page
   $("#gamba").click(function() {
@@ -85,9 +87,11 @@ authData = ref.getAuth();
 ref.onAuth(authDataCallback);
 //Sending reset password email
 $("#resetButton").click(function() {
+  if($("navbar").hasClass("account")) {
   ref.resetPassword({
     email: email
   });
+}
 });
 
 //Firebase create account
