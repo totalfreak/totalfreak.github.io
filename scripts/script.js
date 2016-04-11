@@ -260,10 +260,13 @@ usersRef.child(authData.uid).on("value", function(snapshot) {
   $("div.progressbar-text").animate({queue: false, color: userColor}, 1000);
   $("#newMsg").animate({queue: false, backgroundColor: userColor}, 1000);
   circle.path.setAttribute('stroke', userColor);
-  $("::-webkit-input-placeholder").animate({queue: false, color: userColor},1000);
+  $("#wagerText").animate({queue: false, color: userColor},1000);
   $(".domButton").animate({queue: false, color: userColor}, 1000);
   $("#miniEmail").animate({queue: false, color: userColor}, 1000);
   $("#authPoints").animate({queue: false, color: userColor}, 1000);
+  $("#messageText").animate({queue: false, color: userColor}, 1000);
+  $(".ui-progressbar-value").animate({queue: false, backgroundColor: userColor},1000);
+  $("select").animate({queue: false, backgroundColor: userColor}, 1000);
 }, function(errorObject) {
   console.log("The read failed ", errorObject.code);
 });
