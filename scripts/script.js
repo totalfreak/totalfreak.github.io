@@ -63,6 +63,23 @@ $(document).ready(function(){
       $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
     }
 //Firebase stuff
+var listRef = new Firebase("https://it-eksamen.firebaseio.com/presence/");
+var userRef = listRef.push();
+
+// Add ourselves to presence list when online.
+var presenceRef = new Firebase("https://it-eksamen.firebaseio.com/.info/connected");
+presenceRef.on("value", function(snap) {
+  if (snap.val()) {
+    // Remove ourselves when we disconnect.
+    userRef.onDisconnect().remove();
+    userRef.set(true);
+  }
+});
+
+// Number of online users is the number of objects in the presence list.
+listRef.on("value", function(snap) {
+   $("#activeUsers").text("Active users: " + snap.numChildren());
+});
 //Function that checks if user has already been Authenticated
 function authDataCallback(authData) {
   if (authData) {
