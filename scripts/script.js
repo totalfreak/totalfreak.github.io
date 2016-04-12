@@ -78,7 +78,9 @@ presenceRef.on("value", function(snap) {
 
 // Number of online users is the number of objects in the presence list.
 listRef.on("value", function(snap) {
+  $("#activeUsers").animate({queue: false, opacity: 0}, 300);
    $("#activeUsers").text("Active users: " + snap.numChildren());
+   $("#activeUsers").animate({queue: false, opacity: 1}, 300);
 });
 //Function that checks if user has already been Authenticated
 function authDataCallback(authData) {

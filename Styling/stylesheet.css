@@ -125,9 +125,12 @@ color: white;
   font-family: "Arvo", sans-serif;
 }
 #activeUsers {
-  position: absolute;
-  right: 30px;
+  position: fixed;
+  left: 30px;
   bottom: 20px;
+  z-index: 102;
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
 }
 #navbar {
   position: fixed;
