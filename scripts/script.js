@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   var circle = new ProgressBar.Circle('#progress', {
       color: '#FCB03C',
       duration: 3000,
@@ -9,11 +8,9 @@ $(document).ready(function(){
         value: 10
       }
   });
-
   newMsgCount = 0;
   msgOut = false;
   accView = null;
-
   //Removing all classes from navbar
   $(".navlink").click(function() {
     $("#navbar").removeClass();
@@ -334,7 +331,7 @@ function givePoints() {
     points: userPoints
   });
 }
-var timerVar = setInterval(givePoints, 120000);
+var timerVar = setInterval(givePoints, 60000);
 $("#wagerText").keypress(function(event) {
   if(event.keyCode == 17) {
     console.log(event.keyCode);
