@@ -201,7 +201,6 @@ $("#refreshLeader").click(function() {
 });
 //Fetching data from database
 if(authData) {
-  //usersRef.child(authData.uid).on("value", function(snapshot) {
 usersRef.child(authData.uid).on("value", function(snapshot) {
   snap = snapshot.val();
       userPoints = snap.points;
