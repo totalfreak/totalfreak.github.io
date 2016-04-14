@@ -57,7 +57,7 @@ $(document).ready(function(){
       $("#accountInfo").animate({right: "-500px"}, 600, "easeInOutExpo");
     });
     function loggedIn() {
-      $("#loginScreen").animate({opacity: "0", top: "100%"}, 1200, "easeInQuint");
+      $("#loginScreen").animate({opacity: "0", top: "-100%"}, 1200, "easeInQuint");
     }
 //Firebase stuff
 var listRef = new Firebase("https://it-eksamen.firebaseio.com/presence/");
