@@ -476,7 +476,7 @@ $("#submitSuggest").click(function() {
         });
       }
       var suggestion = urlify2(suggestion);
-      $("#featureCont").append("<div class='suggestion' style = 'color:" + color + "'>" + name + "<br><br>" + suggestion + "<br></div>");
+      $("#featureCont").prepend("<div class='suggestion' style = 'color:" + color + "'>" + name + "<br><br>" + suggestion + "<br></div>");
     });
 }
 //Logging out user
