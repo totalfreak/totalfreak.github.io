@@ -32,6 +32,33 @@ body {
   0 4px 2px -3px rgba(0,0,0,.2),
   0 2px 6px 0 rgba(0,0,0,.12);
 }
+#gridCont {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 28%;
+  width:60%;
+  height: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.gridItem {
+  opacity: 1;
+  margin: 20px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.14),
+  0 4px 2px -3px rgba(0,0,0,.2),
+  0 2px 6px 0 rgba(0,0,0,.12);
+  transition: all 200ms;
+}
+.gridItem:hover {
+  opacity: 0.6;
+  box-shadow: 0 12px 12px 0 rgba(0,0,0,.14),
+  0 8px 4px -6px rgba(0,0,0,.2),
+  0 4px 12px 0 rgba(0,0,0,.12);
+}
 #quoteCont {
   position: absolute;
   height: 10px;
@@ -56,7 +83,7 @@ body {
   text-align: right;
   width: 800px;
   height: 250px;
-
+  opacity: 0;
 }
 #date {
   font-size: 2.5em;
@@ -81,6 +108,5 @@ body {
   opacity: 0;
 }
 #weather p {
-  opacity: 0;
   font-size: 0.9em;
 }
