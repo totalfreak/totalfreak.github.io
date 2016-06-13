@@ -36,7 +36,7 @@ body {
   position: absolute;
   height: 10px;
   bottom: 6%;
-  right: 100%;
+  right: 51%;
   width: 900px;
   opacity: 0;
   word-wrap: normal;
@@ -78,7 +78,9 @@ body {
   position: absolute;
   right: 10px;
   bottom: 180px;
+  opacity: 0;
 }
 #weather p {
+  opacity: 0;
   font-size: 0.9em;
 }
