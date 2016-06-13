@@ -12,15 +12,19 @@
   </head>
   <body>
     <!--Making a search function-->
-    <div class="mdl-textfield mdl-js-textfield">
-    <input class="mdl-textfield__input" type="text" id="searchInput">
-  </div>
+      <input class="mdl-textfield__input" type="text" id="searchInput">
 
+      <!--Random quote-->
+      <div id="quoteCont">
+      <p id="quote">quotes</p>
+    </div>
     <!-- Clock & Weather -->
 
     	<div class="clock">
     		<div id="date"></div>
+        <div id="timeCont">
     		<div id="time"></div>
+      </div>
     		<div id="weather"></div>
     	</div>
 
@@ -60,6 +64,16 @@
 //Weather
 
 $(document).ready(function() {
+  $("#searchInput").focus();
+  //Search function
+  $("#searchInput").keydown(function( event ) {
+  if ( event.which == 13 ) {
+   event.preventDefault();
+   val = $(this).val();
+   console.log(val);
+   window.location.assign("https://duckduckgo.com/?q=" + val);
+  }
+});
   navigator.geolocation.getCurrentPosition(function(position) {
     loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
   });
@@ -78,6 +92,27 @@ $(document).ready(function() {
     }
   });
 //}
+
+//Random quotes
+quotes = [];
+authors = [];
+quotes[0] = "I have a new philosophy. I'm only going to dread one day at a time.";
+authors[0] = "Charles Schulz";
+quotes[1] = "Reality is the leading cause of stress for those in touch with it.";
+authors[1] = "Jack Wagner";
+quotes[2] = "Few things are harder to put up with than the annoyance of a good example.";
+authors[2] = "Mark Twain";
+quotes[3] = "The pure and simple truth is rarely pure and never simple.";
+authors[3] = "Oscar Wilde";
+quotes[4] = "There's no business like show business, but there are several businesses like accounting.";
+authors[4] = "David Letterman";
+quotes[5] = "Man invented language to satisfy his deep need to complain.";
+authors[5] = "Lily Tomlin";
+
+//calculate a random index number
+index = Math.floor(Math.random() * quotes.length);
+$("#quote").text('"'+quotes[index]+'"');
+$("#quoteCont").animate({opacity: 1, right: "51%"},{duration: 1600, queue: false});
 });
 </script>
   </body>
