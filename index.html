@@ -12,8 +12,9 @@
   </head>
   <body>
     <!--Making a search function-->
-
-
+    <div class="mdl-textfield mdl-js-textfield">
+    <input class="mdl-textfield__input" type="text" id="searchInput">
+  </div>
 
     <!-- Clock & Weather -->
 
@@ -62,10 +63,10 @@ $(document).ready(function() {
   navigator.geolocation.getCurrentPosition(function(position) {
     loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
   });
-  function loadWeather(location, woeid) {
+  //function loadWeather(location, woeid) {
   $.simpleWeather({
-    location: location,
-    woeid: woeid,
+    location: 'Herlufmagle, DK',
+    woeid: '',
     unit: 'c',
     success: function(weather) {
       html = '<p>'+weather.temp+'&deg;'+weather.units.temp+'</p>';
@@ -76,7 +77,7 @@ $(document).ready(function() {
       $("#weather").html('<p>'+error+'</p>');
     }
   });
-}
+//}
 });
 </script>
   </body>

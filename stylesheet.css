@@ -11,26 +11,21 @@ body {
   background: #252A32;
   overflow: hidden;
 }
-#title {
+#searchInput {
+  width: 40%;
+  background: #FFF;
+  color: #252A32;
   position: absolute;
-  top: 50%;
+  height: 25px;
+  margin: auto;
+  position: absolute;
   left: 0;
   right: 0;
-  color: #FFF;
-  text-align: center;
-  font-family: "lato", sans-serif;
-  font-weight: 300;
-  font-size: 50px;
-  letter-spacing: 10px;
-  margin-top: -60px;
-  padding-left: 10px;
+  top: 10%;
+  font-size: 2em;
+  font-family: 'Poiret One';
+  font-weight: bold;
 }
-#title span {
-  background: -webkit-linear-gradient(white, #38495a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 
 /* Clock & Weather */
 
