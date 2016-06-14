@@ -80,15 +80,50 @@
 
 $(document).ready(function() {
   $("#searchInput").focus();
+
   //Search function
   $("#searchInput").keydown(function( event ) {
   if ( event.which == 13 ) {
    event.preventDefault();
    val = $(this).val();
    console.log(val);
-   window.location.assign("https://duckduckgo.com/?q=" + val);
+   //Duckduckgo search
+   if(-1 < val.indexOf("dg:")) {
+     window.location.assign("https://duckduckgo.com/?q=" + val.replace(/dg: |dg:/g, ''));
+   }
+   //Google search
+   else if(-1 < val.indexOf("g:")) {
+     window.location.assign("https://www.google.dk/search?site=&source=hp&q=" + val.replace(/g: |g:/g, ''));
+   }
+   //Google image search
+   else if(-1 < val.indexOf("i:")) {
+     window.location.assign("https://encrypted.google.com/search?&tbm=isch&q=" + val.replace(/i: |i:/g, ''));
+   }
+   //kat.cr search
+   else if(-1 < val.indexOf("k:")) {
+     window.location.assign("https://kat.cr/usearch/" + val.replace(/k: |k:/g, '') + '/?field=seeders&sorder=desc');
+   }
+   //facebook search
+   else if(-1 < val.indexOf("f:")) {
+     window.location.assign("https://www.facebook.com/search/top/?q=" + val.replace(/f: |f:/g, ''));
+   }
+   //wikipedia search
+   else if(-1 < val.indexOf("w:")) {
+     window.location.assign("https://en.wikipedia.org/w/index.php?search=" + val.replace(/w: |w:/g, ''))
+   }
+   //youtube search
+   else if(-1 < val.indexOf("y:")) {
+     window.location.assign("https://www.youtube.com/results?search_query=" + val.replace(/y: |y:/g, ''))
+   }
+   //Do duckduckgo search if nothing else is presented
+   else {
+     window.location.assign("https://duckduckgo.com/?q=" + val);
+   }
   }
 });
+
+
+
   navigator.geolocation.getCurrentPosition(function(position) {
     loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
   });
