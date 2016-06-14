@@ -38,7 +38,7 @@ body {
   left: 0;
   right: 0;
   top: 28%;
-  width:600px;
+  width:750px;
   height: 250px;
   display: flex;
   justify-content: space-around;
@@ -54,10 +54,10 @@ body {
   transition: all 200ms;
 }
 .gridItem:hover {
-  opacity: 0.6;
-  box-shadow: 0 12px 12px 0 rgba(0,0,0,.14),
-  0 8px 4px -6px rgba(0,0,0,.2),
-  0 4px 12px 0 rgba(0,0,0,.12);
+  opacity: 1;
+  -moz-box-shadow: 0 0 10px #fff;
+  -webkit-box-shadow: 0 0 10px #fff;
+   box-shadow: 0 0 10px #fff;
 }
 #quoteCont {
   position: absolute;
