@@ -11,7 +11,7 @@
     <title>New page</title>
   </head>
   <body>
-    <!--Making a search function-->
+    <!--Making a search input-->
       <input class="mdl-textfield__input" type="text" id="searchInput">
 
     <!-- Clock & Weather -->
@@ -34,6 +34,7 @@
   <div><a href="http://www2.watchop.io/"><img class="gridItem" src="images/onepiece.jpg" width="100px" height="100px"></a></div>
   <div><a href="http://igg-games.com/"><img class="gridItem" src="images/igg.jpg" width="100px" height="100px"></a></div>
   <div><a href="https://kat.cr/full/"><img class="gridItem" src="images/kickass.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://www.netflix.com"><img class="gridItem" src="images/netflix.png" width="100px" height="100px"></a></div>
 </div>
 
 
@@ -71,12 +72,10 @@
   getDate();
 }());
 
-
-//Weather
-
 $(document).ready(function() {
   $("#searchInput").focus();
   $(".clock").animate({opacity: 1},{duration: 2200, queue: false});
+  $("#gridCont").animate({opacity: 1},{duration: 2200, queue: false});
   //Search function
   $("#searchInput").keydown(function( event ) {
   if ( event.which == 13 ) {
@@ -117,9 +116,7 @@ $(document).ready(function() {
    }
   }
 });
-
 });
-
 </script>
   </body>
 </html>
