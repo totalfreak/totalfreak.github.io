@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./mdl/material.min.css">
+    <script src="./mdl/material.min.js"></script>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="stylesheet.css" title="no title">
+    <title>New page</title>
+  </head>
+  <body>
+    <!--Making a search function-->
+      <input class="mdl-textfield__input" type="text" id="searchInput">
+
+      <!--Random quote-->
+      <div id="quoteCont">
+      <p id="quote">quotes</p>
+    </div>
+    <!-- Clock & Weather -->
+
+    	<div class="clock">
+    		<div id="date"></div>
+        <div id="timeCont">
+    		<div id="time"></div>
+      </div>
+    		<div id="weather"></div>
+    	</div>
+
+
+<!--Grid with links to favorite stuff-->
+<div id="gridCont">
+  <div><a href="http://www.pandora.com/"><img class="gridItem" src="images/pandora.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://www.facebook.com/"><img class="gridItem" src="images/facebook.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://thepiratebay.org/"><img class="gridItem" src="images/bay.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://htx-team.slack.com/messages/general/"><img class="gridItem" src="images/slack.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://www.reddit.com"><img class="gridItem" src="images/reddit.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://github.com/"><img class="gridItem" src="images/github.png" width="100px" height="100px"></a></div>
+  <div><a href="http://www2.watchop.io/"><img class="gridItem" src="images/onepiece.jpg" width="100px" height="100px"></a></div>
+  <div><a href="http://igg-games.com/"><img class="gridItem" src="images/igg.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://kat.cr/full/"><img class="gridItem" src="images/kickass.jpg" width="100px" height="100px"></a></div>
+</div>
+
+
+
+
+<script>
+//Clock
+
+(function() {
+  'use strict';
+  function getDate() {
+    var date = new Date();
+    var weekday = date.getDay();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var year = date.getFullYear();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    if (hour < 10) hour = "0" + hour;
+    if (minutes < 10) minutes = "0" + minutes;
+    if (seconds < 10) seconds = "0" + seconds;
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var monthColors = ["#1E90FF", "#FF69B4", "#00FFFF", "#7CFC00", "#00CED1", "#FF1493", "#00008B", "#FF7F50", "#C71585", "#FF4500", "#FFD700", "#800000"];
+    var ampm = "";
+    if (hour < 12) ampm = "";
+    var showDate = weekdayNames[weekday] + ", " + monthNames[month] + " " + day + ", " + year;           var showTime = hour + ":" + minutes + ":" + seconds + ampm;
+    var color = monthColors[month];
+    document.getElementById('date').innerHTML = showDate;
+    document.getElementById('time').innerHTML = showTime;
+    document.bgColor = color;
+    requestAnimationFrame(getDate);
+  }
+  getDate();
+}());
+
+
+//Weather
+
+$(document).ready(function() {
+  $("#searchInput").focus();
+
+  //Search function
+  $("#searchInput").keydown(function( event ) {
+  if ( event.which == 13 ) {
+   event.preventDefault();
+   val = $(this).val();
+   console.log(val);
+   //Duckduckgo search
+   if(-1 < val.indexOf("dg:")) {
+     window.location.assign("https://duckduckgo.com/?q=" + val.replace(/dg: |dg:/g, ''));
+   }
+   //Google search
+   else if(-1 < val.indexOf("g:")) {
+     window.location.assign("https://www.google.dk/search?site=&source=hp&q=" + val.replace(/g: |g:/g, ''));
+   }
+   //Google image search
+   else if(-1 < val.indexOf("i:")) {
+     window.location.assign("https://encrypted.google.com/search?&tbm=isch&q=" + val.replace(/i: |i:/g, ''));
+   }
+   //kat.cr search
+   else if(-1 < val.indexOf("k:")) {
+     window.location.assign("https://kat.cr/usearch/" + val.replace(/k: |k:/g, '') + '/?field=seeders&sorder=desc');
+   }
+   //facebook search
+   else if(-1 < val.indexOf("f:")) {
+     window.location.assign("https://www.facebook.com/search/top/?q=" + val.replace(/f: |f:/g, ''));
+   }
+   //wikipedia search
+   else if(-1 < val.indexOf("w:")) {
+     window.location.assign("https://en.wikipedia.org/w/index.php?search=" + val.replace(/w: |w:/g, ''))
+   }
+   //youtube search
+   else if(-1 < val.indexOf("y:")) {
+     window.location.assign("https://www.youtube.com/results?search_query=" + val.replace(/y: |y:/g, ''))
+   }
+   //Do duckduckgo search if nothing else is presented
+   else {
+     window.location.assign("https://duckduckgo.com/?q=" + val);
+   }
+  }
+});
+
+
+
+  /*navigator.geolocation.getCurrentPosition(function(position) {
+    loadWeather(position.coords.latitude+','+position.coords.longitude); //load weather using your lat/lng coordinates
+  });
+  function loadWeather(location, woeid) {
+  $.simpleWeather({
+    location: location,
+    woeid: woeid,
+    unit: 'c',
+    success: function(weather) {
+      html = '<p>'+weather.temp+'&deg;'+weather.units.temp+'</p>';
+
+      $("#weather").html(html);
+      $("#weather").animate({opacity: 1},{duration: 300, queue: false});
+    },
+    error: function(error) {
+      $("#weather").html('<p>'+error+'</p>');
+    }
+  });
+}*/
+
+$(".clock").animate({opacity: 1},{duration: 2200, queue: false});
+$("#quoteCont").animate({opacity: 1},{duration: 2200, queue: false});
+//Random quotes
+quotes = ["I have a new philosophy. I'm only going to dread one day at a time.",
+"Reality is the leading cause of stress for those in touch with it.",
+"Few things are harder to put up with than the annoyance of a good example.",
+"The pure and simple truth is rarely pure and never simple.",
+"There's no business like show business, but there are several businesses like accounting.",
+"Man invented language to satisfy his deep need to complain."];
+
+
+//calculate a random index number
+index = Math.floor(Math.random() * quotes.length);
+$("#quote").text('"'+quotes[index]+'"');
+//$("#quoteCont").animate({opacity: 1},{duration: 1600, queue: false});
+});
+</script>
+  </body>
+</html>

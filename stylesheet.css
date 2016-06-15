@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+* {
+  font-family: 'Poiret One';
+  padding: 0;
+  margin: 0;
+  border: 0;
+  color: #FFF;
+  font-size: 2em;
+  outline: none;
+}
+body {
+  background: #252A32;
+  overflow: hidden;
+}
+#searchInput {
+  width: 40%;
+  background: #424242;
+  color: #FFF;
+  position: absolute;
+  height: 25px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 8%;
+  font-size: 2em;
+  font-family: 'Poiret One';
+  font-weight: 600;
+  text-indent: 3px;
+  border: 0;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.14),
+  0 4px 2px -3px rgba(0,0,0,.2),
+  0 2px 6px 0 rgba(0,0,0,.12);
+}
+#gridCont {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 28%;
+  width:750px;
+  height: 250px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.gridItem {
+  opacity: 1;
+  margin: 20px;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,.14),
+  0 4px 2px -3px rgba(0,0,0,.2),
+  0 2px 6px 0 rgba(0,0,0,.12);
+  transition: all 200ms;
+}
+.gridItem:hover {
+  opacity: 1;
+  -moz-box-shadow: 0 0 10px #fff;
+  -webkit-box-shadow: 0 0 10px #fff;
+   box-shadow: 0 0 10px #fff;
+}
+#quoteCont {
+  position: absolute;
+  height: 10px;
+  bottom: 6%;
+  right: 51%;
+  width: 900px;
+  opacity: 0;
+  word-wrap: normal;
+  word-break: keep-all;
+}
+#quote {
+  font-size: 0.75em;
+  line-height: 30px;
+}
+/* Clock & Weather */
+
+.clock {
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  color: white;
+  text-align: right;
+  width: 800px;
+  height: 250px;
+  opacity: 0;
+}
+#date {
+  font-size: 2.5em;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+#timeCont {
+  position: absolute;
+  bottom: 100px;
+  font-size: 2em;
+  right: 0;
+}
+#time {
+  right: 0;
+  direction: ltr;
+}
+#weather {
+  position: absolute;
+  right: 10px;
+  bottom: 180px;
+  opacity: 0;
+}
+#weather p {
+  font-size: 0.9em;
+}
