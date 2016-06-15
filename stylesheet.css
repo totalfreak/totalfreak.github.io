@@ -44,6 +44,7 @@ body {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  opacity: 0;
 }
 .gridItem {
   opacity: 1;
