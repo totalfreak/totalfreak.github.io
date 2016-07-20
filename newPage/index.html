@@ -110,6 +110,10 @@ $(document).ready(function() {
    else if(-1 < val.indexOf("y:")) {
      window.location.assign("https://www.youtube.com/results?search_query=" + val.replace(/y: |y:/g, ''))
    }
+   //Go to top gear
+   else if(-1 < val.indexOf("top:")) {
+     window.location.assign("http://putlocker.is/watch-top-gear-tvshow-online-free-putlocker.html");
+   }
    //Do duckduckgo search if nothing else is presented
    else {
      window.location.assign("https://duckduckgo.com/?q=" + val);
