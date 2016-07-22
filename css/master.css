@@ -9,6 +9,7 @@ body{
   text-align: center;
   background: #3c3c3c;
   font-weight: 100;
+  overflow: hidden;
 }
 #seen-canvas {
   top: 0;

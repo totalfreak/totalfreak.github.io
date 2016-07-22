@@ -45,12 +45,12 @@ var deadline = new Date("2016/11/16 23:59:59");
 initializeClock('clockdiv', deadline);
 
 //3D wavy background down here
-var width = $(window).width();
-var height = $(window).height();
+var width = $(document).width();
+var height = $(document).height();
 //Getting new size values, if window is resized
-window.onresize = function(event) {
-  var width = $(window).width();
-  var height = $(window).height();
+document.onresize = function(event) {
+  var width = $(document).width();
+  var height = $(document).height();
 };
   var context, equilateralAltitude, height, noiser, patch_height, patch_width, scene, shape, t, triangleScale, width;
   width = width+200;
