@@ -1,23 +1,46 @@
 $(function() {
-  /*countdown.setLabels(
-	' | |:|:|:|:|:| | | | ',
-	' | |:|:|:|:|:| | | | ',
-	'',
-	'',
-	'');
-  function timer() {
-  var timerId = countdown(new Date(), new Date("2016,11,16 00:00"), countdown.MONTHS|countdown.DAYS|countdown.HOURS|countdown.MINUTES|countdown.SECONDS);
-  timerId.toHTML();
-  console.log(timerId);
-  $("#timer").text(timerId);
+  function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (3600000)) % 24);
+  var days = Math.floor(t / (3600000 * 24) % 30);
+  var months = Math.floor(t / (3600000 * 24 * 31));
+  return {
+    'total': t,
+    'months': months,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var monthsSpan = clock.querySelector('.months');
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+    monthsSpan.innerHTML = t.months;
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
   }
-  setInterval(timer, 1000);*/
-  $('#timer').countdown('2016/11/16', function(event) {
-    $(this).html(event.strftime(''
-      + '<span class="tal1">%m</span> <br><span class="tal2">måneder</span> '
-      + '<span class="tal1">%d</span> <br><span class="tal2">dage</span> '
-      + '<span class="tal1">%H</span> <br><span class="tal2">timer</span> '
-      + '<span class="tal1">%M</span> <br><span class="tal2">minutter</span> '
-      + '<span class="tal1">%S</span> <br><span class="tal2">sekunder</span>'));
-  });
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date("2016/11/16 00:00");
+initializeClock('clockdiv', deadline);
 });
