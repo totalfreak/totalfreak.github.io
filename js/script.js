@@ -52,6 +52,7 @@ $(window).scroll(function (event) {
  x = true;
  }
 });
+
 //First I initialize the ScrollTrigger library
   ScrollTrigger.init();
 
@@ -62,16 +63,23 @@ var width = $(document).width();
 var height = $(document).height();
 $("#seen-canvas").attr('width', width);
 $("#seen-canvas").attr('height', height);
+console.log("Height: " + height);
+console.log("width: " + width);
 //Getting new size values, if window is resized
 document.onresize = function(event) {
   var width = $(document).width();
   var height = $(document).height();
 };
+if(width < 990) {
+  $("#testText").attr('font-size', "10em");
+  triangleScale = 180;
+} else {
+  triangleScale = 100;
+}
   var context, equilateralAltitude, height, noiser, patch_height, patch_width, scene, shape, t, triangleScale, width;
   width = width;
   height = height;
   equilateralAltitude = Math.sqrt(3.0) / 2.0;
-  triangleScale = 180;
   patch_width = width * 1.5;
   patch_height = height * 1.5;
   shape = seen.Shapes.patch(patch_width / triangleScale / equilateralAltitude, patch_height / triangleScale).scale(triangleScale).translate(-patch_width / 2, -patch_height / 2 + 80).rotx(-0.3);
