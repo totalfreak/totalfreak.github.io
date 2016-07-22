@@ -1,8 +1,8 @@
 $(function() {
-  var width = $(window).width();
+  /*var width = $(window).width();
   if(width >= 700) {
     $("#seen-canvas").remove();
-  }
+  }*/
   function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
