@@ -78,7 +78,7 @@ if(width < 990) {
 }
   var context, equilateralAltitude, height, noiser, patch_height, patch_width, scene, shape, t, triangleScale, width;
   width = width;
-  height = height;
+  height = height+200;
   equilateralAltitude = Math.sqrt(3.0) / 2.0;
   patch_width = width * 1.5;
   patch_height = height * 1.5;
