@@ -9,8 +9,17 @@ body{
   text-align: center;
   background: #3c3c3c;
   font-weight: 100;
+  overflow: hidden;
 }
-
+#seen-canvas {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  opacity: 0.3;
+}
 h1{
   color: #fff;
   font-weight: 100;

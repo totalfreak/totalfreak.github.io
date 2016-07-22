@@ -4,7 +4,7 @@ $(function() {
   var seconds = Math.floor((t / 1000) % 60);
   var minutes = Math.floor((t / 1000 / 60) % 60);
   var hours = Math.floor((t / (3600000)) % 24);
-  var days = Math.floor(t / (3600000 * 24) % 30);
+  var days = Math.floor(t / (3600000 * 24) % 31);
   var months = Math.floor(t / (3600000 * 24 * 31));
   return {
     'total': t,
@@ -26,8 +26,8 @@ function initializeClock(id, endtime) {
 
   function updateClock() {
     var t = getTimeRemaining(endtime);
-    monthsSpan.innerHTML = t.months;
-    daysSpan.innerHTML = t.days;
+    monthsSpan.innerHTML =('0' + t.months).slice(-2);
+    daysSpan.innerHTML = ('0' + t.days).slice(-2);
     hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
     minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
     secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
@@ -41,6 +41,8 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date("2016/11/16 00:00");
+var deadline = new Date("2016/11/16 23:59:59");
 initializeClock('clockdiv', deadline);
+
+
 });
