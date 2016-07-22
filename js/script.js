@@ -47,14 +47,16 @@ initializeClock('clockdiv', deadline);
 //3D wavy background down here
 var width = $(document).width();
 var height = $(document).height();
+$("#seen-canvas").attr('width', width);
+$("#seen-canvas").attr('height', height);
 //Getting new size values, if window is resized
 document.onresize = function(event) {
   var width = $(document).width();
   var height = $(document).height();
 };
   var context, equilateralAltitude, height, noiser, patch_height, patch_width, scene, shape, t, triangleScale, width;
-  width = width+900;
-  height = height-300;
+  width = width;
+  height = height;
   equilateralAltitude = Math.sqrt(3.0) / 2.0;
   triangleScale = 70;
   patch_width = width * 1.5;
