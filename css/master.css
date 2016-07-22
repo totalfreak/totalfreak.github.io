@@ -11,7 +11,9 @@ body{
   text-align: center;
   background: #3c3c3c;
   font-weight: 100;
-  overflow: hidden;
+}
+a {
+  text-decoration: none;
 }
 #testText {
   margin-top: 30%;
@@ -43,7 +45,7 @@ p {
   font-size: 2em;
 }
 #arrowDown {
-  opacity: 0;
+  opacity: 0.6;
   position: absolute;
   bottom: 30px;
   left: 49%;
@@ -54,9 +56,41 @@ p {
 }
 #testText {
   position: relative;
-  margin-top:30%;
+  margin-top:10%;
   padding-top: 500px;
   padding-bottom: 500px;
+}
+#testText2 {
+  position: relative;
+  margin-top:5%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 300px;
+  border: 4px solid #7F8C8D;
+  border-radius: 45px;
+  margin-left: 42%;
+  margin-bottom: 200px;
+  transition: 400ms all;
+  background-color: #7F8C8D;
+}
+#testText2:hover {
+  border: 4px solid #fff;
+  cursor: pointer;
+  color: #3c3c3c;
+  background-color: #fff;
+}
+#faceIcon {
+  opacity: 0.5;
+  color: #7F8C8D;
+  position: fixed;
+  left: 50px;
+  bottom: 20px;
+  transition: 300ms all;
+}
+#faceIcon:hover {
+  opacity: 1;
+  cursor: pointer;
+  color: #fff;
 }
 .invisible {
     transition: opacity 0.3s ease;
@@ -95,10 +129,53 @@ p {
     padding-top: 5px;
     font-size: 0.4em;
 }
-/*
-@media all and (min-width 990px){
-    #testText {
+/*Screen dimension specific styling*/
+@media only screen
+and (max-width : 479px) {
+  h1 {
+    font-size: 3.5em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  #testText {
+    margin-top:5%;
+    padding-top: 250px;
+    padding-bottom: 250px;
+  }
+  #clockdiv{
+      color: #fff;
+      display: inline-block;
+      font-weight: 100;
+      text-align: center;
       font-size: 3em;
+  }
+
+  #clockdiv > div{
+      margin: 7px;
+      padding: 10px;
+      border-radius: 3px;
+      background: #8FA998;
+      display: inline-block;
+  }
+
+  #clockdiv div > span{
+      min-width: 10px;
+      min-height: 10px;
+      padding: 10px;
+      border-radius: 3px;
+      background: #7f8c8d;
+      display: inline-block;
+  }
+
+  .smalltext{
+      padding-top: 5px;
+      font-size: 0.5em;
+  }
+  #arrowDown {
+    opacity: 0;
+  }
+    #testText {
+      font-size: 1.9em;
     }
 }
-*/

@@ -71,7 +71,6 @@ document.onresize = function(event) {
   var height = $(document).height();
 };
 if(width < 990) {
-  $("#testText").attr('font-size', "10em");
   triangleScale = 180;
 } else {
   triangleScale = 100;
