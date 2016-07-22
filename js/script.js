@@ -53,8 +53,8 @@ document.onresize = function(event) {
   var height = $(document).height();
 };
   var context, equilateralAltitude, height, noiser, patch_height, patch_width, scene, shape, t, triangleScale, width;
-  width = width+200;
-  height = height+200;
+  width = width+900;
+  height = height-300;
   equilateralAltitude = Math.sqrt(3.0) / 2.0;
   triangleScale = 70;
   patch_width = width * 1.5;
