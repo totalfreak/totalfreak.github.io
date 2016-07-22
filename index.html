@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>NPN</title>
+    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/master.css">
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/seen.min.js"></script>
-    <script src="js/coffee-script.min.js"></script>
+    <script src="js/ScrollTrigger.min.js"></script>
     <script src="js/script.js"></script>
   </head>
   <body>
   <h1>Næstved Net Party</h1>
+  <br><br><br><br>
 <div id="clockdiv">
   <div>
     <span class="months"></span>
@@ -33,6 +35,8 @@
     <div class="smalltext">Sekunder</div>
   </div>
 </div>
+<i data-scroll id="arrowDown" class="fa fa-arrow-circle-down fa-5x" aria-hidden="true"></i>
+<p id="testText" data-scroll="toggle(.visible, .visible)">Gør dig klar på Sjællands første, største og bedste LAN nogensinde!</p>
 <canvas width="1920" height="1080" id="seen-canvas"></canvas>
   </body>
 </html>

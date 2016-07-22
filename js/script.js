@@ -1,4 +1,5 @@
 $(function() {
+  //Starting off with the timer
   function getTimeRemaining(endtime) {
   var t = Date.parse(endtime) - Date.parse(new Date());
   var seconds = Math.floor((t / 1000) % 60);
@@ -36,13 +37,25 @@ function initializeClock(id, endtime) {
       clearInterval(timeinterval);
     }
   }
-
   updateClock();
   var timeinterval = setInterval(updateClock, 1000);
 }
-
 var deadline = new Date("2016/11/16 23:59:59");
 initializeClock('clockdiv', deadline);
+$(window).scrollTop();
+var x = false;
+//Scrolling down to show more info about the event
+$(window).scroll(function (event) {
+  if(!x) {
+ $("#arrowDown").animate({opacity: 0}, {queue:true, duration: 200});
+ $("#arrowDown").css({zIndex: -2});
+ x = true;
+ }
+});
+//First I initialize the ScrollTrigger library
+  ScrollTrigger.init();
+
+
 
 //3D wavy background down here
 var width = $(document).width();
@@ -58,7 +71,7 @@ document.onresize = function(event) {
   width = width;
   height = height;
   equilateralAltitude = Math.sqrt(3.0) / 2.0;
-  triangleScale = 70;
+  triangleScale = 180;
   patch_width = width * 1.5;
   patch_height = height * 1.5;
   shape = seen.Shapes.patch(patch_width / triangleScale / equilateralAltitude, patch_height / triangleScale).scale(triangleScale).translate(-patch_width / 2, -patch_height / 2 + 80).rotx(-0.3);
