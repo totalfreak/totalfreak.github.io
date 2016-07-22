@@ -53,8 +53,3 @@ h1{
     padding-top: 5px;
     font-size: 0.4em;
 }
-@media only screen and (max-width: 1026px) {
-    #seen-canvas {
-        display: none;
-    }
-}
