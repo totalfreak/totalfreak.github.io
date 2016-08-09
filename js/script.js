@@ -75,7 +75,12 @@ if(width < 990) {
   $("h1").css({fontSize: "6em"});
   $("#testText").css({fontSize: "3em", marginTop: "10%"});
   $("#testText2").css({paddingTop: 30, paddingBottom: 30, width: 500, fontSize: "3em", borderRadius: 75});
-  $(".p").css({marginTop: 300})
+  $(".p").css({marginTop: 300});
+} else if(width == 1366) {
+  $("h1").css({fontSize: "4em"});
+  $("#testText").css({fontSize: "2em", marginTop: "10%"});
+  $("#testText2").css({paddingTop: 30, paddingBottom: 30, width: 500, fontSize: "3em", borderRadius: 75});
+  $(".p").css({marginTop: 150, marginBottom: 150});
 } else {
   triangleScale = 120;
 }
