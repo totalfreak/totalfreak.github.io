@@ -104,15 +104,15 @@ $(document).ready(function() {
    }
    //wikipedia search
    else if(-1 < val.indexOf("w:")) {
-     window.location.assign("https://en.wikipedia.org/w/index.php?search=" + val.replace(/w: |w:/g, ''))
+     window.location.assign("https://en.wikipedia.org/w/index.php?search=" + val.replace(/w: |w:/g, ''));
    }
    //youtube search
    else if(-1 < val.indexOf("y:")) {
-     window.location.assign("https://www.youtube.com/results?search_query=" + val.replace(/y: |y:/g, ''))
+     window.location.assign("https://www.youtube.com/results?search_query=" + val.replace(/y: |y:/g, ''));
    }
-   //Go to top gear
-   else if(-1 < val.indexOf("top:")) {
-     window.location.assign("http://putlocker.is/watch-top-gear-tvshow-online-free-putlocker.html");
+   //123 movies search
+   else if(-1 < val.indexOf("123:")) {
+     window.location.assign("http://123movies.to/movie/search/" + val.replace(/123: |123:/g, ''));
    }
    //Do duckduckgo search if nothing else is presented
    else {
