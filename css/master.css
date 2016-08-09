@@ -155,7 +155,7 @@ and (max-width : 479px) {
       margin: 7px;
       padding: 10px;
       border-radius: 3px;
-      background: #8FA998;
+      background: white;
       display: inline-block;
   }
 
