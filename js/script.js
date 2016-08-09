@@ -72,7 +72,7 @@ document.onresize = function(event) {
 };
 if(width < 990) {
   triangleScale = 180;
-  $("#testText").css({marginTop: "10%"});
+  $("#testText").attr('margin-top', "10%");
 } else {
   triangleScale = 100;
 }
