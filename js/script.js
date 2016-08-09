@@ -74,15 +74,15 @@ if(width < 990) {
   triangleScale = 180;
   $("#testText").attr('margin-top', "10%");
 } else {
-  triangleScale = 100;
+  triangleScale = 120;
 }
   var context, equilateralAltitude, height, noiser, patch_height, patch_width, scene, shape, t, triangleScale, width;
-  width = width;
-  height = height+200;
-  equilateralAltitude = Math.sqrt(3.0) / 2.0;
+  width = width+100;
+  height = height+400;
+  equilateralAltitude = Math.sqrt(3.14) / 2.0;
   patch_width = width * 1.5;
   patch_height = height * 1.5;
-  shape = seen.Shapes.patch(patch_width / triangleScale / equilateralAltitude, patch_height / triangleScale).scale(triangleScale).translate(-patch_width / 2, -patch_height / 2 + 80).rotx(-0.3);
+  shape = seen.Shapes.patch(patch_width / triangleScale / equilateralAltitude, patch_height / triangleScale).scale(triangleScale).translate(-patch_width / 2, -patch_height / 2 + 60).rotx(-0.3);
   seen.Colors.randomSurfaces2(shape);
   scene = new seen.Scene({
     model: seen.Models["default"]().add(shape),
@@ -100,7 +100,7 @@ for (i = 0, len = ref.length; i < len; i++) {
   ref1 = surf.points;
   for (j = 0, len1 = ref1.length; j < len1; j++) {
     p = ref1[j];
-    p.z = 4 * noiser.noise(p.x / 8, p.y / 8, t * 1e-4);
+    p.z = 2 * noiser.noise(p.x / 8, p.y / 8, t * 1e-4);
   }
   results.push(surf.dirty = true);
 }
