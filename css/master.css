@@ -52,11 +52,9 @@ p {
 }
 #testText {
   position: relative;
-  margin-top:5%;
 }
 #testText2 {
   position: relative;
-  margin-top:5%;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 300px;
