@@ -114,6 +114,10 @@ $(document).ready(function() {
    else if(-1 < val.indexOf("123:")) {
      window.location.assign("http://123movies.to/movie/search/" + val.replace(/123: |123:/g, ''));
    }
+   //Pricerunner compare
+   else if(-1 < val.indexOf("price:")) {
+     window.location.assign("http://www.pricerunner.dk/search?q=" + val.replace(/price: |price:/g, ''));
+   }
    //Do duckduckgo search if nothing else is presented
    else {
      window.location.assign("https://duckduckgo.com/?q=" + val);
