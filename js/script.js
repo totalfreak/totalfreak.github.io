@@ -76,7 +76,7 @@ if(width < 990) {
   $("#testText").css({fontSize: "3em", marginTop: "10%"});
   $("#testText2").css({paddingTop: 30, paddingBottom: 30, width: 500, fontSize: "3em", borderRadius: 75});
   $(".p").css({marginTop: 300});
-} else if(width > 1000 & width < 1400) {
+} else if(width > 1000 && width < 1400) {
   $("h1").css({fontSize: "3em"});
   $("#clockdiv").css({fontSize: "3em"});
   $("#clockdiv div > span").css({minWidth: 35, minHeight: 35});
