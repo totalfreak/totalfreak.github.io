@@ -72,7 +72,7 @@ document.onresize = function(event) {
 };
 if(width < 990) {
   triangleScale = 180;
-  $("#testText2").css({paddingTop: 30, paddingBottom: 30, width: 500, fontSize: "3em"});
+  $("#testText2").css({paddingTop: 30, paddingBottom: 30, width: 500, fontSize: "3em", borderRadius: 75});
 } else {
   triangleScale = 120;
 }
