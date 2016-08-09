@@ -139,7 +139,7 @@ and (max-width : 479px) {
     font-size: 2em;
   }
   #testText {
-    margin-top:5%;
+    margin-top:10%;
     padding-top: 250px;
     padding-bottom: 250px;
   }
