@@ -83,7 +83,7 @@ if(width < 990) {
   $("#clockdiv div > span").css({minWidth: 35, minHeight: 35});
   $("#testText").css({fontSize: "2em", marginTop: "10%"});
   $("#testText2").css({paddingTop: 15, paddingBottom: 15, width: 300, fontSize: "2em", borderRadius: 45});
-  $("p").css({marginTop: 50, marginBottom: 50});
+  $("p").css({marginTop: 50, marginBottom: 40});
 } else {
   triangleScale = 120;
 }
