@@ -14,7 +14,8 @@
     <script type="text/javascript">
     google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
     function initialize() {
-      var feed = new google.feeds.Feed.JSON_FORMAT("https://xkcd.com/rss.xml");
+      var feed = new google.feeds.Feed("https://xkcd.com/rss.xml");
+      feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
       feed.load(function(result) {
         if(!result.error) {
           var container = document.getElementById("feed");
