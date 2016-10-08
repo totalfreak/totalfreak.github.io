@@ -16,9 +16,9 @@
     function initialize() {
       var feed = new google.feeds.Feed("https://xkcd.com/rss.xml");
       feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
-      console.log(feed);
       feed.load(function(result) {
         if(!result.error) {
+          console.log(feed.feedUrl);
           var container = document.getElementById("feed");
           /*for(var i = 0; result.feed.entries.length; i++) {
             var entry = result.feed.entries[i];
