@@ -36,7 +36,7 @@ body {
 #gridCont {
   margin: auto;
   position: absolute;
-  left: 0;
+
   right: 0;
   top: 28%;
   width:750px;
@@ -112,4 +112,13 @@ body {
 }
 #weather p {
   font-size: 0.9em;
+}
+#feed img{
+  left: 0.8%;
+  top: 20%;
+  position: fixed;
+  width: auto;
+  height: auto;
+  max-width: 600px;
+  max-height: 700px;
 }
