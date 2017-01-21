@@ -2,44 +2,159 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=0.4">
-    <title>NPN</title>
-    <link rel="stylesheet" href="font-awesome-4.6.3/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/master.css">
-    <script src="js/jquery-3.0.0.min.js"></script>
-    <script src="js/seen.min.js"></script>
-    <script src="js/ScrollTrigger.min.js"></script>
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="./mdl/material.min.css">
+    <script src="./mdl/material.min.js"></script>
+    <script src="jquery-3.0.0.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="stylesheet.css" title="no title">
+    <title>New page</title>
+    <!--Loading the google ajax feed api-->
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
+    function initialize() {
+      var feed = new google.feeds.Feed("https://xkcd.com/rss.xml");
+      feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
+      feed.load(function(result) {
+        if(!result.error) {
+          //console.log(feed.description);
+          var container = document.getElementById("feed");
+          //for(var i = 0; 1; i++) {
+            var entry = result.feed.entries[0];
+            var img = entry.content;
+
+            $("#feed").append(img);
+
+            //var div = document.createElement("img");
+            //div.appendChild(document.createTextNode(entry.content));
+            console.log(img);
+            //container.html(document.createTextNode(entry.content));
+          //}
+        }
+      });
+    }
+    google.setOnLoadCallback(initialize);
+    </script>
   </head>
   <body>
-  <h1>Næstved Net Party</h1>
+    <!--Feed container-->
+    <div id="feed"></div>
 
-  <h2>Tid tilbage til at bestille billet</h2>
-<div id="clockdiv">
-  <div>
-    <span class="months"></span>
-    <div class="smalltext">Måneder</div>
-  </div>
-  <div>
-    <span class="days"></span>
-    <div class="smalltext">Dage</div>
-  </div>
-  <div>
-    <span class="hours"></span>
-    <div class="smalltext">Timer</div>
-  </div>
-  <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutter</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Sekunder</div>
-  </div>
+    <!--Making a search input-->
+      <input class="mdl-textfield__input" type="text" id="searchInput">
+
+    <!-- Clock & Weather -->
+    	<div class="clock">
+    		<div id="date"></div>
+        <div id="timeCont">
+    		<div id="time"></div>
+      </div>
+    	</div>
+
+
+<!--Grid with links to favorite stuff-->
+<div id="gridCont">
+  <div><a href="http://www.youtube.com/"><img class="gridItem" src="images/youtube.png" width="100px" height="100px"></a></div>
+  <div><a href="https://www.facebook.com/"><img class="gridItem" src="images/facebook.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://thepiratebay.org/"><img class="gridItem" src="images/bay.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://htx-team.slack.com/messages/general/"><img class="gridItem" src="images/slack.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://www.reddit.com"><img class="gridItem" src="images/reddit.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://github.com/"><img class="gridItem" src="images/github.png" width="100px" height="100px"></a></div>
+  <div><a href="http://www2.watchop.io/"><img class="gridItem" src="images/onepiece.jpg" width="100px" height="100px"></a></div>
+  <div><a href="http://igg-games.com/"><img class="gridItem" src="images/igg.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://kat.cr/full/"><img class="gridItem" src="images/kickass.jpg" width="100px" height="100px"></a></div>
+  <div><a href="https://www.netflix.com"><img class="gridItem" src="images/netflix.png" width="100px" height="100px"></a></div>
 </div>
-<center><p id="testText">Gør dig klar på Sjællands første, største og bedste LAN nogensinde!</p></center>
-<center><p id="testText2">Køb din billet her</p></center>
-<a href="https://www.facebook.com/events/1020654198031431/" title="Tjek eventet for info om LANet"><i class="fa fa-facebook-square fa-4x" aria-hidden="true" id="faceIcon"></i></a>
-<canvas width="1920" height="1080" id="seen-canvas"></canvas>
+
+
+
+
+<script>
+//Clock
+
+(function() {
+  'use strict';
+  function getDate() {
+    var date = new Date();
+    var weekday = date.getDay();
+    var month = date.getMonth();
+    var day = date.getDate();
+    var year = date.getFullYear();
+    var hour = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+    if (hour < 10) hour = "0" + hour;
+    if (minutes < 10) minutes = "0" + minutes;
+    if (seconds < 10) seconds = "0" + seconds;
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var weekdayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var monthColors = ["#1E90FF", "#FF69B4", "#00FFFF", "#7CFC00", "#00CED1", "#FF1493", "#00008B", "#FF7F50", "#C71585", "#FF4500", "#FFD700", "#800000"];
+    var ampm = "";
+    if (hour < 12) ampm = "";
+    var showDate = weekdayNames[weekday] + ", " + monthNames[month] + " " + day + ", " + year;           var showTime = hour + ":" + minutes + ":" + seconds + ampm;
+    var color = monthColors[month];
+    document.getElementById('date').innerHTML = showDate;
+    document.getElementById('time').innerHTML = showTime;
+    document.bgColor = color;
+    requestAnimationFrame(getDate);
+  }
+  getDate();
+}());
+
+$(document).ready(function() {
+  $("#searchInput").focus();
+  $(".clock").animate({opacity: 1},{duration: 2200, queue: false});
+  $("#gridCont").animate({opacity: 1},{duration: 2200, queue: false});
+  //Search function
+  $("#searchInput").keydown(function( event ) {
+  if ( event.which == 13 ) {
+   event.preventDefault();
+   val = $(this).val();
+   console.log(val);
+   //Duckduckgo search
+   if(-1 < val.indexOf("dg:")) {
+     window.location.assign("https://duckduckgo.com/?q=" + val.replace(/dg: |dg:/g, ''));
+   }
+   //Google search
+   else if(-1 < val.indexOf("g:")) {
+     window.location.assign("https://www.google.dk/search?site=&source=hp&q=" + val.replace(/g: |g:/g, ''));
+   }
+   //Google image search
+   else if(-1 < val.indexOf("i:")) {
+     window.location.assign("https://encrypted.google.com/search?&tbm=isch&q=" + val.replace(/i: |i:/g, ''));
+   }
+   //kat.cr search
+   else if(-1 < val.indexOf("k:")) {
+     window.location.assign("https://kat.cr/usearch/" + val.replace(/k: |k:/g, '') + '/?field=seeders&sorder=desc');
+   }
+   //facebook search
+   else if(-1 < val.indexOf("f:")) {
+     window.location.assign("https://www.facebook.com/search/top/?q=" + val.replace(/f: |f:/g, ''));
+   }
+   //wikipedia search
+   else if(-1 < val.indexOf("w:")) {
+     window.location.assign("https://en.wikipedia.org/w/index.php?search=" + val.replace(/w: |w:/g, ''));
+   }
+   //youtube search
+   else if(-1 < val.indexOf("y:")) {
+     window.location.assign("https://www.youtube.com/results?search_query=" + val.replace(/y: |y:/g, ''));
+   }
+   //123 movies search
+   else if(-1 < val.indexOf("123:")) {
+     window.location.assign("http://123movies.to/movie/search/" + val.replace(/123: |123:/g, ''));
+   }
+   //Pricerunner compare
+   else if(-1 < val.indexOf("price:")) {
+     window.location.assign("http://www.pricerunner.dk/search?q=" + val.replace(/price: |price:/g, ''));
+   }
+   //Do duckduckgo search if nothing else is presented
+   else {
+     window.location.assign("https://duckduckgo.com/?q=" + val);
+   }
+  }
+});
+});
+</script>
   </body>
 </html>
