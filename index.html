@@ -9,37 +9,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="stylesheet.css" title="no title">
     <title>New page</title>
-    <!--Loading the google ajax feed api-->
-    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
-    <script type="text/javascript">
-    google.load("feeds", "1") //Load Google Ajax Feed API (version 1)
-    function initialize() {
-      var feed = new google.feeds.Feed("https://xkcd.com/rss.xml");
-      feed.setResultFormat(google.feeds.Feed.JSON_FORMAT);
-      feed.load(function(result) {
-        if(!result.error) {
-          //console.log(feed.description);
-          var container = document.getElementById("feed");
-          //for(var i = 0; 1; i++) {
-            var entry = result.feed.entries[0];
-            var img = entry.content;
 
-            $("#feed").append(img);
-
-            //var div = document.createElement("img");
-            //div.appendChild(document.createTextNode(entry.content));
-            console.log(img);
-            //container.html(document.createTextNode(entry.content));
-          //}
-        }
-      });
-    }
-    google.setOnLoadCallback(initialize);
-    </script>
   </head>
   <body>
-    <!--Feed container-->
-    <div id="feed"></div>
 
     <!--Making a search input-->
       <input class="mdl-textfield__input" type="text" id="searchInput">
@@ -50,7 +22,6 @@
         <div id="timeCont">
     		<div id="time"></div>
       </div>
-    	</div>
 
 
 <!--Grid with links to favorite stuff-->
