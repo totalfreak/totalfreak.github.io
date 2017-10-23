@@ -25,11 +25,6 @@ body {
   background-position: center;
   transition: filter 200ms;
 }
-#background.blur {
-  transition: filter 200ms;
-
-  /*filter: blur(3px);*/
-}
 
 #searchInput {
   width: 40%;
@@ -52,15 +47,16 @@ body {
   0 2px 6px 0 rgba(0,0,0,.12);
   padding: 10px;
   opacity: 0.3;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, box-shadow 200ms;
 }
 #searchInput:hover {
   opacity: 0.5;
-  transition: opacity 0.3s, visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s, box-shadow 200ms;
 }
 #searchInput:focus {
-  opacity: 0.9;
-  transition: opacity 0.3s, visibility 0.3s;
+  opacity: 0.95;
+  transition: opacity 0.3s, visibility 0.3s, box-shadow 200ms;
+  box-shadow: 5px 5px 20px rgba(255,255,255,.14);
 }
 
 #gridCont {
@@ -84,26 +80,25 @@ body {
   box-shadow: 0 3px 3px 0 rgba(0,0,0,.14),
   0 4px 2px -3px rgba(0,0,0,.2),
   0 2px 6px 0 rgba(0,0,0,.12);
-  transition: opacity 200ms, box-shadow 100ms, transform 200ms;
+  transition: opacity 200ms, box-shadow 200ms, transform 200ms;
 }
 .gridItem:hover {
   opacity: 1;
-  -moz-box-shadow: 0 0 10px #fff;
-  -webkit-box-shadow: 0 0 10px #fff;
-   box-shadow: 0 0 10px #fff;
-   cursor: pointer;
+  box-shadow: 0 0 20px #fff;
+  cursor: pointer;
 }
 
 .gridItem.blur {
   transition: all 200ms;
   opacity: 0.5;
+  transform: scale(0.95);
   filter: blur(3px);
 }
 
 .gridItem.active {
   transition: all 200ms;
   opacity: 1;
-  transform: scale(1.15);
+  transform: scale(1.35);
 }
 
 #quoteCont {

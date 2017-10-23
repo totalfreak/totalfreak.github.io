@@ -28,8 +28,6 @@
 }());
 
 $(document).ready(function() {
-
-
   $(".clock").animate({opacity: 1},{duration: 2200, queue: false});
   $("#gridCont").animate({opacity: 1},{duration: 2200, queue: false});
   $("#background").animate({opacity: 1},{duration: 4200, queue: true});
@@ -50,16 +48,15 @@ $(document).ready(function() {
       }
 
       $items.not($item).removeClass('active').addClass('blur');
-      $("#background").addClass('blur');
+
       $item.removeClass('blur').addClass('active');
 
     }, 75);
   });
 
-  $container.on('mouseleave', function(event) {
+  $items.on('mouseleave', function(event) {
     clearTimeout(timeout);
     $items.removeClass('active blur');
-    $("#background").removeClass('blur');
   });
 
 
