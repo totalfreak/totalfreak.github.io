@@ -5,19 +5,20 @@
   margin: 0;
   border: 0;
   color: #FFF;
-  font-size: 2em;
+  font-size: 1em;
   outline: none;
 }
 body {
   background: #252A32;
   overflow: hidden;
 }
+
 #searchInput {
   width: 40%;
   background: #424242;
   color: #FFF;
   position: absolute;
-  height: 25px;
+  height: 55px;
   margin: auto;
   position: absolute;
   left: 0;
@@ -32,15 +33,21 @@ body {
   0 4px 2px -3px rgba(0,0,0,.2),
   0 2px 6px 0 rgba(0,0,0,.12);
   padding: 10px;
+  opacity: 0.3;
+  transition: opacity 0.3s, visibility 0.3s;
 }
-#gridCont {
-  margin: auto;
-  position: absolute;
+#searchInput:focus {
+  opacity: 1;
+  transition: opacity 0.3s, visibility 0.3s;
+}
 
-  right: 0;
-  top: 28%;
-  width:750px;
-  height: 250px;
+#gridCont {
+  /*margin: auto;*/
+  position: fixed;
+  left: 20%;
+  top: 22%;
+  width: 1100px;
+  height: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -49,7 +56,9 @@ body {
 }
 .gridItem {
   opacity: 1;
-  margin: 20px;
+  margin: 30px;
+  width: 128px;
+  height: 128px;
   box-shadow: 0 3px 3px 0 rgba(0,0,0,.14),
   0 4px 2px -3px rgba(0,0,0,.2),
   0 2px 6px 0 rgba(0,0,0,.12);
@@ -89,7 +98,7 @@ body {
   opacity: 0;
 }
 #date {
-  font-size: 2.5em;
+  font-size: 5.5em;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -97,12 +106,13 @@ body {
 #timeCont {
   position: absolute;
   bottom: 100px;
-  font-size: 2em;
+  font-size: 8em;
   right: 0;
 }
 #time {
   right: 0;
   direction: ltr;
+  font-size: 1em;
 }
 #weather {
   position: absolute;
