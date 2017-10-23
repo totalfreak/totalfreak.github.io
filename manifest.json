@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Custom new tab",
+  "description": "Replaces the new tab",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "images/github.png"
+  },
+  "chrome_url_overrides" : {
+    "newtab": "index.html"
+  },
+  "background": {
+    "persistent": false,
+    "scripts": ["script.js"]
+  },
+  "content_scripts": [{
+    "js": ["jquery-3.0.0.min.js"],
+    "matches": ["http://*/*", "https://*/*"]
+    }],
+
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
