@@ -33,6 +33,36 @@ $(document).ready(function() {
   $(".clock").animate({opacity: 1},{duration: 2200, queue: false});
   $("#gridCont").animate({opacity: 1},{duration: 2200, queue: false});
   $("#background").animate({opacity: 1},{duration: 4200, queue: true});
+  var e = $.Event("keydown", { keyCode: 9});
+
+  var $container = $("#gridCont");
+  var $items = $container.children("div").children("a").children();
+  var timeout;
+
+  $items.on( 'mouseenter', function(event) {
+    console.log("Shit");
+    var $item = $(this);
+    clearTimeout(timeout);
+
+    timeout = setTimeout(function() {
+      if($item.hasClass('active')) {
+        return false;
+      }
+
+      $items.not($item).removeClass('active').addClass('blur');
+      $("#background").addClass('blur');
+      $item.removeClass('blur').addClass('active');
+
+    }, 75);
+  });
+
+  $container.on('mouseleave', function(event) {
+    clearTimeout(timeout);
+    $items.removeClass('active blur');
+    $("#background").removeClass('blur');
+  });
+
+
   //Search function
   $("#searchInput").keydown(function( event ) {
   if ( event.which == 13 ) {
@@ -81,11 +111,4 @@ $(document).ready(function() {
    }
    }
  });
- setTimeout(function() {
-   var press = $.Event("keypress");
-   press.ctrlKey = false;
-   press.which = 9;
-   $(window).trigger(press);
-   console.log("Shit");
- }, 2000);
  });
