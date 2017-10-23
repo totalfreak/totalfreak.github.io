@@ -98,7 +98,7 @@ body {
 .gridItem.active {
   transition: all 200ms;
   opacity: 1;
-  transform: scale(1.35);
+  transform: scale(1.25);
 }
 
 #quoteCont {
