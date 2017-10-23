@@ -56,7 +56,7 @@ body {
 #searchInput:focus {
   opacity: 0.95;
   transition: opacity 0.3s, visibility 0.3s, box-shadow 200ms;
-  box-shadow: 5px 5px 20px rgba(255,255,255,.14);
+  box-shadow: 0 5px 20px rgba(255,255,255,.14);
 }
 
 #gridCont {

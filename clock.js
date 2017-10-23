@@ -95,8 +95,8 @@ $(document).ready(function() {
      window.location.assign("https://www.youtube.com/results?search_query=" + val.replace(/y: |y:/g, ''));
    }
    //123 movies search
-   else if(-1 < val.indexOf("123:")) {
-     window.location.assign("http://123movies.to/movie/search/" + val.replace(/123: |123:/g, ''));
+   else if(-1 < val.indexOf("go:")) {
+     window.location.assign("http://123movies.to/movie/search/" + val.replace(/go: |go:/g, '').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+').replace(' ', '+'));
    }
    //Pricerunner compare
    else if(-1 < val.indexOf("price:")) {
