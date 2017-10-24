@@ -17,7 +17,7 @@
     var monthColors = ["#1E90FF", "#FF69B4", "#00FFFF", "#7CFC00", "#00CED1", "#FF1493", "#00008B", "#FF7F50", "#C71585", "#FF4500", "#FFD700", "#800000"];
     var ampm = "";
     if (hour < 12) ampm = "";
-    var showDate = weekdayNames[weekday] + ", " + monthNames[month] + " " + day + ", " + year;           var showTime = hour + ":" + minutes + ":" + seconds + ampm;
+    var showDate = weekdayNames[weekday] + ", " + monthNames[month] + " " + day + ", " + year;           var showTime = hour + ":" + minutes + ampm;
     var color = monthColors[month];
     document.getElementById('date').innerHTML = showDate;
     document.getElementById('time').innerHTML = showTime;

@@ -80,19 +80,19 @@ body {
   box-shadow: 0 3px 3px 0 rgba(0,0,0,.14),
   0 4px 2px -3px rgba(0,0,0,.2),
   0 2px 6px 0 rgba(0,0,0,.12);
-  transition: opacity 200ms, box-shadow 200ms, transform 200ms;
+  transition: opacity 200ms, box-shadow 200ms, transform 100ms;
 }
 .gridItem:hover {
   opacity: 1;
-  box-shadow: 0 0 20px #fff;
+  box-shadow: 0 0 0 rgba(0,0,0,.14);
   cursor: pointer;
 }
 
 .gridItem.blur {
-  transition: all 200ms;
-  opacity: 0.5;
+  transition: transform, 100ms, filter 200ms;
+  opacity: 0.7;
   transform: scale(0.95);
-  filter: blur(3px);
+  filter: blur(2px);
 }
 
 .gridItem.active {
@@ -137,7 +137,7 @@ body {
   position: absolute;
   bottom: 50px;
   font-size: 8em;
-  width: 420px;
+  width: 460px;
   right: 0;
   word-spacing: normal;
   text-align: right;
@@ -145,11 +145,11 @@ body {
 }
 #time {
   transition: all 200ms;
-  text-align: justify;
+  text-align: right;
   box-sizing: border-box;
   right: 0;
   direction: ltr;
-  font-size: 1em;
+  font-size: 1.5em;
 }
 #weather {
   position: absolute;
