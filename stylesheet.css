@@ -34,8 +34,8 @@ body {
   height: 35px;
   margin: auto;
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
   top: 8%;
   font-size: 2em;
   font-family: 'Poiret One';
@@ -62,8 +62,9 @@ body {
 #gridCont {
   /*margin: auto;*/
   position: fixed;
-  left: 29%;
-  top: 32%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 25%;
   width: 800px;
   height: 300px;
   display: flex;
@@ -101,31 +102,19 @@ body {
   transform: scale(1.25);
 }
 
-#quoteCont {
-  position: absolute;
-  height: 10px;
-  bottom: 6%;
-  right: 51%;
-  width: 900px;
-  opacity: 0;
-  word-wrap: normal;
-  word-break: keep-all;
-}
-#quote {
-  font-size: 0.75em;
-  line-height: 30px;
-}
 /* Clock & Weather */
 
 .clock {
   position: fixed;
   bottom: 2%;
-  right: 2%;
+  right: 1%;
   color: white;
+  direction: rtl;
   text-align: right;
   width: 100%;
   height: 250px;
   opacity: 0;
+  box-sizing: content-box;
 }
 #date {
   font-size: 3.5em;
@@ -168,4 +157,29 @@ body {
   height: auto;
   max-width: 600px;
   max-height: 700px;
+}
+
+@media (max-width: 1366px) {
+
+  #time {
+    font-size: 1em;
+  }
+  #date {
+    font-size: 2.5em;
+  }
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1367px) {
+  #time {
+     font-size: 1.5em;
+  }
+  #date {
+    font-size: 2.5em;
+  }
+
 }
