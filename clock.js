@@ -27,18 +27,34 @@
   getDate();
 }());
 
+$(window).on('load', function() {
+  $grid = $("#gridCont");
+
+  $grid.isotope({
+    itemSelector: '.gridItem',
+    percentPosition: true,
+
+    layoutMode: 'masonry'
+  });
+  setTimeout(function() {
+    $grid.isotope('layout');
+    console.log("Chicken nuggets");
+  }, 350);
+});
+
 $(document).ready(function() {
+
+
   $(".clock").animate({opacity: 1},{duration: 2200, queue: false});
   $("#gridCont").animate({opacity: 1},{duration: 2200, queue: false});
   $("#background").animate({opacity: 1},{duration: 4200, queue: true});
   var e = $.Event("keydown", { keyCode: 9});
 
-  var $container = $("#gridCont");
-  var $items = $container.children("div").children("a").children();
+  var $items = $(".icon");
+  console.log($items);
   var timeout;
 
   $items.on( 'mouseenter', function(event) {
-    console.log("Shit");
     var $item = $(this);
     clearTimeout(timeout);
 

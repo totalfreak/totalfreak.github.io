@@ -2,41 +2,54 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="jquery-3.0.0.min.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="isotope.min.js"></script>
+    <!--<script type="text/javascript" src="script.js"></script>-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="stylesheet.css" title="no title">
     <title>New page</title>
 
   </head>
   <body>
-
+  <div class="container-fluid">
     <div id="background" style="background-image: url('images/background.jpg')"></div>
+    <div class="row">
+      <div class="container searchCont">
     <!--Making a search input-->
-      <input type="text" autofocus id="searchInput"/>
-
+      <div class="col-xl-12">
+        <input type="text" autofocus id="searchInput"/>
+      </div>
+    </div>
+  </div>
     <!-- Clock & Weather -->
     	<div class="clock">
     		<div id="date"></div>
         <div id="timeCont">
-    		    <div id="time"></div>
+    		    <div id="time">
+            </div>
       </div>
     </div>
 
 
 
 <!--Grid with links to favorite stuff-->
-<div id="gridCont">
-  <div><a href="http://www.youtube.com/"><img class="gridItem" src="images/youtube.jpg" width="100px" height="100px"></a></div>
-  <div><a href="https://www.facebook.com/"><img class="gridItem" src="images/facebook.png" width="100px" height="100px"></a></div>
-  <div><a href="https://thepiratebay.org/"><img class="gridItem" src="images/bay.png" width="100px" height="100px"></a></div>
-  <div><a href="https://medialogyp3.slack.com/messages/general/"><img class="gridItem" src="images/slack.png" width="100px" height="100px"></a></div>
-  <div><a href="https://www.reddit.com"><img class="gridItem" src="images/reddit.png" width="100px" height="100px"></a></div>
-  <div><a href="https://github.com/"><img class="gridItem" src="images/github.jpg" width="100px" height="100px"></a></div>
-  <div><a href="http://www2.watchop.io/"><img class="gridItem" src="images/onepiece.png" width="100px" height="100px"></a></div>
-  <div><a href="http://igg-games.com/"><img class="gridItem" src="images/igg.png" width="100px" height="100px"></a></div>
-  <div><a href="https://kat.cr/full/"><img class="gridItem" src="images/kickass.jpg" width="100px" height="100px"></a></div>
-  <div><a href="https://www.netflix.com"><img class="gridItem" src="images/netflix.jpg" width="100px" height="100px"></a></div>
+
+  <div class="row gridRow">
+    <div id="gridCont" class="container">
+      <div class="row">
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="http://www.youtube.com/"><img class="icon" src="images/youtube.jpg" width="100px" height="100px"></a></div>
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://www.facebook.com/"><img class="icon" src="images/facebook.png" width="100px" height="100px"></a></div>
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://thepiratebay.org/"><img class="icon" src="images/bay.png" width="100px" height="100px"></a></div>
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://www.reddit.com"><img class="icon" src="images/reddit.png" width="100px" height="100px"></a></div>
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://github.com/"><img class="icon" src="images/github.jpg" width="100px" height="100px"></a></div>
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="http://www2.watchop.io/"><img class="icon" src="images/onepiece.png" width="100px" height="100px"></a></div>
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="http://igg-games.com/"><img class="icon" src="images/igg.png" width="100px" height="100px"></a></div>
+        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://www.netflix.com"><img class="icon" src="images/netflix.jpg" width="100px" height="100px"></a></div>
+      </div>
+    </div>
+  </div>
 </div>
 
   <script src="clock.js"></script>
