@@ -47,7 +47,7 @@ $(document).ready(function() {
 
   $(".clock").animate({opacity: 1},{duration: 2200, queue: false});
   $("#gridCont").animate({opacity: 1},{duration: 2200, queue: false});
-  $("#background").animate({opacity: 1},{duration: 4200, queue: true});
+  
   var e = $.Event("keydown", { keyCode: 9});
 
   var $items = $(".icon");
