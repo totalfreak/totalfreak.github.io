@@ -1,12 +1,15 @@
-
+const express = require('express');
+const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 
 const PORT = process.env.PORT || 5000
 
-const express = require('express').listen(PORT, () => console.log(`Listening on ${ PORT }`));
-const app = express();
+express().use(express.static(path.join(__dirname, 'public'))).listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -36,11 +39,7 @@ rp(options).then(($) => {
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  res.render('pages/index', {price: null});
-});
-
-app.listen(PORT, function () {
-  console.log(`Example app listening on port ${ PORT }!`)
+  res.render('index', {price: null});
 });
 
 app.post('/', function(req, res) {
