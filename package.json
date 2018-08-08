@@ -1,0 +1,29 @@
+{
+  "name": "totalfreak.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scrape.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/totalfreak/totalfreak.github.io.git"
+  },
+  "author": "Totalfreak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/totalfreak/totalfreak.github.io/issues"
+  },
+  "homepage": "https://github.com/totalfreak/totalfreak.github.io#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "jssoup": "0.0.8",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "urllib": "^2.29.1"
+  }
+}
