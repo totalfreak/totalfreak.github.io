@@ -14,20 +14,19 @@ const options = {
   }
 };
 var priceVal;
-function GetPrice() {
-  rp(options).then(($) => {
-    //Succeed
-    var table = $('#PakningerTableMH');
-    //console.log(table.html());
-    var tr = table.find($('tbody')).find($('tr'));
-    var td = tr.find($('.alignRight'));
-    console.log(td.html());
-    priceVal = td.html();
-  }).catch(function (err) {
-    //Fail
-    console.log(err);
-  });
-}
+
+rp(options).then(($) => {
+  //Succeed
+  var table = $('#PakningerTableMH');
+  //console.log(table.html());
+  var tr = table.find($('tbody')).find($('tr'));
+  var td = tr.find($('.alignRight'));
+  console.log(td.html());
+  priceVal = td.html();
+}).catch(function (err) {
+  //Fail
+  console.log(err);
+});
 
 
 app.set('view engine', 'ejs');
