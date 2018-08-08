@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express').listen(PORT, () => console.log(`Listening on ${ PORT }`));
 const app = express();
 const bodyParser = require('body-parser');
 const rp = require('request-promise');
@@ -34,11 +34,11 @@ rp(options).then(($) => {
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  res.render('index', {price: null});
+  res.render('pages/index', {price: null});
 });
 
-app.listen(5000, function () {
-  console.log('Example app listening on port 3000!')
+app.listen(PORT, function () {
+  console.log(`Example app listening on port ${ PORT }!`)
 });
 
 app.post('/', function(req, res) {
