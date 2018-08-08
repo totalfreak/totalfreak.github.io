@@ -7,12 +7,10 @@ const cheerio = require('cheerio');
 
 const PORT = process.env.PORT || 5000
 
-express().use(express.static(path.join(__dirname, 'public'))).listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
+app..listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 const options = {
   uri: 'http://min.medicin.dk/Medicin/Praeparater/430',
