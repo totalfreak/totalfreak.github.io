@@ -39,6 +39,6 @@ app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 });
 
-app.post('/minipe', function(req, res) {
+app.post('/', function(req, res) {
   res.render('index', {price: priceVal});
 });
