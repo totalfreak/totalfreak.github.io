@@ -5,7 +5,7 @@
   "engines": {
     "node": "8.9.1"
   },
-  "main": "index.js",
+  "main": "scrape.js",
   "scripts": {
     "start": "node scrape.js"
   },
