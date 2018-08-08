@@ -14,23 +14,25 @@ const options = {
   }
 };
 var priceVal;
-rp(options).then(($) => {
-  //Succeed
-  var table = $('#PakningerTableMH');
-  //console.log(table.html());
-  var tr = table.find($('tbody')).find($('tr'));
-  var td = tr.find($('.alignRight'));
-  console.log(td.html());
-  priceVal = td.html();
-}).catch(function (err) {
-  //Fail
-  console.log(err);
-});
+function GetPrice() {
+  rp(options).then(($) => {
+    //Succeed
+    var table = $('#PakningerTableMH');
+    //console.log(table.html());
+    var tr = table.find($('tbody')).find($('tr'));
+    var td = tr.find($('.alignRight'));
+    console.log(td.html());
+    priceVal = td.html();
+  }).catch(function (err) {
+    //Fail
+    console.log(err);
+  });
+}
 
 
 app.set('view engine', 'ejs');
 
-app.get('/minipe', function (req, res) {
+app.get('/', function (req, res) {
   res.render('index', {price: null});
 });
 
