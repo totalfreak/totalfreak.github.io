@@ -8,10 +8,14 @@ body {
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   font-size: 3em;
+  background-color: #FBD6A5;
 }
 .container {
   width: 600px;
   margin: 0 auto;
+}
+h1 {
+  color: #9E3834;
 }
 fieldset {
   display: block;
@@ -56,23 +60,28 @@ fieldset {
   border-bottom:1px solid #ddd;
 }
 .ghost-button {
-  background-color: transparent;
-  border:2px solid #ddd;
+  background-color: #6B212C;
+  border:2px solid #FBD6A5;
+  color: #EC7E34;
   padding:20px 50px;
   width: 100%;
   font-size: 1.5em;
   margin: 0 auto;
+  margin-top: 50px;
   min-width: 350px;
-  -webkit-transition: all 0.1s ease-in-out;
-  -moz-transition: all 0.1s ease-in-out;
-  -ms-transition: all 0.1s ease-in-out;
-  -o-transition: all 0.1s ease-in-out;
-  transition: all 0.1s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .ghost-button:hover {
-  border:2px solid #515151;
+  border:2px solid #9E3834;
+  color: #FBD6A5;
 }
 p {
   font-size: 2em;
-  color: #E64A19;
+  color: #EC7E34;
+  font-weight: normal;
+  background-color: transparent;
 }
