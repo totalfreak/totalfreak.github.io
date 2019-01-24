@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2D Diablo.png-3dff1f1c9be9986f0cc3ef25fecab7f6.stex"
+path="res://.import/index.png-39d2b863f59743f2943c69e53788fe57.stex"
 
 [deps]
 
-source_file="res://Builds/Web/2D Diablo.png"
-dest_files=[ "res://.import/2D Diablo.png-3dff1f1c9be9986f0cc3ef25fecab7f6.stex" ]
+source_file="res://Builds/Web/index.png"
+dest_files=[ "res://.import/index.png-39d2b863f59743f2943c69e53788fe57.stex" ]
 
 [params]
 
