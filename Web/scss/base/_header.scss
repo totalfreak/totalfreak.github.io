@@ -1,0 +1,31 @@
+.header {
+  position: relative;
+  margin-top: 0;
+  width: 100%;
+  background-color: $theme-black;
+  text-align: center;
+
+  transition: height 0.5s;
+
+  h1 {
+   font-size: $headerTitleBigSize;
+   color: $theme-white;
+   padding: 0.5em;
+   transition: font-size 0.5s;
+
+   @include respond-below(md) {
+     font-size: $headerTitleMediumSize;
+   }
+
+   @include respond-below(sm) {
+     font-size: $headerTitleSmallSize;
+   }
+ }
+
+ @include respond-between(md, sm) {
+   height: 4em;
+ }
+
+
+
+}
