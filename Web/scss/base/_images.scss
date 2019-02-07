@@ -1,0 +1,13 @@
+.duckImg a{
+  background: url("../images/duck.jpeg");
+  background-size: cover;
+  height: 250px;
+  width: 250px;
+  display: block;
+  transition: all 0.5s;
+
+  &:hover {
+    height: 300px;
+    width: 300px;
+  }
+}

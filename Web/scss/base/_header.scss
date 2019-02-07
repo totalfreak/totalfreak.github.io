@@ -13,12 +13,23 @@
    padding: 0.5em;
    transition: font-size 0.5s;
 
+   &:hover {
+     font-size: $headerTitleBigSize + 0.5em;
+   }
+
    @include respond-below(md) {
      font-size: $headerTitleMediumSize;
+     &:hover {
+       font-size: $headerTitleMediumSize + 0.5em;
+     }
    }
 
    @include respond-below(sm) {
      font-size: $headerTitleSmallSize;
+
+     &:hover {
+       font-size: $headerTitleSmallSize + 0.5em;
+     }
    }
  }
 
