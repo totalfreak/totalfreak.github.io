@@ -1,4 +1,4 @@
-const userName = "calvinchd";
+const userName = "Daniel";
 const feats = 0;
 const themeDir = "styles/themes/";
 const themeLight = "gruvbox-light";
@@ -8,9 +8,9 @@ const linksGroups = [[
 		"header": "",
 		"links": [
 			{
-				"name": "r/Startpages",
-				"url": "https://reddit.com/r/startpages/",
-				"color": "E52D27"
+				"name": "Simpsonwave",
+				"url": "https://simpsonwave.com/",
+				"color": "800080"
 				// links with no shortKey are auto bound
 			}
 		]
@@ -31,6 +31,11 @@ const linksGroups = [[
 				"url": "https://reddit.com/",
 				"color": "FF5700",
 				"shortKey": "r"
+			},{
+				"name": "Disney+",
+				"url": "https://www.disneyplus.com/home",
+				"color": "0483ee",
+				"shortKey": "d"
 			},
 			{
 				"name": "Twitch",
@@ -56,33 +61,15 @@ const linksGroups = [[
 		"header": "Dev",
 		"links": [
 			{
-				"name": "GitLab",
-				"url": "https://gitLab.com",
-				"color": "FC6D26",
-				"shortKey": "l"
-			},
-			{
 				"name": "Github",
 				"url": "https://github.com/",
 				"color": "46474A",
 				"shortKey": "h"
 			},
 			{
-				"name": "Bitbucket",
-				"url": "https://bitbucket.org/",
-				"color": "166FE9",
-				"shortKey": ""
-			},
-			{
 				"name": "DevDocs",
 				"url": "https://devdocs.io",
 				"color": "5E5D5E",
-				"shortKey": ""
-			},
-			{
-				"name": "MDN",
-				"url": "https://developer.mozilla.org/en-US/docs/Web",
-				"color": "88D1F1",
 				"shortKey": ""
 			}
 		]
@@ -91,34 +78,16 @@ const linksGroups = [[
 		"header": "Mail",
 		"links": [
 			{
-				"name": "Gmail",
-				"url": "https://mail.google.com/",
-				"color": "DC473A",
+				"name": "Hotmail",
+				"url": "https://outlook.live.com/mail/0/inbox",
+				"color": "17A0DB",
 				"shortKey": "["
 			},
 			{
-				"name": "Protonmail",
-				"url": "https://mail.protonmail.com/",
-				"color": "333366",
+				"name": "Gmail",
+				"url": "https://mail.google.com/",
+				"color": "DC473A",
 				"shortKey": "]"
-			},
-			{
-				"name": "Tutanota",
-				"url": "https://mail.tutanota.com/mail/",
-				"color": "A01E20",
-				"shortKey": "\\"
-			},
-			{
-				"name": "Outlook",
-				"url": "https://outlook.office.com/mail/",
-				"color": "0B66C9",
-				"shortKey": ""
-			},
-			{
-				"name": "TempMail",
-				"url": "https://temp-mail.org/en/",
-				"color": "17CCA4",
-				"shortKey": ""
 			}
 		]
 	},
@@ -126,60 +95,10 @@ const linksGroups = [[
 		"header": "Apps",
 		"links": [
 			{
-				"name": "Asana",
-				"url": "https://app.asana.com",
-				"color": "FA5978",
-				"shortKey": ""
-			},
-			{
-				"name": "ClickUp",
-				"url": "https://app.clickup.com/",
-				"color": "AD60BB",
-				"shortKey": ""
-			},
-			{
 				"name": "GDrive",
 				"url": "https://drive.google.com/",
 				"color": "1DA362",
-				"shortKey": ""
-			},
-			{
-				"name": "Jitsi Meet",
-				"url": "https://meet.jit.si/",
-				"color": "17A0DB",
-				"shortKey": ""
-			}
-		]
-	}
-],
-[
-	{
-		"header": "Follow",
-		"links": [
-			{
-				"name": "GitLab",
-				"url": "https://gitlab.com/calvinchd",
-				"color": "FC6D26"
-			}
-		]
-	},
-	{
-		"header": "me",
-		"links": [
-			{
-				"name": "Github",
-				"url": "https://github.com/calvinchd",
-				"color": "46474A"
-			}
-		]
-	},
-	{
-		"header": "on",
-		"links": [
-			{
-				"name": "Twitter",
-				"url": "https://twitter.com/truecalvinchd",
-				"color": "17A0DB"
+				"shortKey": "g"
 			}
 		]
 	}

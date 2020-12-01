@@ -8,7 +8,7 @@ body {
 	margin: 0;
 	padding: 0;
 	vertical-align: top;
-	transition: color 100ms linear, background 100ms linear, border 200ms linear;
+	transition: color 50ms linear, background 50ms linear, border 100ms linear;
 }
 
 #noscript {
@@ -66,7 +66,7 @@ body {
 	font-size: 20px;
 	font-weight: 700;
 	white-space: nowrap;
-	animation: headAnim 200ms ease-out 500ms backwards;
+	animation: headAnim 100ms ease-out 250ms backwards;
 }
 
 @keyframes headAnim {
@@ -96,9 +96,9 @@ body {
 	text-decoration: none;
 	vertical-align: middle;
 	white-space: nowrap;
-	transition: color 100ms linear, background 200ms linear;
+	transition: color 50ms linear, background 100ms linear;
 	will-change: transform;
-	animation: slideOutLinks 200ms ease-out 600ms backwards;
+	animation: slideOutLinks 100ms ease-out 300ms backwards;
 }
 
 .linksItem:hover, #themeButton:hover, .linksItem:focus {
@@ -134,7 +134,7 @@ a, a:active, a:visited {
 	text-align: center;
 	font-size: 64px;
 	font-weight: 300;
-	animation: fadeInUp 300ms ease-out 100ms backwards;
+	animation: fadeInUp 150ms ease-out 50ms backwards;
 }
 
 .clockDate {
@@ -143,7 +143,7 @@ a, a:active, a:visited {
 	text-align: center;
 	font-size: 28px;
 	font-weight: 300;
-	animation: fadeInUp 300ms ease-out 100ms backwards;
+	animation: fadeInUp 150ms ease-out 50ms backwards;
 }
 
 @keyframes fadeInUp {
@@ -233,7 +233,7 @@ a, a:active, a:visited {
 	text-decoration: none;
 	padding: 0;
 	border-radius: 2vw;
-	animation: resizeOut 200ms ease-out 700ms backwards;
+	animation: resizeOut 100ms ease-out 350ms backwards;
 	transition: color 100ms linear, background 100ms linear, border 200ms linear;
 }
 

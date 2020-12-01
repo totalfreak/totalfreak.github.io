@@ -32,6 +32,7 @@ function updateTime() {
 	var today = new Date();
 	setTime(today);
 	setDate(today);
+	setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
 }
 // Set time in 24 hour format
 function setTime(today) {
@@ -47,6 +48,7 @@ function setDate(today) {
 		formatDoubleDigits(today.getMonth() + 1) + "-" +
 		formatDoubleDigits(today.getDate());
 }
+
 // Set greeting by hour of day
 function setGreeting() {
 	var h = new Date().getHours();
