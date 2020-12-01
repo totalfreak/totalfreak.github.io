@@ -1,58 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script src="jquery-3.0.0.min.js"></script>
-    <script src="isotope.min.js"></script>
-    <!--<script type="text/javascript" src="script.js"></script>-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="stylesheet.css" title="no title">
-    <title>New page</title>
-
-  </head>
-  <body>
-    <div id="background" style="background-image: url('images/background.jpg')"></div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="container searchCont">
-    <!--Making a search input-->
-      <div class="col-xl-12">
-        <input type="text" autofocus id="searchInput"/>
-      </div>
-    </div>
-  </div>
-    <!-- Clock & Weather -->
-    	<div class="clock">
-    		<div id="date"></div>
-        <div id="timeCont">
-    		    <div id="time">
-            </div>
-      </div>
-    </div>
-
-
-
-<!--Grid with links to favorite stuff-->
-
-  <div class="row gridRow">
-    <div id="gridCont" class="container">
-      <div class="row">
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="http://www.youtube.com/"><img class="icon" src="images/youtube.jpg" width="100px" height="100px"></a></div>
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://www.facebook.com/"><img class="icon" src="images/facebook.png" width="100px" height="100px"></a></div>
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://thepiratebay.org/"><img class="icon" src="images/bay.png" width="100px" height="100px"></a></div>
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://www.reddit.com"><img class="icon" src="images/reddit.png" width="100px" height="100px"></a></div>
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://github.com/"><img class="icon" src="images/github.jpg" width="100px" height="100px"></a></div>
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="http://www2.watchop.io/"><img class="icon" src="images/onepiece.png" width="100px" height="100px"></a></div>
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="http://igg-games.com/"><img class="icon" src="images/igg.png" width="100px" height="100px"></a></div>
-        <div class="gridItem col-xl-3 col-md-3 col-sm-6"><a href="https://www.netflix.com"><img class="icon" src="images/netflix.jpg" width="100px" height="100px"></a></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <script src="clock.js"></script>
-  </body>
-
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="A minimal startpage with links to common sites">
+		<meta name="keywords" content="Startpage, links, time, date, serach, bar, box, start">
+		<meta name="author" content="calvinchd">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" type="image/png" href="favicon.png" sizes="32x32"/>
+		<link rel="stylesheet" id="theme" href="styles/themes/gruvbox-dark.css">
+		<link rel="stylesheet" href="styles/main.css">
+		<script src="scripts/custom.js"></script>
+		<script src="scripts/time.js"></script>
+		<script src="scripts/keys.js"></script>
+		<script src="scripts/links.js"></script>
+		<script src="scripts/theme.js"></script>
+		<script src="scripts/locale.js"></script>
+		<title id="pageTitle"></title>
+	</head>
+	<body>
+		<button id="themeButton" onclick="toggleTheme()" style="display:none;" tabIndex="1">&#x1F634;</button>
+		<div class="centerContainer"><div class="centerContent">
+			<div class="clockTime"><span id="cTime"></span></div>
+			<div class="clockDate"><span id="cDate"></span></div>
+			<div class="clockGreet"><span id="cGreet"></span><span id="cGreetName"></span></div>
+			<p id="noscript"><noscript>Your browser does not support <strong>Javascript</strong> or has it disabled. This page requires <strong>JS</strong> for
+			most of its functions.</noscript></p>
+			<hr class="separator" id="greetLine">
+			<div class="searchBox" id="searchBox">
+				<form action="https://duckduckgo.com/" method="get">
+					<input class="inputBox" id="searchInput" type="text" name="q" placeholder="DuckDuckGo..." tabIndex="2" autofocus/></form>
+			</div>
+			<div id="shortLinks"></div>
+		</div></div>
+	</body>
 </html>
