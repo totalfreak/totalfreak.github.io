@@ -44,9 +44,9 @@ function setTime(today) {
 // Set date in ISO 8601 format
 function setDate(today) {
 	document.getElementById('cDate').innerHTML =
-		today.getFullYear() + "-" +
+		formatDoubleDigits(today.getDate()) + "-" +
 		formatDoubleDigits(today.getMonth() + 1) + "-" +
-		formatDoubleDigits(today.getDate());
+		today.getFullYear();
 }
 
 // Set greeting by hour of day

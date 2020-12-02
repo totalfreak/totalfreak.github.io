@@ -11,8 +11,7 @@ const linksGroups = [[
 				"name": "Simpsonwave",
 				"url": "/simpsonwave",
 				"color": "800080"
-				// links with no shortKey are auto bound
-			}
+			},
 		]
 	}
 ],
@@ -58,18 +57,36 @@ const linksGroups = [[
 		]
 	},
 	{
-		"header": "Dev",
+		"header": "Shopping",
 		"links": [
 			{
-				"name": "Github",
-				"url": "https://github.com/",
-				"color": "46474A",
-				"shortKey": "h"
+				"name": "Proshop",
+				"url": "https://proshop.dk",
+				"color": "D21616",
+				"shortKey": ""
 			},
 			{
-				"name": "DevDocs",
-				"url": "https://devdocs.io",
-				"color": "5E5D5E",
+				"name": "Komplett",
+				"url": "https://komplett.dk",
+				"color": "F7B912",
+				"shortKey": ""
+			},
+			{
+				"name": "Elgiganten",
+				"url": "https://elgiganten.dk",
+				"color": "78BE20",
+				"shortKey": ""
+			},
+			{
+				"name": "Pricerunner",
+				"url": "https://pricerunner.dk",
+				"color": "46474A",
+				"shortKey": ""
+			},
+			{
+				"name": "Nemlig",
+				"url": "https://nemlig.com",
+				"color": "EF7A33",
 				"shortKey": ""
 			}
 		]
@@ -99,6 +116,29 @@ const linksGroups = [[
 				"url": "https://drive.google.com/",
 				"color": "1DA362",
 				"shortKey": "g"
+			}
+		]
+	},
+	{
+		"header": "Julekalendre",
+		"links": [
+			{
+				"name": "Komplett",
+				"url": "https://www.komplett.dk/kampagne/25574/julekalender",
+				"color": "F7B912",
+				"shortKey": ""
+			},
+			{
+				"name": "Elgiganten",
+				"url": "https://www.elgiganten.dk/cms/julekalender/deltag-i-elgigantens-julekalender/?itm_source=front&itm_medium=hotspot-banner&itm_medium=hotspot-banner&itm_campaign=julekalender",
+				"color": "78BE20",
+				"shortKey": ""
+			},
+			{
+				"name": "Nemlig",
+				"url": "https://julekalender.nemlig.com/Start",
+				"color": "EF7A33",
+				"shortKey": ""
 			}
 		]
 	}
