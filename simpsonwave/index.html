@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+        // 2. This code loads the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        var player;
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            var numPl = Math.floor((Math.random() * 50) + 1);
+            player = new YT.Player("player", {
+                height: '390',
+                width: '640',
+                align: 'middle',
+                playerVars: {
+                    listType:'playlist',
+                    list:'PL13L_jylYvlil1jFKhR3K6AP77nlxEKSp',
+                    index: numPl,
+                    autoplay: 0,
+                },
+                events: {
+                    'onReady': function (event) {
+                        //event.target.cuePlaylist({list: "PLGNJEWiXQIvpmLVoNNZ8IbDZojt3vNhbz"});
+                        //event.target.playVideo();
+                        event.target.setVolume(2);
+                        setTimeout(function() {
+                            event.target.setShuffle({'shufflePlaylist' : true});
+                            event.target.playVideo();
+                            event.target.setLoop(true);
+                        }, 100);
+                    },
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                }
+            });
+
+            function onPlayerStateChange(event) {
+                if (event.data == -1) {
+                }
+            }
+
+            function onPlayerError(event) {
+                console.log("Video couldn't start with error code " + event.data);
+                event.target.nextVideo();
+            }
+        }</script>
+
+<style type="text/css" id="wp-custom-css">
+body {
+    background-image: linear-gradient(-90deg, purple, pink);
+}
+
+#player {
+    display: block;
+    margin: 0 auto;
+}
+
+.site-logo {
+    padding: 30px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.site-logo img {
+    padding-top: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
+
+</style>
+	</head>
+	<body>
+        <div class="site-logo">
+            <img itemprop="logo" src="new_logo.png" alt="S I M P S O N W A V E">
+        </div>
+		<div id="player"></div>
+	</body>
+</html>

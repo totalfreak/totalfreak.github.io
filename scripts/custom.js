@@ -9,7 +9,7 @@ const linksGroups = [[
 		"links": [
 			{
 				"name": "Simpsonwave",
-				"url": "https://simpsonwave.com/",
+				"url": "/simpsonwave",
 				"color": "800080"
 				// links with no shortKey are auto bound
 			}
