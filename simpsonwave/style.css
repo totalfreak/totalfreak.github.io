@@ -1,0 +1,44 @@
+body {
+    background: linear-gradient(270deg, #800080, #ffc0cb);
+    background-size: 200% 200%;
+
+    -webkit-animation: GradientAnimate 30s ease infinite;
+    -moz-animation: GradientAnimate 30s ease infinite;
+    animation: GradientAnimate 30s ease infinite;
+}
+
+@-webkit-keyframes GradientAnimate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes GradientAnimate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes GradientAnimate {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+#player {
+    display: block;
+    margin: 0 auto;
+}
+
+.site-logo {
+    padding: 30px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.site-logo img {
+    padding-top: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}

@@ -34,48 +34,16 @@
                             event.target.setLoop(true);
                         }, 100);
                     },
-                    'onStateChange': onPlayerStateChange,
                     'onError': onPlayerError
                 }
             });
-
-            function onPlayerStateChange(event) {
-                if (event.data == -1) {
-                }
-            }
 
             function onPlayerError(event) {
                 console.log("Video couldn't start with error code " + event.data);
                 event.target.nextVideo();
             }
         }</script>
-
-<style type="text/css" id="wp-custom-css">
-body {
-    background-image: linear-gradient(-90deg, purple, pink);
-}
-
-#player {
-    display: block;
-    margin: 0 auto;
-}
-
-.site-logo {
-    padding: 30px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.site-logo img {
-    padding-top: 25px;
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 100%;
-    height: auto;
-    border: 0;
-}
-
-</style>
+        <link rel="stylesheet" href="style.css">
 	</head>
 	<body>
         <div class="site-logo">
