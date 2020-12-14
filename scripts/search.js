@@ -2,6 +2,10 @@ window.addEventListener("load", initSearch, true);
 
 const url = "http://suggestqueries.google.com/complete/search?client=firefox&gl=dk&q=";
 
+const headers = {
+    'Content-Type': 'application/json'
+  };
+
 let result = '';
 
 
@@ -16,10 +20,9 @@ function initSearch() {
 }
 
 function getSearchAutoComplete(input) {
-    axios.post(url + input, result)
-        .then(response => {
-            const data = response.data;
-            console.log('data', data);
-        })
-        .catch(error => console.error('error', error));
+    $.ajax({
+        url: url
+    }).then(function(data) {
+        console.log(data);
+    });
 }
