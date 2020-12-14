@@ -1,6 +1,6 @@
 window.addEventListener("load", initSearch, true);
 
-const url = "http://suggestqueries.google.com/complete/search?client=firefox&q=";
+const url = "http://suggestqueries.google.com/complete/search?client=firefox&gl=dk&q=";
 
 let result = '';
 
@@ -12,7 +12,7 @@ $('#searchInput').on('keypress', function (event) {
 });
 
 function initSearch() {
-    document.getElementById('searchInput').addEventListener("keypress", function (e) { getSearchAutoComplete(help);});
+    document.getElementById('searchInput').addEventListener("keypress", function (e) { getSearchAutoComplete('help');});
 }
 
 function getSearchAutoComplete(input) {
