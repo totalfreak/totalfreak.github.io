@@ -8,11 +8,11 @@ let result = '';
 $('#searchInput').on('keypress', function (event) {
     var press = jQuery.Event(event.type);
     console.log(press);
-    getSearchAutoComplete(this.value);
+    getSearchAutoComplete($('searchInput'));
 });
 
 function initSearch() {
-    document.getElementById('searchInput').addEventListener("keypress", function (e) { getSearchAutoComplete(e);});
+    document.getElementById('searchInput').addEventListener("keypress", function (e) { getSearchAutoComplete(help);});
 }
 
 function getSearchAutoComplete(input) {
