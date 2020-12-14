@@ -1,6 +1,6 @@
 window.addEventListener("load", initSearch, true);
 
-const url = "http://suggestqueries.google.com/complete/search?client=firefox&gl=dk&q=";
+const url = "https://suggestqueries.google.com/complete/search?client=firefox&gl=dk&q=";
 
 const headers = {
     'Content-Type': 'application/json'
