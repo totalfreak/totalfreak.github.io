@@ -22,28 +22,3 @@ body {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-
-#dcCountText {
-    display: block;
-    margin: 0 auto;
-}
-
-#player {
-    display: block;
-    margin: 0 auto;
-}
-
-.site-logo {
-    padding: 30px;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.site-logo img {
-    padding-top: 25px;
-    display: inline-block;
-    vertical-align: middle;
-    max-width: 100%;
-    height: auto;
-    border: 0;
-}
