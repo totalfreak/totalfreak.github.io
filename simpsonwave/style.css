@@ -23,11 +23,6 @@ body {
     100%{background-position:0% 50%}
 }
 
-#dcCountText {
-    display: block;
-    margin: 0 auto;
-}
-
 #player {
     display: block;
     margin: 0 auto;
